@@ -19,14 +19,14 @@ export async function fetchSpecies(): Promise<Species[]> {
 }
 
 /**
- * Fetches all top-level pathways for a given species.
+ * Fetches all pathways for a given species.
  * @param speciesDbId The database ID of the species.
  * @returns A promise that resolves to an array of Pathway objects.
  */
 export async function fetchPathways(speciesDbId: number): Promise<Pathway[]> {
-    const response = await fetch(`${REACTOME_API_BASE}/data/pathways/top/${speciesDbId}`);
+    const response = await fetch(`${REACTOME_API_BASE}/data/pathways/low/species/${speciesDbId}`);
     if (!response.ok) {
-        // A 404 error from this endpoint often means the species exists but has no top-level pathways defined.
+        // A 404 error from this endpoint often means the species exists but has no pathways defined.
         // We can treat this as a valid, empty response rather than a critical failure.
         if (response.status === 404) {
             return []; // Return an empty array gracefully.

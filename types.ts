@@ -1,12 +1,14 @@
 
 export type DataType = 'norm_counts' | 'deseq2';
 export type CompoundDataType = 'abundance' | 'fold_change';
+export type PathwayDatabase = 'Reactome' | 'KEGG' | 'MetaCyc' | 'SMPDB' | 'PANTHER' | 'METACROP';
 
 export interface VisualizationConfig {
+  pathwayDatabase: PathwayDatabase;
   dataType: DataType;
   pathwayId: string;
   geneIdType: string;
-  speciesDbId: number;
+  speciesId: string;
   glyphFontSize: number;
   glyphFillColor: string;
   arcLineWidth: number;
@@ -16,12 +18,11 @@ export interface VisualizationConfig {
 }
 
 export interface Species {
-    dbId: number;
+    id: string;
     displayName: string;
-    name: string[];
 }
 
 export interface Pathway {
-    stId: string;
+    id: string;
     displayName: string;
 }

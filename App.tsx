@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from 'react';
 import { Sidebar } from './components/Sidebar';
 import { MainPanel } from './components/MainPanel';
@@ -11,10 +12,11 @@ export type ParsedData = Map<string, Record<string, string>>;
 
 const App: React.FC = () => {
   const [config, setConfig] = useState<VisualizationConfig>({
+    pathwayDatabase: 'Reactome',
     dataType: 'norm_counts',
     pathwayId: 'R-HSA-70171', // Default: Mitotic G1 phase and G1/S transition
     geneIdType: 'SYMBOL',
-    speciesDbId: 48887, // Default: Homo sapiens
+    speciesId: '48887', // Default: Homo sapiens for Reactome
     glyphFontSize: 10,
     glyphFillColor: '#38bdf8',
     arcLineWidth: 1,

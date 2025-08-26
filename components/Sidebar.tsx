@@ -1,8 +1,7 @@
-
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
-import { type VisualizationConfig, type DataType, type Species, type Pathway, type CompoundDataType } from '../types';
+import { type VisualizationConfig, type DataType, type Species, type Pathway, type CompoundDataType, type PathwayDatabase } from '../types';
 import { UploadIcon } from './icons/UploadIcon';
-import { fetchSpecies, fetchPathways, mapGenesToPathways } from '../services/reactomeService';
+import { fetchSpecies, fetchPathways, mapGenesToPathways, mapGenesToPathwaysKegg } from '../services/pathwayService';
 import { parseGeneIds } from '../services/dataProcessor';
 
 interface SidebarProps {
@@ -16,6 +15,8 @@ interface SidebarProps {
   isLoading: boolean;
 }
 
+const ALL_DATABASES: PathwayDatabase[] = ['Reactome', 'KEGG', 'MetaCyc', 'SMPDB', 'PANTHER', 'METACROP'];
+
 export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, isLoading }) => {
   const [geneFileName, setGeneFileName] = useState<string>('');
   const [compoundFileName, setCompoundFileName] = useState<string>('');
@@ -24,60 +25,85 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
   const [pathways, setPathways] = useState<Pathway[]>([]);
   const [pathwaySearch, setPathwaySearch] = useState<string>('');
   const [highlightedPathways, setHighlightedPathways] = useState<Set<string>>(new Set());
+  
+  const [speciesLoading, setSpeciesLoading] = useState<boolean>(false);
   const [pathwaysLoading, setPathwaysLoading] = useState<boolean>(false);
+  
+  const [speciesError, setSpeciesError] = useState<string | null>(null);
   const [pathwayError, setPathwayError] = useState<string | null>(null);
 
+  // Fetch species when database changes
   useEffect(() => {
     const loadSpecies = async () => {
+      setSpeciesLoading(true);
+      setSpeciesError(null);
+      setSpeciesList([]);
+      setPathways([]); // Clear pathways
+      setConfig(prev => ({ ...prev, speciesId: '', pathwayId: '' }));
       try {
-        const species = await fetchSpecies();
+        const species = await fetchSpecies(config.pathwayDatabase);
         setSpeciesList(species);
+        if (species.length > 0) {
+           setConfig(prev => ({ ...prev, speciesId: species[0].id }));
+        }
       } catch (error) {
         console.error("Failed to fetch species:", error);
+        setSpeciesError(error instanceof Error ? error.message : 'Failed to load species.');
+      } finally {
+        setSpeciesLoading(false);
       }
     };
     loadSpecies();
-  }, []);
+  }, [config.pathwayDatabase, setConfig]);
 
+  // Fetch pathways when species changes
   useEffect(() => {
-    if (!config.speciesDbId) return;
+    if (!config.speciesId) return;
     const loadPathways = async () => {
       setPathwaysLoading(true);
       setPathwayError(null);
       setPathways([]);
       setConfig(prev => ({ ...prev, pathwayId: '' }));
       try {
-        const fetchedPathways = await fetchPathways(config.speciesDbId);
+        const fetchedPathways = await fetchPathways(config.pathwayDatabase, config.speciesId);
         setPathways(fetchedPathways);
       } catch (error) {
         console.error("Failed to fetch pathways:", error);
-        setPathwayError('Failed to load pathways.');
+        setPathwayError(error instanceof Error ? error.message : 'Failed to load pathways.');
       } finally {
         setPathwaysLoading(false);
       }
     };
     loadPathways();
-  }, [config.speciesDbId, setConfig]);
+  }, [config.speciesId, config.pathwayDatabase, setConfig]);
 
+  // Highlight pathways containing user genes (Reactome and KEGG)
   useEffect(() => {
-      if (!geneData || pathways.length === 0) {
-          setHighlightedPathways(new Set());
-          return;
-      }
-
       const findHighlights = async () => {
-          const geneIds = parseGeneIds(geneData);
-          if (geneIds.length > 0) {
-              const mappedPathwayStIds = await mapGenesToPathways(config.speciesDbId, geneIds);
-              setHighlightedPathways(new Set(mappedPathwayStIds));
-          } else {
+          if (!geneData || pathways.length === 0 || !config.speciesId) {
               setHighlightedPathways(new Set());
+              return;
           }
+
+          const geneIds = parseGeneIds(geneData);
+          if (geneIds.length === 0) {
+              setHighlightedPathways(new Set());
+              return;
+          }
+          
+          let mappedPathwayIds: Set<string> = new Set();
+          if (config.pathwayDatabase === 'Reactome') {
+              mappedPathwayIds = await mapGenesToPathways(config.speciesId, geneIds);
+          } else if (config.pathwayDatabase === 'KEGG') {
+              mappedPathwayIds = await mapGenesToPathwaysKegg(config.speciesId, geneIds);
+          }
+          
+          setHighlightedPathways(mappedPathwayIds);
       };
-      
-      const timer = setTimeout(findHighlights, 200);
+
+      const timer = setTimeout(findHighlights, 300); // Debounce to avoid excessive API calls
       return () => clearTimeout(timer);
-  }, [geneData, pathways, config.speciesDbId]);
+  }, [geneData, pathways, config.speciesId, config.pathwayDatabase]);
 
 
   const handleFileChange = useCallback((event: React.ChangeEvent<HTMLInputElement>, type: 'gene' | 'compound') => {
@@ -122,7 +148,8 @@ CDK1,1.9,0.008
 FOXM1,-1.2,0.03`;
     setGeneData(sampleData);
     setGeneFileName('sample_gene_data.csv');
-    setConfig(prev => ({ ...prev, dataType: 'deseq2', speciesDbId: 48887, pathwayId: 'R-HSA-1640170' }));
+    // Sample data is for human on Reactome
+    setConfig(prev => ({ ...prev, pathwayDatabase: 'Reactome', dataType: 'deseq2', speciesId: '48887', pathwayId: 'R-HSA-1640170' }));
   }, [setGeneData, setConfig]);
 
   const handleLoadSampleCompoundData = useCallback(() => {
@@ -149,8 +176,8 @@ C00148,2.1`;
   const groupedPathways = useMemo(() => {
     if (filteredPathways.length === 0) return { highlighted: [], other: [] };
 
-    const highlighted = filteredPathways.filter(p => highlightedPathways.has(p.stId));
-    const other = filteredPathways.filter(p => !highlightedPathways.has(p.stId));
+    const highlighted = filteredPathways.filter(p => highlightedPathways.has(p.id));
+    const other = filteredPathways.filter(p => !highlightedPathways.has(p.id));
     
     return { highlighted, other };
   }, [filteredPathways, highlightedPathways]);
@@ -210,6 +237,17 @@ C00148,2.1`;
           <label className="block text-sm font-medium text-cyan-400">3. Configure Pathway</label>
           <div className="bg-gray-900/50 p-4 rounded-lg space-y-4">
             <div>
+              <label htmlFor="pathwayDatabase" className="block text-sm font-medium text-gray-300">Pathway Database</label>
+              <select 
+                id="pathwayDatabase" 
+                value={config.pathwayDatabase} 
+                onChange={(e) => handleConfigChange('pathwayDatabase', e.target.value as PathwayDatabase)} 
+                className="mt-1 block w-full pl-3 pr-10 py-2 text-base bg-gray-700 border-gray-600 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md"
+              >
+                {ALL_DATABASES.map(db => <option key={db} value={db}>{db}</option>)}
+              </select>
+            </div>
+            <div>
               <label htmlFor="species-search" className="block text-sm font-medium text-gray-300">Species</label>
                <input
                 type="text"
@@ -219,19 +257,23 @@ C00148,2.1`;
                 onChange={(e) => setSpeciesSearch(e.target.value)}
                 className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
                 aria-label="Search for a species"
+                disabled={speciesLoading}
               />
               <select 
                 id="species" 
-                value={config.speciesDbId} 
-                onChange={(e) => handleConfigChange('speciesDbId', Number(e.target.value))} 
-                className="mt-2 block w-full pl-3 pr-10 py-2 text-base bg-gray-700 border-gray-600 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md"
+                value={config.speciesId} 
+                onChange={(e) => handleConfigChange('speciesId', e.target.value)} 
+                className="mt-2 block w-full pl-3 pr-10 py-2 text-base bg-gray-700 border-gray-600 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md disabled:bg-gray-600 disabled:cursor-not-allowed"
+                disabled={speciesLoading || speciesList.length === 0}
               >
-                {filteredSpecies.length > 0 ? (
-                  filteredSpecies.map(s => <option key={s.dbId} value={s.dbId}>{s.displayName}</option>)
-                ) : (
-                  <option value="" disabled>No species found</option>
-                )}
+                 <option value="" disabled>
+                    {speciesLoading ? 'Loading species...' : 
+                     speciesError ? 'Error loading species' : 
+                     speciesList.length === 0 ? 'No species available' : 'Select a species'}
+                </option>
+                {filteredSpecies.map(s => <option key={s.id} value={s.id}>{s.displayName}</option>)}
               </select>
+              {speciesError && <p className="mt-1 text-xs text-red-400">{speciesError}</p>}
             </div>
              <div>
                 <label htmlFor="pathway-search" className="block text-sm font-medium text-gray-300">Pathway</label>
@@ -254,19 +296,20 @@ C00148,2.1`;
                  >
                      <option value="" disabled>
                         {pathwaysLoading ? 'Loading pathways...' : 
-                         pathwayError ? 'Error loading pathways' : 'Select a pathway'}
+                         pathwayError ? 'Error loading pathways' : 
+                         pathways.length === 0 ? 'No pathways available' : 'Select a pathway'}
                     </option>
                      {groupedPathways.highlighted.length > 0 && (
                         <optgroup label="Pathways with your genes">
                             {groupedPathways.highlighted.map(p => (
-                                <option key={p.stId} value={p.stId}>{p.displayName}</option>
+                                <option key={p.id} value={p.id}>{p.displayName}</option>
                             ))}
                         </optgroup>
                      )}
                      {groupedPathways.other.length > 0 && (
                         <optgroup label={groupedPathways.highlighted.length > 0 ? "Other pathways" : "All Pathways"}>
                             {groupedPathways.other.map(p => (
-                                <option key={p.stId} value={p.stId}>{p.displayName}</option>
+                                <option key={p.id} value={p.id}>{p.displayName}</option>
                             ))}
                         </optgroup>
                      )}
