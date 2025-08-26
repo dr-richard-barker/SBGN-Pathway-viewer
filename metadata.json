@@ -1,0 +1,5 @@
+{
+  "name": "SBGN Pathway Visualizer",
+  "description": "An AI-powered tool to generate Systems Biology Graphical Notation (SBGN) pathway maps from gene expression data. Upload your data, configure visualization options, and let Gemini create a detailed SVG pathway diagram.",
+  "requestFramePermissions": []
+}
