@@ -1,3 +1,8 @@
+/**
+ * @deprecated This service is no longer in use. All functionality has been consolidated
+ * into services/pathwayService.ts to support multiple pathway databases. This file is
+ * retained for historical purposes but should not be imported or used in new development.
+ */
 import { type Species, type Pathway } from '../types';
 
 const REACTOME_API_BASE = 'https://reactome.org/ContentService';

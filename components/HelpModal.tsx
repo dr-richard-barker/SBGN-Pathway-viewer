@@ -34,24 +34,24 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isVisible, onClose }) => {
             <section>
                 <h3 className="text-xl font-semibold text-cyan-500 mb-2">Step-by-Step Guide</h3>
                 <ol className="list-decimal list-inside space-y-2">
-                    <li><strong>Upload Data:</strong> Click "Upload a file" or drag-and-drop your gene expression data. You can also load a sample dataset to get started quickly.</li>
-                    <li><strong>Select Species:</strong> Choose the species your data corresponds to from the dropdown menu.</li>
-                    <li><strong>Select Pathway:</strong> After selecting a species, a list of all its biological pathways from the Reactome database will load. Pathways containing genes from your uploaded file will be marked with an asterisk (*).</li>
-                    <li><strong>Configure Data Type:</strong> Specify whether your data is 'Normalized Counts' or 'DESeq2 Results' so the tool can color the pathway glyphs appropriately.</li>
+                    <li><strong>Upload Data:</strong> Click "Upload a file" to provide your gene and optional compound data. You can also load a sample dataset to get started quickly.</li>
+                    <li><strong>Select Pathway Source:</strong> Choose your desired pathway database (e.g., Reactome, KEGG, PANTHER) from the dropdown. You can also upload your own custom SBGN file for visualization.</li>
+                    <li><strong>Select Species & Pathway:</strong> Based on your database choice, select the relevant species and then the specific biological pathway. For supported databases (Reactome, KEGG), pathways containing genes from your data will be highlighted for easy identification.</li>
+                    <li><strong>Configure Data Type:</strong> Specify whether your data represents 'Normalized Counts' or 'Log2 Fold Change' to ensure correct color mapping on the pathway glyphs.</li>
                     <li><strong>Customize Appearance:</strong> Adjust sliders and color pickers to fine-tune the visual style of your pathway map.</li>
                     <li><strong>Generate:</strong> Click the "Generate Pathway Map" button and let the AI create your visualization.</li>
-                    <li><strong>Explore & Download:</strong> Pan and zoom the generated SVG. Click "Download SVG" to save it.</li>
+                    <li><strong>Explore & Download:</strong> Pan, zoom, and hover over nodes to see details. Click "Download SVG" to save your work.</li>
                 </ol>
             </section>
             
             <section>
                 <h3 className="text-xl font-semibold text-cyan-500 mb-2">Recommended File Formats</h3>
-                <p className="mb-4">The tool accepts CSV (comma-separated) or TSV (tab-separated) files. The first column must contain gene identifiers (e.g., SYMBOL, Ensembl ID).</p>
+                <p className="mb-4">The tool accepts CSV (comma-separated) or TSV (tab-separated) files. The first column must contain the primary identifiers (e.g., SYMBOL, Ensembl ID, KEGG ID).</p>
                 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="bg-gray-900/70 p-4 rounded-md">
-                        <h4 className="font-semibold text-gray-200">DESeq2 Results</h4>
-                        <p className="text-sm text-gray-400 mb-2">Should include columns for log2 fold change and adjusted p-value.</p>
+                        <h4 className="font-semibold text-gray-200">Log2 Fold Change Data</h4>
+                        <p className="text-sm text-gray-400 mb-2">Should include columns for log2 fold change and, ideally, an adjusted p-value for sorting significance.</p>
                         <pre className="text-xs bg-gray-800 p-2 rounded whitespace-pre-wrap"><code>
 {`SYMBOL,baseMean,log2FoldChange,padj
 GENE1,150.5,2.75,0.0001
@@ -60,8 +60,8 @@ GENE3,205.1,1.50,0.0410`}
                         </code></pre>
                     </div>
                      <div className="bg-gray-900/70 p-4 rounded-md">
-                        <h4 className="font-semibold text-gray-200">Normalized Counts</h4>
-                        <p className="text-sm text-gray-400 mb-2">The first column is the gene ID, and subsequent columns are expression values.</p>
+                        <h4 className="font-semibold text-gray-200">Normalized Counts / Abundance</h4>
+                        <p className="text-sm text-gray-400 mb-2">The first column is the identifier, and subsequent columns are expression/abundance values.</p>
                         <pre className="text-xs bg-gray-800 p-2 rounded whitespace-pre-wrap"><code>
 {`SYMBOL,Sample1,Sample2,Sample3
 GENE1,512,480,550

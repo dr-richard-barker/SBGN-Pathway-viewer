@@ -8,13 +8,27 @@ if (!process.env.API_KEY) {
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-export async function generatePathwaySvg(geneData: string, compoundData: string | null, config: VisualizationConfig): Promise<string> {
+export async function generatePathwaySvg(geneData: string, compoundData: string | null, config: VisualizationConfig, customSbgnFile: string | null): Promise<string> {
+  const pathwaySourcePrompt = customSbgnFile
+    ? `
+**Custom SBGN Pathway File:**
+Use the following SBGN-ML content as the base for the pathway map. Do not fetch from any external database.
+\`\`\`xml
+${customSbgnFile}
+\`\`\`
+`
+    : `
+*   **Pathway Database:** ${config.pathwayDatabase}
+*   **Species ID:** ${config.speciesId} (Corresponds to the selected database, e.g., '48887' for Reactome Homo sapiens, 'hsa' for KEGG Homo sapiens)
+*   **Pathway ID:** ${config.pathwayId}
+`;
+
   const prompt = `
 You are an expert bioinformatics visualization tool that emulates the functionality of the R 'SBGNview' library. Your task is to generate a Systems Biology Graphical Notation (SBGN) pathway map in SVG format based on the provided gene expression data, optional compound abundance data, and visualization parameters.
 
 **Instructions:**
 1.  Analyze the provided omics data. The data has been pre-summarized to include the most statistically significant entries. The first column is the identifier.
-2.  Identify the specified pathway for the given species from the specified database.
+2.  ${customSbgnFile ? 'Use the provided custom SBGN file to construct the pathway.' : 'Identify the specified pathway for the given species from the specified database.'}
 3.  Map the data onto the corresponding glyphs in the pathway.
 4.  Color or modify the glyphs based on the data.
     -   For gene data of type 'Log2 Fold Change' or compound data of type 'fold_change', use a divergent color scale (e.g., blue for downregulated, red for upregulated).
@@ -36,9 +50,7 @@ ${compoundData}
 ` : ''}
 
 **Parameters:**
-*   **Pathway Database:** ${config.pathwayDatabase}
-*   **Species ID:** ${config.speciesId} (Corresponds to the selected database, e.g., '48887' for Reactome Homo sapiens, 'hsa' for KEGG Homo sapiens)
-*   **Pathway ID:** ${config.pathwayId}
+${pathwaySourcePrompt}
 *   **Gene Data Type:** ${config.dataType}
 *   **Gene ID Type:** ${config.geneIdType}
 ${compoundData ? `*   **Compound Data Type:** ${config.compoundDataType}` : ''}

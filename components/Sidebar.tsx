@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import { type VisualizationConfig, type DataType, type Species, type Pathway, type CompoundDataType, type PathwayDatabase } from '../types';
 import { UploadIcon } from './icons/UploadIcon';
@@ -13,13 +14,16 @@ interface SidebarProps {
   setCompoundData: (data: string | null) => void;
   onGenerate: () => void;
   isLoading: boolean;
+  customSbgnFile: string | null;
+  setCustomSbgnFile: (data: string | null) => void;
 }
 
-const ALL_DATABASES: PathwayDatabase[] = ['Reactome', 'KEGG', 'MetaCyc', 'SMPDB', 'PANTHER', 'METACROP'];
+const ALL_DATABASES: PathwayDatabase[] = ['Reactome', 'KEGG', 'MetaCyc', 'SMPDB', 'PANTHER', 'METACROP', 'Custom SBGN File'];
 
-export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, isLoading }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, isLoading, customSbgnFile, setCustomSbgnFile }) => {
   const [geneFileName, setGeneFileName] = useState<string>('');
   const [compoundFileName, setCompoundFileName] = useState<string>('');
+  const [customSbgnFileName, setCustomSbgnFileName] = useState<string>('');
   const [speciesList, setSpeciesList] = useState<Species[]>([]);
   const [speciesSearch, setSpeciesSearch] = useState<string>('');
   const [pathways, setPathways] = useState<Pathway[]>([]);
@@ -35,6 +39,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
   // Fetch species when database changes
   useEffect(() => {
     const loadSpecies = async () => {
+      if (config.pathwayDatabase === 'Custom SBGN File') {
+        setSpeciesList([]);
+        setPathways([]);
+        return;
+      }
       setSpeciesLoading(true);
       setSpeciesError(null);
       setSpeciesList([]);
@@ -58,7 +67,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
 
   // Fetch pathways when species changes
   useEffect(() => {
-    if (!config.speciesId) return;
+    if (!config.speciesId || config.pathwayDatabase === 'Custom SBGN File') return;
     const loadPathways = async () => {
       setPathwaysLoading(true);
       setPathwayError(null);
@@ -80,7 +89,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
   // Highlight pathways containing user genes (Reactome and KEGG)
   useEffect(() => {
       const findHighlights = async () => {
-          if (!geneData || pathways.length === 0 || !config.speciesId) {
+          if (!geneData || pathways.length === 0 || !config.speciesId || config.pathwayDatabase === 'Custom SBGN File') {
               setHighlightedPathways(new Set());
               return;
           }
@@ -132,6 +141,23 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
     }
   }, [setGeneData, setCompoundData]);
   
+  const handleSbgnFileChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        const text = e.target?.result as string;
+        setCustomSbgnFile(text);
+        setCustomSbgnFileName(file.name);
+      };
+      reader.readAsText(file);
+    } else {
+       setCustomSbgnFileName('');
+       setCustomSbgnFile(null);
+    }
+  }, [setCustomSbgnFile]);
+
+
   const handleConfigChange = useCallback(<K extends keyof VisualizationConfig>(key: K, value: VisualizationConfig[K]) => {
       setConfig(prev => ({ ...prev, [key]: value }));
   }, [setConfig]);
@@ -247,75 +273,97 @@ C00148,2.1`;
                 {ALL_DATABASES.map(db => <option key={db} value={db}>{db}</option>)}
               </select>
             </div>
-            <div>
-              <label htmlFor="species-search" className="block text-sm font-medium text-gray-300">Species</label>
-               <input
-                type="text"
-                id="species-search"
-                placeholder="Search for a species..."
-                value={speciesSearch}
-                onChange={(e) => setSpeciesSearch(e.target.value)}
-                className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
-                aria-label="Search for a species"
-                disabled={speciesLoading}
-              />
-              <select 
-                id="species" 
-                value={config.speciesId} 
-                onChange={(e) => handleConfigChange('speciesId', e.target.value)} 
-                className="mt-2 block w-full pl-3 pr-10 py-2 text-base bg-gray-700 border-gray-600 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md disabled:bg-gray-600 disabled:cursor-not-allowed"
-                disabled={speciesLoading || speciesList.length === 0}
-              >
-                 <option value="" disabled>
-                    {speciesLoading ? 'Loading species...' : 
-                     speciesError ? 'Error loading species' : 
-                     speciesList.length === 0 ? 'No species available' : 'Select a species'}
-                </option>
-                {filteredSpecies.map(s => <option key={s.id} value={s.id}>{s.displayName}</option>)}
-              </select>
-              {speciesError && <p className="mt-1 text-xs text-red-400">{speciesError}</p>}
-            </div>
-             <div>
-                <label htmlFor="pathway-search" className="block text-sm font-medium text-gray-300">Pathway</label>
-                <input
+
+            {config.pathwayDatabase === 'Custom SBGN File' ? (
+                <div>
+                  <label className="block text-sm font-medium text-gray-300">Upload Custom SBGN File</label>
+                  <div className="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-600 border-dashed rounded-md">
+                    <div className="space-y-1 text-center">
+                      <UploadIcon className="mx-auto h-12 w-12 text-gray-500" />
+                      <div className="flex text-sm text-gray-400">
+                        <label htmlFor="sbgn-file-upload" className="relative cursor-pointer bg-gray-800 rounded-md font-medium text-cyan-500 hover:text-cyan-400 focus-within:outline-none">
+                          <span>Upload a file</span>
+                          <input id="sbgn-file-upload" type="file" className="sr-only" accept=".sbgn,.xml" onChange={handleSbgnFileChange} />
+                        </label>
+                      </div>
+                      <p className="text-xs text-gray-500">{customSbgnFileName || 'SBGN, XML'}</p>
+                    </div>
+                  </div>
+                </div>
+            ) : (
+              <>
+                <div>
+                  <label htmlFor="species-search" className="block text-sm font-medium text-gray-300">Species</label>
+                  <input
                     type="text"
-                    id="pathway-search"
-                    placeholder="Search for a pathway..."
-                    value={pathwaySearch}
-                    onChange={(e) => setPathwaySearch(e.target.value)}
+                    id="species-search"
+                    placeholder="Search for a species..."
+                    value={speciesSearch}
+                    onChange={(e) => setSpeciesSearch(e.target.value)}
                     className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
-                    aria-label="Search for a pathway"
-                    disabled={pathwaysLoading || pathways.length === 0}
-                />
-                 <select 
-                    id="pathwayId" 
-                    value={config.pathwayId} 
-                    onChange={(e) => handleConfigChange('pathwayId', e.target.value)} 
-                    disabled={pathwaysLoading || pathways.length === 0} 
+                    aria-label="Search for a species"
+                    disabled={speciesLoading}
+                  />
+                  <select 
+                    id="species" 
+                    value={config.speciesId} 
+                    onChange={(e) => handleConfigChange('speciesId', e.target.value)} 
                     className="mt-2 block w-full pl-3 pr-10 py-2 text-base bg-gray-700 border-gray-600 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md disabled:bg-gray-600 disabled:cursor-not-allowed"
-                 >
-                     <option value="" disabled>
-                        {pathwaysLoading ? 'Loading pathways...' : 
-                         pathwayError ? 'Error loading pathways' : 
-                         pathways.length === 0 ? 'No pathways available' : 'Select a pathway'}
+                    disabled={speciesLoading || speciesList.length === 0}
+                  >
+                    <option value="" disabled>
+                        {speciesLoading ? 'Loading species...' : 
+                        speciesError ? 'Error loading species' : 
+                        speciesList.length === 0 ? 'No species available' : 'Select a species'}
                     </option>
-                     {groupedPathways.highlighted.length > 0 && (
-                        <optgroup label="Pathways with your genes">
-                            {groupedPathways.highlighted.map(p => (
-                                <option key={p.id} value={p.id}>{p.displayName}</option>
-                            ))}
-                        </optgroup>
-                     )}
-                     {groupedPathways.other.length > 0 && (
-                        <optgroup label={groupedPathways.highlighted.length > 0 ? "Other pathways" : "All Pathways"}>
-                            {groupedPathways.other.map(p => (
-                                <option key={p.id} value={p.id}>{p.displayName}</option>
-                            ))}
-                        </optgroup>
-                     )}
-                 </select>
-                 {pathwayError && <p className="mt-1 text-xs text-red-400">{pathwayError}</p>}
-            </div>
+                    {filteredSpecies.map(s => <option key={s.id} value={s.id}>{s.displayName}</option>)}
+                  </select>
+                  {speciesError && <p className="mt-1 text-xs text-red-400">{speciesError}</p>}
+                </div>
+                <div>
+                    <label htmlFor="pathway-search" className="block text-sm font-medium text-gray-300">Pathway</label>
+                    <input
+                        type="text"
+                        id="pathway-search"
+                        placeholder="Search for a pathway..."
+                        value={pathwaySearch}
+                        onChange={(e) => setPathwaySearch(e.target.value)}
+                        className="mt-1 block w-full bg-gray-700 border-gray-600 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm"
+                        aria-label="Search for a pathway"
+                        disabled={pathwaysLoading || pathways.length === 0}
+                    />
+                    <select 
+                        id="pathwayId" 
+                        value={config.pathwayId} 
+                        onChange={(e) => handleConfigChange('pathwayId', e.target.value)} 
+                        disabled={pathwaysLoading || pathways.length === 0} 
+                        className="mt-2 block w-full pl-3 pr-10 py-2 text-base bg-gray-700 border-gray-600 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md disabled:bg-gray-600 disabled:cursor-not-allowed"
+                    >
+                        <option value="" disabled>
+                            {pathwaysLoading ? 'Loading pathways...' : 
+                            pathwayError ? 'Error loading pathways' : 
+                            pathways.length === 0 ? 'No pathways available' : 'Select a pathway'}
+                        </option>
+                        {groupedPathways.highlighted.length > 0 && (
+                            <optgroup label="Pathways with your genes">
+                                {groupedPathways.highlighted.map(p => (
+                                    <option key={p.id} value={p.id}>{p.displayName}</option>
+                                ))}
+                            </optgroup>
+                        )}
+                        {groupedPathways.other.length > 0 && (
+                            <optgroup label={groupedPathways.highlighted.length > 0 ? "Other pathways" : "All Pathways"}>
+                                {groupedPathways.other.map(p => (
+                                    <option key={p.id} value={p.id}>{p.displayName}</option>
+                                ))}
+                            </optgroup>
+                        )}
+                    </select>
+                    {pathwayError && <p className="mt-1 text-xs text-red-400">{pathwayError}</p>}
+                </div>
+              </>
+            )}
+
             <div>
               <label htmlFor="dataType" className="block text-sm font-medium text-gray-300">Gene Data Type</label>
               <select id="dataType" value={config.dataType} onChange={(e) => handleConfigChange('dataType', e.target.value as DataType)} className="mt-1 block w-full pl-3 pr-10 py-2 text-base bg-gray-700 border-gray-600 focus:outline-none focus:ring-cyan-500 focus:border-cyan-500 sm:text-sm rounded-md">

@@ -26,6 +26,7 @@ const App: React.FC = () => {
   });
   const [geneData, setGeneData] = useState<string | null>(null);
   const [compoundData, setCompoundData] = useState<string | null>(null);
+  const [customSbgnFile, setCustomSbgnFile] = useState<string | null>(null);
   const [parsedGeneData, setParsedGeneData] = useState<ParsedData>(new Map());
   const [parsedCompoundData, setParsedCompoundData] = useState<ParsedData>(new Map());
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -38,7 +39,11 @@ const App: React.FC = () => {
       setError('Please upload gene expression data before generating.');
       return;
     }
-     if (!config.pathwayId) {
+     if (config.pathwayDatabase === 'Custom SBGN File' && !customSbgnFile) {
+        setError('Please upload a custom SBGN pathway file.');
+        return;
+    }
+     if (config.pathwayDatabase !== 'Custom SBGN File' && !config.pathwayId) {
       setError('Please select a pathway before generating.');
       return;
     }
@@ -58,7 +63,7 @@ const App: React.FC = () => {
         setParsedCompoundData(new Map());
       }
 
-      const svg = await generatePathwaySvg(summarizedGeneData, summarizedCompoundData, config);
+      const svg = await generatePathwaySvg(summarizedGeneData, summarizedCompoundData, config, customSbgnFile);
       setPathwaySvg(svg);
     } catch (err) {
       console.error(err);
@@ -66,7 +71,7 @@ const App: React.FC = () => {
     } finally {
       setIsLoading(false);
     }
-  }, [geneData, compoundData, config]);
+  }, [geneData, compoundData, config, customSbgnFile]);
 
   return (
     <div className="min-h-screen flex flex-col font-sans">
@@ -93,6 +98,8 @@ const App: React.FC = () => {
           setCompoundData={setCompoundData}
           onGenerate={handleGenerate}
           isLoading={isLoading}
+          customSbgnFile={customSbgnFile}
+          setCustomSbgnFile={setCustomSbgnFile}
         />
         <MainPanel
           isLoading={isLoading}

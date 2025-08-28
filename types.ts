@@ -1,7 +1,7 @@
 
 export type DataType = 'norm_counts' | 'deseq2';
 export type CompoundDataType = 'abundance' | 'fold_change';
-export type PathwayDatabase = 'Reactome' | 'KEGG' | 'MetaCyc' | 'SMPDB' | 'PANTHER' | 'METACROP';
+export type PathwayDatabase = 'Reactome' | 'KEGG' | 'MetaCyc' | 'SMPDB' | 'PANTHER' | 'METACROP' | 'Custom SBGN File';
 
 export interface VisualizationConfig {
   pathwayDatabase: PathwayDatabase;

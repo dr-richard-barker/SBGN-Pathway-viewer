@@ -1,12 +1,14 @@
+
 import { type Species, type Pathway, type PathwayDatabase } from '../types';
 
 const REACTOME_API_BASE = 'https://reactome.org/ContentService';
 // KEGG and PANTHER APIs are HTTP-only, causing mixed-content errors.
-// SMPDB lacks CORS headers. We use a proxy to safely access them.
+// SMPDB and MetaCyc lack CORS headers. We use a proxy to safely access them.
 const PROXY_URL = 'https://corsproxy.io/?';
 const KEGG_API_BASE = 'http://rest.kegg.jp';
 const PANTHER_API_BASE = 'http://pantherdb.org/services/rest';
 const SMPDB_BASE_URL = 'https://smpdb.ca';
+const BIOCYC_API_BASE = 'https://websvc.biocyc.org';
 
 
 async function fetchReactomeSpecies(): Promise<Species[]> {
@@ -52,7 +54,7 @@ async function fetchKeggSpecies(): Promise<Species[]> {
 
 async function fetchMetaCycSpecies(): Promise<Species[]> {
     try {
-        const response = await fetch('https://websvc.biocyc.org/dbs'); 
+        const response = await fetch(`${PROXY_URL}${BIOCYC_API_BASE}/dbs`); 
         if (!response.ok) {
             throw new Error(`BioCyc API returned status ${response.status}`);
         }
@@ -119,6 +121,23 @@ async function fetchPantherSpecies(): Promise<Species[]> {
     }
 }
 
+async function fetchMetaCropSpecies(): Promise<Species[]> {
+    // MetaCrop does not provide a simple public API endpoint to list all species.
+    // This is a hardcoded list based on the species available in the database.
+    // See: http://metacrop.ipk-gatersleben.de/
+    const metaCropSpecies: Species[] = [
+        { id: 'bdi', displayName: 'Brachypodium distachyon (Purple False Brome)' },
+        { id: 'gma', displayName: 'Glycine max (Soybean)' },
+        { id: 'hvu', displayName: 'Hordeum vulgare (Barley)' },
+        { id: 'mtr', displayName: 'Medicago truncatula (Barrel Medick)' },
+        { id: 'osa', displayName: 'Oryza sativa (Rice)' },
+        { id: 'sly', displayName: 'Solanum lycopersicum (Tomato)' },
+        { id: 'stu', displayName: 'Solanum tuberosum (Potato)' },
+        { id: 'zma', displayName: 'Zea mays (Maize)' },
+    ];
+    return Promise.resolve(metaCropSpecies.sort((a, b) => a.displayName.localeCompare(b.displayName)));
+}
+
 
 export async function fetchSpecies(database: PathwayDatabase): Promise<Species[]> {
     switch (database) {
@@ -133,8 +152,9 @@ export async function fetchSpecies(database: PathwayDatabase): Promise<Species[]
         case 'PANTHER':
             return fetchPantherSpecies();
         case 'METACROP':
-            console.warn(`Species fetching is not implemented for ${database}.`);
-            return [];
+            return fetchMetaCropSpecies();
+        case 'Custom SBGN File':
+             return []; // No species to fetch for custom files
         default:
             return [];
     }
@@ -225,7 +245,7 @@ async function fetchPantherPathways(speciesId: string): Promise<Pathway[]> {
 
 async function fetchMetaCycPathways(speciesId: string): Promise<Pathway[]> {
     try {
-        const response = await fetch(`https://websvc.biocyc.org/${speciesId}/pathways`);
+        const response = await fetch(`${PROXY_URL}${BIOCYC_API_BASE}/${speciesId}/pathways`);
         if (!response.ok) {
             if (response.status === 404) return [];
             throw new Error(`BioCyc API returned status ${response.status} for species ${speciesId}`);
@@ -250,6 +270,37 @@ async function fetchMetaCycPathways(speciesId: string): Promise<Pathway[]> {
     }
 }
 
+async function fetchMetaCropPathways(speciesId: string): Promise<Pathway[]> {
+    // MetaCrop does not provide a simple public API endpoint to list pathways.
+    // This is a curated list of common metabolic pathways available for most species in the database.
+    // The pathway ID is constructed from the species ID and pathway name, mirroring the website's URL scheme.
+    const commonPathways = [
+        { name: 'Alanine Metabolism', id_part: 'alanine_metabolism' },
+        { name: 'Arginine and Proline Metabolism', id_part: 'arginine_proline_metabolism' },
+        { name: 'Aspartate and Glutamate Metabolism', id_part: 'aspartate_glutamate_metabolism' },
+        { name: 'C4-Dicarboxylic Acid Cycle', id_part: 'c4_dicarboxylic_acid_cycle' },
+        { name: 'Calvin Cycle', id_part: 'calvin_cycle' },
+        { name: 'Cysteine and Methionine Metabolism', id_part: 'cysteine_methionine_metabolism' },
+        { name: 'Fatty Acid Biosynthesis', id_part: 'fatty_acid_biosynthesis' },
+        { name: 'Glycolysis', id_part: 'glycolysis' },
+        { name: 'Glyoxylate Cycle', id_part: 'glyoxylate_cycle' },
+        { name: 'Histidine Metabolism', id_part: 'histidine_metabolism' },
+        { name: 'Photorespiration', id_part: 'photorespiration' },
+        { name: 'Starch Biosynthesis', id_part: 'starch_biosynthesis' },
+        { name: 'Sucrose Biosynthesis', id_part: 'sucrose_biosynthesis' },
+        { name: 'TCA Cycle', id_part: 'tca_cycle' },
+        { name: 'Threonine and Lysine Metabolism', id_part: 'threonine_lysine_metabolism' },
+        { name: 'Valine, Leucine, and Isoleucine Metabolism', id_part: 'valine_leucine_isoleucine_metabolism' },
+    ];
+
+    const pathways: Pathway[] = commonPathways.map(p => ({
+        id: `${speciesId}_${p.id_part}`,
+        displayName: p.name,
+    }));
+
+    return Promise.resolve(pathways.sort((a, b) => a.displayName.localeCompare(b.displayName)));
+}
+
 export async function fetchPathways(database: PathwayDatabase, speciesId: string): Promise<Pathway[]> {
     if (!speciesId) return [];
     switch (database) {
@@ -264,8 +315,9 @@ export async function fetchPathways(database: PathwayDatabase, speciesId: string
         case 'MetaCyc':
             return fetchMetaCycPathways(speciesId);
         case 'METACROP':
-            console.warn(`Pathway fetching is not implemented for ${database}.`);
-            return [];
+            return fetchMetaCropPathways(speciesId);
+        case 'Custom SBGN File':
+            return []; // No pathways to fetch
         default:
             return [];
     }
