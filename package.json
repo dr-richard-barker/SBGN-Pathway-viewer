@@ -1,20 +1,22 @@
 {
   "name": "sbgn-pathway-visualizer",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "description": "Standalone, AI-free web app to overlay RNA-seq / omics data onto SBGN pathway maps.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
-    "@google/genai": "^1.15.0",
     "react": "^19.1.1",
     "react-dom": "^19.1.1"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
+    "gh-pages": "^6.1.1",
     "typescript": "~5.8.2",
     "vite": "^6.2.0"
   }

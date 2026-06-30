@@ -2,6 +2,9 @@
 export type DataType = 'norm_counts' | 'deseq2';
 export type CompoundDataType = 'abundance' | 'fold_change';
 export type PathwayDatabase = 'Reactome' | 'KEGG' | 'MetaCyc' | 'SMPDB' | 'PANTHER' | 'METACROP' | 'Custom SBGN File';
+// KEGG can render either as a clean vector from KGML, or as a data overlay on
+// KEGG's official pathway image (pathview-style).
+export type KeggRenderMode = 'image' | 'vector';
 
 export interface VisualizationConfig {
   pathwayDatabase: PathwayDatabase;
@@ -15,6 +18,7 @@ export interface VisualizationConfig {
   arcLineColor: string;
   compoundDataType: CompoundDataType;
   compoundIdType: string;
+  keggRenderMode: KeggRenderMode;
 }
 
 export interface Species {

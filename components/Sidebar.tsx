@@ -1,9 +1,10 @@
 
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
-import { type VisualizationConfig, type DataType, type Species, type Pathway, type CompoundDataType, type PathwayDatabase } from '../types';
+import { type VisualizationConfig, type DataType, type Species, type Pathway, type CompoundDataType, type PathwayDatabase, type KeggRenderMode } from '../types';
 import { UploadIcon } from './icons/UploadIcon';
 import { fetchSpecies, fetchPathways, mapGenesToPathways, mapGenesToPathwaysKegg } from '../services/pathwayService';
 import { parseGeneIds } from '../services/dataProcessor';
+import { SAMPLE_GENE_CSV, SAMPLE_COMPOUND_CSV } from '../services/sampleData';
 
 interface SidebarProps {
   config: VisualizationConfig;
@@ -13,6 +14,7 @@ interface SidebarProps {
   compoundData: string | null;
   setCompoundData: (data: string | null) => void;
   onGenerate: () => void;
+  onLoadDemo: () => void;
   isLoading: boolean;
   customSbgnFile: string | null;
   setCustomSbgnFile: (data: string | null) => void;
@@ -20,7 +22,7 @@ interface SidebarProps {
 
 const ALL_DATABASES: PathwayDatabase[] = ['Reactome', 'KEGG', 'MetaCyc', 'SMPDB', 'PANTHER', 'METACROP', 'Custom SBGN File'];
 
-export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, isLoading, customSbgnFile, setCustomSbgnFile }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, onLoadDemo, isLoading, customSbgnFile, setCustomSbgnFile }) => {
   const [geneFileName, setGeneFileName] = useState<string>('');
   const [compoundFileName, setCompoundFileName] = useState<string>('');
   const [customSbgnFileName, setCustomSbgnFileName] = useState<string>('');
@@ -163,27 +165,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
   }, [setConfig]);
 
   const handleLoadSampleGeneData = useCallback(() => {
-    const sampleData = `SYMBOL,log2FoldChange,padj
-CDC20,2.5,0.001
-AURKB,-1.8,0.005
-PLK1,3.1,0.0001
-CCNB1,2.8,0.0005
-BUB1B,-2.2,0.002
-MAD2L1,1.5,0.01
-CDK1,1.9,0.008
-FOXM1,-1.2,0.03`;
-    setGeneData(sampleData);
+    setGeneData(SAMPLE_GENE_CSV);
     setGeneFileName('sample_gene_data.csv');
     // Sample data is for human on Reactome
     setConfig(prev => ({ ...prev, pathwayDatabase: 'Reactome', dataType: 'deseq2', speciesId: '48887', pathwayId: 'R-HSA-1640170' }));
   }, [setGeneData, setConfig]);
 
   const handleLoadSampleCompoundData = useCallback(() => {
-    const sampleData = `KEGG,log2FoldChange
-C00022,1.5
-C00074,-1.2
-C00148,2.1`;
-    setCompoundData(sampleData);
+    setCompoundData(SAMPLE_COMPOUND_CSV);
     setCompoundFileName('sample_compound_data.csv');
     setConfig(prev => ({...prev, compoundDataType: 'fold_change', compoundIdType: 'kegg' }));
   }, [setCompoundData, setConfig]);
@@ -273,6 +262,31 @@ C00148,2.1`;
                 {ALL_DATABASES.map(db => <option key={db} value={db}>{db}</option>)}
               </select>
             </div>
+
+            {config.pathwayDatabase === 'KEGG' && (
+              <div>
+                <span className="block text-sm font-medium text-gray-300">KEGG View</span>
+                <div role="radiogroup" aria-label="KEGG render mode" className="mt-1 grid grid-cols-2 gap-2">
+                  {([['image', 'Image overlay'], ['vector', 'Vector (KGML)']] as [KeggRenderMode, string][]).map(([mode, lbl]) => (
+                    <button
+                      key={mode}
+                      type="button"
+                      role="radio"
+                      aria-checked={config.keggRenderMode === mode}
+                      onClick={() => handleConfigChange('keggRenderMode', mode)}
+                      className={`py-2 px-3 text-sm rounded-md border transition-colors focus:outline-none focus:ring-2 focus:ring-cyan-500 ${config.keggRenderMode === mode ? 'bg-cyan-600 border-cyan-500 text-white' : 'bg-gray-700 border-gray-600 text-gray-200 hover:bg-gray-600'}`}
+                    >
+                      {lbl}
+                    </button>
+                  ))}
+                </div>
+                <p className="mt-1 text-xs text-gray-500">
+                  {config.keggRenderMode === 'image'
+                    ? "Overlays your data on KEGG's official diagram (needs network)."
+                    : 'Renders nodes/edges from KGML as editable vectors.'}
+                </p>
+              </div>
+            )}
 
             {config.pathwayDatabase === 'Custom SBGN File' ? (
                 <div>
@@ -419,13 +433,21 @@ C00148,2.1`;
           </div>
       </div>
 
-      <div>
+      <div className="space-y-2">
         <button
           onClick={onGenerate}
           disabled={isLoading}
           className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-cyan-600 hover:bg-cyan-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-cyan-500 disabled:bg-gray-600 disabled:cursor-not-allowed transition-colors"
         >
-          {isLoading ? 'Generating...' : 'Generate Pathway Map'}
+          {isLoading ? 'Rendering...' : 'Generate Pathway Map'}
+        </button>
+        <button
+          onClick={onLoadDemo}
+          disabled={isLoading}
+          className="w-full flex justify-center py-2 px-4 border border-gray-600 rounded-md text-sm font-medium text-gray-200 bg-gray-700 hover:bg-gray-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-cyan-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          title="Render a bundled example pathway with sample data — no network or API key required"
+        >
+          Try offline demo
         </button>
       </div>
     </aside>

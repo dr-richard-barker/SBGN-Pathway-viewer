@@ -1,0 +1,25 @@
+{
+  "title": "SBGN Pathway Visualizer",
+  "description": "A standalone, browser-based tool to overlay RNA-seq and other omics data onto SBGN (Reactome) and KEGG (KGML) pathway maps. Rendering is deterministic and requires no API key or AI service. KEGG supports both a vector (KGML) view and a pathview-style overlay on KEGG's official pathway image. Exports publication-ready SVG.",
+  "upload_type": "software",
+  "access_right": "open",
+  "license": "MIT",
+  "version": "1.0.0",
+  "creators": [
+    {
+      "name": "Barker, Richard"
+    }
+  ],
+  "keywords": [
+    "SBGN",
+    "KEGG",
+    "Reactome",
+    "KGML",
+    "pathway visualization",
+    "RNA-seq",
+    "transcriptomics",
+    "systems biology",
+    "FAIR",
+    "bioinformatics"
+  ]
+}
