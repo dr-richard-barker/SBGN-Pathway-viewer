@@ -1,0 +1,34 @@
+# Jekyll configuration for the project website (GitHub Pages).
+# The interactive app is built separately (Vite) and placed at /app by the
+# deploy workflow; Jekyll only builds the content in this `site/` folder.
+
+title: SBGN Pathway Visualizer
+description: >-
+  Overlay RNA-seq and other omics data onto SBGN (Reactome) and KEGG pathway
+  maps — standalone, in your browser, no API key, no AI service.
+author: Richard Barker
+lang: en
+
+# GitHub Pages project site lives under /<repo>/.
+url: "https://dr-richard-barker.github.io"
+baseurl: "/SBGN-Pathway-viewer"
+
+# Built-in GitHub Pages theme.
+theme: jekyll-theme-cayman
+
+github:
+  repository_url: https://github.com/dr-richard-barker/SBGN-Pathway-viewer
+  is_project_page: true
+
+# Findability (FAIR): SEO tags + sitemap.
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# These live alongside the site sources but must not be published.
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .bundle
+  - README.md

@@ -56,30 +56,51 @@ npm run build      # outputs to ./dist
 npm run preview
 ```
 
-## Deploy it so anyone can use it
+## The project website (Jekyll)
 
-The build is a plain static site (relative asset paths), so it hosts anywhere.
+A themed **Jekyll** website lives in [`site/`](site/) (GitHub Pages *Cayman* theme). It is the
+public landing page (overview, how-to, citation) and the interactive app is served beneath it
+at **`/app/`**.
 
-### Option A — GitHub Pages (automated)
-
-A workflow is included at [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml).
-Once pushed:
-
-1. In your repo: **Settings → Pages → Build and deployment → Source = GitHub Actions**.
-2. Push to `main`. The action builds and publishes automatically.
-3. Your app is live at `https://<user>.github.io/<repo>/`.
-
-### Option B — GitHub Pages (manual, from your machine)
-
-```bash
-npm run build
-npm run deploy     # publishes ./dist to the gh-pages branch (uses the gh-pages dev dep)
+```
+https://dr-richard-barker.github.io/SBGN-Pathway-viewer/        ← Jekyll website (site/)
+https://dr-richard-barker.github.io/SBGN-Pathway-viewer/app/    ← the interactive app
 ```
 
-### Option C — Netlify / Vercel / any static host
+Preview the website locally (needs Ruby + Bundler):
 
-Build command `npm run build`, publish directory `dist`. Drag-and-drop `dist/`
-onto Netlify also works.
+```bash
+cd site
+bundle install
+bundle exec jekyll serve   # http://localhost:4000/SBGN-Pathway-viewer/
+```
+
+Edit `site/_config.yml` (title, theme, `baseurl`), `site/index.md`, and `site/usage.md`.
+Swap the theme by changing `theme:` — any [supported GitHub Pages theme](https://pages.github.com/themes/)
+works (e.g. `jekyll-theme-slate`, `jekyll-theme-minimal`), or use `remote_theme:` for others.
+
+## Deploy it so anyone can use it
+
+### Option A — GitHub Pages (automated, website + app)
+
+The workflow [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds **both** the
+Jekyll site and the Vite app and publishes them together. Once:
+
+1. In your repo: **Settings → Pages → Build and deployment → Source = GitHub Actions**.
+2. Push to `main`. The action builds the website (root) and the app (`/app/`) and deploys.
+3. Live at `https://<user>.github.io/<repo>/` with the app at `…/<repo>/app/`.
+
+### Option B — app only (manual / other hosts)
+
+The app build is a plain static site with relative asset paths:
+
+```bash
+npm run build        # outputs to ./dist
+npm run preview      # local check
+npm run deploy       # optional: publish ./dist to the gh-pages branch (gh-pages dev dep)
+```
+
+Or on Netlify / Vercel: build command `npm run build`, publish directory `dist`.
 
 ## Data format
 

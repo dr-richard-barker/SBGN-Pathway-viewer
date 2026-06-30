@@ -1,7 +1,8 @@
-name: Deploy to GitHub Pages
+name: Deploy website (Jekyll) + app to GitHub Pages
 
-# Builds the standalone (AI-free) app and publishes the static bundle to
-# GitHub Pages. Enable in repo Settings → Pages → Source = "GitHub Actions".
+# Builds the Jekyll themed website (site/) and the standalone Vite app, then
+# publishes them together: the website at the site root and the interactive app
+# under /app. Enable once in repo Settings → Pages → Source = "GitHub Actions".
 
 on:
   push:
@@ -23,16 +24,38 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      # 1) Build the interactive app (Vite) -> dist/
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      # Use `npm ci` when a lockfile exists, otherwise fall back to `npm install`.
-      - run: |
+      - name: Install & build app
+        run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi
-      - run: npm run build
+          npm run build
+
+      # 2) Build the Jekyll website (site/) -> _site/
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+          bundler-cache: true
+          working-directory: site
+      - name: Build Jekyll site
+        working-directory: site
+        env:
+          JEKYLL_ENV: production
+        run: bundle exec jekyll build --destination "$GITHUB_WORKSPACE/_site"
+
+      # 3) Nest the app under /app within the published site
+      - name: Add app to site
+        run: |
+          mkdir -p _site/app
+          cp -r dist/* _site/app/
+
+      - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: _site
 
   deploy:
     needs: build
