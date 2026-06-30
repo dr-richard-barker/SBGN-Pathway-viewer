@@ -38,7 +38,11 @@ So gene symbols, locus ids and Entrez ids all work for KEGG. Matching is case-in
 
 ## Try it with Arabidopsis (KEGG)
 
-A ready-made example is included:
+**Fastest:** click **🌱 Load Arabidopsis (KEGG) sample** in the app — it loads real
+Arabidopsis genes and renders the live KEGG *Phenylpropanoid biosynthesis* map (`ath00940`)
+in one click.
+
+Or do it manually with the ready-made example:
 [`examples/arabidopsis_kegg_demo.csv`](https://github.com/dr-richard-barker/SBGN-Pathway-viewer/blob/main/examples/arabidopsis_kegg_demo.csv)
 — real Arabidopsis AGI locus IDs (`AT#G#####`) with log2 fold-change values.
 

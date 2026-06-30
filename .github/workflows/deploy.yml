@@ -28,7 +28,7 @@ jobs:
       # 1) Build the interactive app (Vite) -> dist/
       - uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
       - name: Install & build app
         run: |
           if [ -f package-lock.json ]; then npm ci; else npm install; fi

@@ -4,7 +4,7 @@ import { Sidebar } from './components/Sidebar';
 import { MainPanel } from './components/MainPanel';
 import { type VisualizationConfig } from './types';
 import { generatePathwayMap } from './services/pathwayRenderer';
-import { SAMPLE_GENE_CSV, SAMPLE_COMPOUND_CSV } from './services/sampleData';
+import { SAMPLE_GENE_CSV, SAMPLE_COMPOUND_CSV, SAMPLE_ARABIDOPSIS_KEGG } from './services/sampleData';
 import { HelpModal } from './components/HelpModal';
 import { HelpIcon } from './components/icons/HelpIcon';
 
@@ -110,6 +110,22 @@ const App: React.FC = () => {
     });
   }, [config, runGeneration]);
 
+  // Live KEGG demo with real Arabidopsis genes (ath00940 Phenylpropanoid biosynthesis).
+  // Renders via configOverride so it doesn't depend on the dropdowns populating first.
+  const handleLoadArabidopsis = useCallback(() => {
+    const { speciesId, pathwayId, csv } = SAMPLE_ARABIDOPSIS_KEGG;
+    const cfg: VisualizationConfig = {
+      ...config,
+      pathwayDatabase: 'KEGG',
+      speciesId,
+      pathwayId,
+      dataType: 'deseq2',
+    };
+    setGeneData(csv);
+    setConfig(cfg);
+    runGeneration({ geneOverride: csv, configOverride: cfg });
+  }, [config, runGeneration]);
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <a
@@ -141,6 +157,7 @@ const App: React.FC = () => {
           setCompoundData={setCompoundData}
           onGenerate={handleGenerate}
           onLoadDemo={handleLoadDemo}
+          onLoadArabidopsis={handleLoadArabidopsis}
           isLoading={isLoading}
           customSbgnFile={customSbgnFile}
           setCustomSbgnFile={setCustomSbgnFile}

@@ -15,6 +15,7 @@ interface SidebarProps {
   setCompoundData: (data: string | null) => void;
   onGenerate: () => void;
   onLoadDemo: () => void;
+  onLoadArabidopsis: () => void;
   isLoading: boolean;
   customSbgnFile: string | null;
   setCustomSbgnFile: (data: string | null) => void;
@@ -22,7 +23,7 @@ interface SidebarProps {
 
 const ALL_DATABASES: PathwayDatabase[] = ['Reactome', 'KEGG', 'MetaCyc', 'SMPDB', 'PANTHER', 'METACROP', 'Custom SBGN File'];
 
-export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, onLoadDemo, isLoading, customSbgnFile, setCustomSbgnFile }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, onLoadDemo, onLoadArabidopsis, isLoading, customSbgnFile, setCustomSbgnFile }) => {
   const [geneFileName, setGeneFileName] = useState<string>('');
   const [compoundFileName, setCompoundFileName] = useState<string>('');
   const [customSbgnFileName, setCustomSbgnFileName] = useState<string>('');
@@ -38,8 +39,11 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
   const [speciesError, setSpeciesError] = useState<string | null>(null);
   const [pathwayError, setPathwayError] = useState<string | null>(null);
 
-  // Fetch species when database changes
+  // Fetch species when database changes. A preset speciesId (e.g. from the
+  // "Load Arabidopsis sample" button) is kept if it exists in the fetched list,
+  // otherwise we default to the first species.
   useEffect(() => {
+    let cancelled = false;
     const loadSpecies = async () => {
       if (config.pathwayDatabase === 'Custom SBGN File') {
         setSpeciesList([]);
@@ -49,43 +53,50 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
       setSpeciesLoading(true);
       setSpeciesError(null);
       setSpeciesList([]);
-      setPathways([]); // Clear pathways
-      setConfig(prev => ({ ...prev, speciesId: '', pathwayId: '' }));
       try {
         const species = await fetchSpecies(config.pathwayDatabase);
+        if (cancelled) return;
         setSpeciesList(species);
-        if (species.length > 0) {
-           setConfig(prev => ({ ...prev, speciesId: species[0].id }));
-        }
+        setConfig(prev => {
+          if (prev.speciesId && species.some(s => s.id === prev.speciesId)) return prev;
+          return { ...prev, speciesId: species[0]?.id ?? '', pathwayId: '' };
+        });
       } catch (error) {
+        if (cancelled) return;
         console.error("Failed to fetch species:", error);
         setSpeciesError(error instanceof Error ? error.message : 'Failed to load species.');
       } finally {
-        setSpeciesLoading(false);
+        if (!cancelled) setSpeciesLoading(false);
       }
     };
     loadSpecies();
+    return () => { cancelled = true; };
   }, [config.pathwayDatabase, setConfig]);
 
-  // Fetch pathways when species changes
+  // Fetch pathways when species changes. A preset pathwayId is kept if valid.
   useEffect(() => {
     if (!config.speciesId || config.pathwayDatabase === 'Custom SBGN File') return;
+    let cancelled = false;
     const loadPathways = async () => {
       setPathwaysLoading(true);
       setPathwayError(null);
-      setPathways([]);
-      setConfig(prev => ({ ...prev, pathwayId: '' }));
       try {
         const fetchedPathways = await fetchPathways(config.pathwayDatabase, config.speciesId);
+        if (cancelled) return;
         setPathways(fetchedPathways);
+        setConfig(prev => (prev.pathwayId && fetchedPathways.some(p => p.id === prev.pathwayId))
+          ? prev
+          : { ...prev, pathwayId: '' });
       } catch (error) {
+        if (cancelled) return;
         console.error("Failed to fetch pathways:", error);
         setPathwayError(error instanceof Error ? error.message : 'Failed to load pathways.');
       } finally {
-        setPathwaysLoading(false);
+        if (!cancelled) setPathwaysLoading(false);
       }
     };
     loadPathways();
+    return () => { cancelled = true; };
   }, [config.speciesId, config.pathwayDatabase, setConfig]);
 
   // Highlight pathways containing user genes (Reactome and KEGG)
@@ -448,6 +459,14 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
           title="Render a bundled example pathway with sample data — no network or API key required"
         >
           Try offline demo
+        </button>
+        <button
+          onClick={onLoadArabidopsis}
+          disabled={isLoading}
+          className="w-full flex justify-center py-2 px-4 border border-emerald-700 rounded-md text-sm font-medium text-emerald-200 bg-emerald-900/40 hover:bg-emerald-800/50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-emerald-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+          title="Load real Arabidopsis genes and render a live KEGG pathway (ath00940 Phenylpropanoid biosynthesis)"
+        >
+          🌱 Load Arabidopsis (KEGG) sample
         </button>
       </div>
     </aside>
