@@ -1,12 +1,11 @@
 
 import { type Species, type Pathway, type PathwayDatabase } from '../types';
+import { corsFetch } from './proxy';
 
 const REACTOME_API_BASE = 'https://reactome.org/ContentService';
-// KEGG and PANTHER APIs are HTTP-only, causing mixed-content errors.
-// SMPDB and MetaCyc lack CORS headers. We route them through a free, no-key CORS
-// proxy. allorigins requires the target URL to be percent-encoded.
-const proxify = (url: string): string => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
-const KEGG_API_BASE = 'http://rest.kegg.jp';
+// KEGG, PANTHER, SMPDB and MetaCyc lack CORS headers, so corsFetch() routes them
+// through a chain of public CORS proxies (with direct-first fallback).
+const KEGG_API_BASE = 'https://rest.kegg.jp';
 const PANTHER_API_BASE = 'http://pantherdb.org/services/rest';
 const SMPDB_BASE_URL = 'https://smpdb.ca';
 const BIOCYC_API_BASE = 'https://websvc.biocyc.org';
@@ -31,7 +30,7 @@ async function fetchReactomeSpecies(): Promise<Species[]> {
 
 async function fetchKeggSpecies(): Promise<Species[]> {
     try {
-        const response = await fetch(proxify(`${KEGG_API_BASE}/list/organism`));
+        const response = await corsFetch(`${KEGG_API_BASE}/list/organism`);
         if (!response.ok) {
             throw new Error(`KEGG API proxy returned status ${response.status}`);
         }
@@ -55,7 +54,7 @@ async function fetchKeggSpecies(): Promise<Species[]> {
 
 async function fetchMetaCycSpecies(): Promise<Species[]> {
     try {
-        const response = await fetch(proxify(`${BIOCYC_API_BASE}/dbs`)); 
+        const response = await corsFetch(`${BIOCYC_API_BASE}/dbs`); 
         if (!response.ok) {
             throw new Error(`BioCyc API returned status ${response.status}`);
         }
@@ -81,7 +80,7 @@ async function fetchMetaCycSpecies(): Promise<Species[]> {
 
 async function fetchSmpdbSpecies(): Promise<Species[]> {
     try {
-        const response = await fetch(proxify(`${SMPDB_BASE_URL}/pathways.json`));
+        const response = await corsFetch(`${SMPDB_BASE_URL}/pathways.json`);
         if (!response.ok) {
             throw new Error(`SMPDB API proxy returned status ${response.status}`);
         }
@@ -102,7 +101,7 @@ async function fetchSmpdbSpecies(): Promise<Species[]> {
 
 async function fetchPantherSpecies(): Promise<Species[]> {
     try {
-        const response = await fetch(proxify(`${PANTHER_API_BASE}/organism/list`));
+        const response = await corsFetch(`${PANTHER_API_BASE}/organism/list`);
         if (!response.ok) {
             throw new Error(`PANTHER API proxy returned status ${response.status}`);
         }
@@ -182,7 +181,7 @@ async function fetchReactomePathways(speciesId: string): Promise<Pathway[]> {
 
 async function fetchKeggPathways(speciesId: string): Promise<Pathway[]> {
    try {
-        const response = await fetch(proxify(`${KEGG_API_BASE}/list/pathway/${speciesId}`));
+        const response = await corsFetch(`${KEGG_API_BASE}/list/pathway/${speciesId}`);
         if (!response.ok) {
             throw new Error(`KEGG API proxy returned status ${response.status} for species ${speciesId}`);
         }
@@ -207,7 +206,7 @@ async function fetchKeggPathways(speciesId: string): Promise<Pathway[]> {
 
 async function fetchSmpdbPathways(speciesId: string): Promise<Pathway[]> {
     try {
-        const response = await fetch(proxify(`${SMPDB_BASE_URL}/pathways.json`));
+        const response = await corsFetch(`${SMPDB_BASE_URL}/pathways.json`);
         if (!response.ok) {
             throw new Error(`SMPDB API proxy returned status ${response.status}`);
         }
@@ -225,7 +224,7 @@ async function fetchSmpdbPathways(speciesId: string): Promise<Pathway[]> {
 
 async function fetchPantherPathways(speciesId: string): Promise<Pathway[]> {
     try {
-        const response = await fetch(proxify(`${PANTHER_API_BASE}/pathway/pathwaysForOrganism?organism=${speciesId}`));
+        const response = await corsFetch(`${PANTHER_API_BASE}/pathway/pathwaysForOrganism?organism=${speciesId}`);
         if (!response.ok) {
             throw new Error(`PANTHER API proxy returned status ${response.status} for species ${speciesId}`);
         }
@@ -246,7 +245,7 @@ async function fetchPantherPathways(speciesId: string): Promise<Pathway[]> {
 
 async function fetchMetaCycPathways(speciesId: string): Promise<Pathway[]> {
     try {
-        const response = await fetch(proxify(`${BIOCYC_API_BASE}/${speciesId}/pathways`));
+        const response = await corsFetch(`${BIOCYC_API_BASE}/${speciesId}/pathways`);
         if (!response.ok) {
             if (response.status === 404) return [];
             throw new Error(`BioCyc API returned status ${response.status} for species ${speciesId}`);
@@ -377,8 +376,9 @@ export async function mapGenesToPathwaysKegg(speciesId: string, geneIds: string[
     try {
         // Step 1: Convert gene symbols to KEGG IDs
         const findPromises = geneIds.map(geneId =>
-            fetch(proxify(`${KEGG_API_BASE}/find/genes/${encodeURIComponent(geneId)}`))
-                .then(res => res.ok ? res.text() : Promise.resolve(''))
+            corsFetch(`${KEGG_API_BASE}/find/genes/${encodeURIComponent(geneId)}`)
+                .then(res => res.ok ? res.text() : '')
+                .catch(() => '') // a single failed lookup must not reject the batch
         );
         
         const findResults = await Promise.all(findPromises);
@@ -403,7 +403,7 @@ export async function mapGenesToPathwaysKegg(speciesId: string, geneIds: string[
 
         // Step 2: Link KEGG gene IDs to pathways in a single batch request
         const keggIdsString = Array.from(keggGeneIds).join('+');
-        const linkResponse = await fetch(proxify(`${KEGG_API_BASE}/link/pathway/${keggIdsString}`));
+        const linkResponse = await corsFetch(`${KEGG_API_BASE}/link/pathway/${keggIdsString}`);
         if (!linkResponse.ok) {
             // It can fail with a 404 if no links are found, which is not a critical error.
             if (linkResponse.status === 404) return new Set();

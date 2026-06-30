@@ -13,13 +13,10 @@
 
 import { type VisualizationConfig, type PathwayDatabase } from '../types';
 import { DEMO_SBGN } from './demoSbgn';
+import { corsFetch, corsFetchText } from './proxy';
 
 const REACTOME_EXPORTER = 'https://reactome.org/ContentService/exporter/event';
 const KEGG_GET = 'https://rest.kegg.jp/get';
-
-// Free, no-key CORS proxy used only as a fallback / for no-CORS hosts (KEGG).
-// allorigins requires the target URL to be percent-encoded.
-const proxify = (url: string): string => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`;
 
 const looksLikeSbgn = (t: string): boolean => /<\s*sbgn[\s>]/i.test(t) || /<\s*map[\s>]/i.test(t);
 const looksLikeKgml = (t: string): boolean => /<\s*pathway[\s>]/i.test(t) && /<\s*entry[\s>]/i.test(t);
@@ -27,49 +24,31 @@ const looksLikeKgml = (t: string): boolean => /<\s*pathway[\s>]/i.test(t) && /<\
 export type PathwayFormat = 'sbgn' | 'kgml';
 export interface PathwaySource { format: PathwayFormat; content: string; }
 
-async function fetchText(url: string): Promise<string> {
-  const res = await fetch(url, { headers: { Accept: 'application/xml, text/xml, */*' } });
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return res.text();
-}
-
-/** Try a direct fetch first, then fall back through the CORS proxy. */
-async function fetchWithProxyFallback(url: string, validate: (t: string) => boolean): Promise<string> {
-  let text = '';
-  try {
-    text = await fetchText(url);
-    if (validate(text)) return text;
-  } catch {
-    /* fall through to proxy */
-  }
-  text = await fetchText(proxify(url));
-  return text;
-}
-
 /** Reactome publishes SBGN for any event/pathway stable id (e.g. R-HSA-1640170). */
 async function fetchReactomeSbgn(stId: string): Promise<string> {
   const url = `${REACTOME_EXPORTER}/${encodeURIComponent(stId)}.sbgn`;
-  const text = await fetchWithProxyFallback(url, looksLikeSbgn);
-  if (!looksLikeSbgn(text)) {
+  try {
+    // Reactome is CORS-enabled, so a direct fetch normally works; proxies are a fallback.
+    return await corsFetchText(url, looksLikeSbgn);
+  } catch {
     throw new Error(
       `Reactome did not return an SBGN map for "${stId}". Some high-level pathways are not exported as SBGN — try a more specific sub-pathway, or upload a custom SBGN file.`
     );
   }
-  return text;
 }
 
 /** KEGG publishes KGML for every pathway, e.g. ath00010 → /get/ath00010/kgml. */
 async function fetchKeggKgml(pathwayId: string): Promise<string> {
   const id = pathwayId.replace(/^path:/, '');
   const url = `${KEGG_GET}/${encodeURIComponent(id)}/kgml`;
-  // KEGG sends no CORS headers, so this almost always needs the proxy.
-  const text = await fetchWithProxyFallback(url, looksLikeKgml);
-  if (!looksLikeKgml(text)) {
+  try {
+    // KEGG has no CORS headers, so this resolves through a proxy in the chain.
+    return await corsFetchText(url, looksLikeKgml);
+  } catch {
     throw new Error(
-      `KEGG did not return KGML for "${id}". The CORS proxy may be unavailable — retry, or upload a custom SBGN file.`
+      `KEGG did not return KGML for "${id}". Every public CORS proxy was unavailable — retry shortly, or upload a custom SBGN file.`
     );
   }
-  return text;
 }
 
 export interface KeggImage { dataUrl: string; width: number; height: number; }
@@ -83,8 +62,7 @@ export interface KeggImage { dataUrl: string; width: number; height: number; }
 export async function fetchKeggImage(pathwayId: string): Promise<KeggImage> {
   const id = pathwayId.replace(/^path:/, '');
   const url = `${KEGG_GET}/${encodeURIComponent(id)}/image`;
-  const res = await fetch(proxify(url));
-  if (!res.ok) throw new Error(`Could not fetch the KEGG image for "${id}" (HTTP ${res.status}).`);
+  const res = await corsFetch(url);
   const blob = await res.blob();
   if (!blob.type.startsWith('image/') && blob.size < 1000) {
     throw new Error(`KEGG did not return an image for "${id}". The proxy may be unavailable.`);

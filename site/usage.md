@@ -36,6 +36,21 @@ permalink: /usage/
 
 So gene symbols, locus ids and Entrez ids all work for KEGG. Matching is case-insensitive.
 
+## Try it with Arabidopsis (KEGG)
+
+A ready-made example is included:
+[`examples/arabidopsis_kegg_demo.csv`](https://github.com/dr-richard-barker/SBGN-Pathway-viewer/blob/main/examples/arabidopsis_kegg_demo.csv)
+— real Arabidopsis AGI locus IDs (`AT#G#####`) with log2 fold-change values.
+
+1. Download it, then **Upload Gene Data**.
+2. Database **KEGG**, species **Arabidopsis thaliana (ath)**.
+3. Pick a pathway, e.g. *Phenylpropanoid biosynthesis* (`ath00940`), *Glycolysis*
+   (`ath00010`), or *Plant hormone signal transduction* (`ath04075`).
+4. **Generate** — your genes light up on the KEGG map.
+
+Verified mapping (demo set → real KGML gene nodes): ath00940 → 16, ath00010 → 9,
+ath00710 → 9, ath04075 → 9.
+
 ## Notes
 
 - KEGG REST has no CORS headers, so KGML and images are fetched via a free public proxy.
