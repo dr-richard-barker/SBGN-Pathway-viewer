@@ -44,6 +44,10 @@ jobs:
         working-directory: site
         env:
           JEKYLL_ENV: production
+          # github-pages metadata plugin needs to know the repo when building
+          # outside the legacy Pages environment.
+          PAGES_REPO_NWO: ${{ github.repository }}
+          JEKYLL_GITHUB_TOKEN: ${{ github.token }}
         run: bundle exec jekyll build --destination "$GITHUB_WORKSPACE/_site"
 
       # 3) Nest the app under /app within the published site

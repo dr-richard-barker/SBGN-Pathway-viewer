@@ -13,6 +13,11 @@ lang: en
 url: "https://dr-richard-barker.github.io"
 baseurl: "/SBGN-Pathway-viewer"
 
+# Required by the github-pages metadata plugin when building outside the legacy
+# Pages environment (e.g. in our GitHub Actions workflow). Without this the build
+# fails with "No repo name found".
+repository: dr-richard-barker/SBGN-Pathway-viewer
+
 # Built-in GitHub Pages theme.
 theme: jekyll-theme-cayman
 
