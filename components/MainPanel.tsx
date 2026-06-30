@@ -21,12 +21,12 @@ interface TooltipState {
 }
 
 const LoadingSpinner: React.FC = () => (
-    <div className="flex flex-col items-center justify-center text-center">
-        <svg className="animate-spin -ml-1 mr-3 h-10 w-10 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+    <div className="flex flex-col items-center justify-center text-center" role="status" aria-live="polite">
+        <svg className="spinner animate-spin -ml-1 mr-3 h-10 w-10 text-cyan-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
           <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
           <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
         </svg>
-        <p className="mt-4 text-lg text-gray-400">Generating visualization...</p>
+        <p className="mt-4 text-lg text-gray-400">Rendering pathway map…</p>
         <p className="text-sm text-gray-500">This may take a moment.</p>
     </div>
 );
@@ -123,7 +123,10 @@ export const MainPanel: React.FC<MainPanelProps> = ({ isLoading, error, pathwayS
             }
 
             if (glyphGroup) {
-                const [_, type, identifier] = glyphGroup.id.split('-');
+                // Prefer the raw identifier carried in data attributes (handles ids
+                // with characters that had to be sanitized for the DOM id).
+                const type = glyphGroup.getAttribute('data-omics-kind') || glyphGroup.id.split('-')[1];
+                const identifier = glyphGroup.getAttribute('data-omics-id') || glyphGroup.id.split('-').slice(2).join('-');
                 const dataMap = type === 'gene' ? parsedGeneData : parsedCompoundData;
                 const data = dataMap.get(identifier);
 
@@ -153,11 +156,13 @@ export const MainPanel: React.FC<MainPanelProps> = ({ isLoading, error, pathwayS
     };
 
     return (
-        <main className="flex-1 p-6 bg-gray-900 flex flex-col relative">
-            <style>{`.${HIGHLIGHT_CLASS} { stroke: #fde047 !important; stroke-width: 5px !important; stroke-opacity: 0.8; }`}</style>
-            
+        <main id="main-content" className="flex-1 p-6 bg-gray-900 flex flex-col relative" aria-label="Pathway map">
+            <style>{`.${HIGHLIGHT_CLASS} { stroke: #fde047 !important; stroke-width: 5px !important; stroke-opacity: 0.8; }
+            @media (prefers-reduced-motion: reduce) { .spinner { animation: none !important; } }`}</style>
+
             {tooltip && (
-                <div 
+                <div
+                    role="tooltip"
                     className="absolute z-30 p-2 text-sm text-white bg-gray-800 border border-gray-600 rounded-md shadow-lg pointer-events-none"
                     style={{ top: tooltip.y + 15, left: tooltip.x + 15, maxWidth: '300px' }}
                     dangerouslySetInnerHTML={{ __html: tooltip.content }}
@@ -170,6 +175,7 @@ export const MainPanel: React.FC<MainPanelProps> = ({ isLoading, error, pathwayS
                         <input
                             type="text"
                             placeholder="Highlight node..."
+                            aria-label="Highlight a node by identifier"
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
                             className="w-full bg-gray-700/80 border border-gray-600 rounded-lg shadow-sm py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-cyan-500 text-white sm:text-sm"
@@ -215,14 +221,14 @@ export const MainPanel: React.FC<MainPanelProps> = ({ isLoading, error, pathwayS
                 >
                     {isLoading && <LoadingSpinner />}
                     {error && !isLoading && (
-                        <div className="text-center text-red-400 bg-red-900/50 p-4 rounded-md">
+                        <div role="alert" className="text-center text-red-400 bg-red-900/50 p-4 rounded-md">
                             <h3 className="font-bold">Error</h3>
                             <p>{error}</p>
                         </div>
                     )}
                     {!isLoading && !error && !pathwaySvg && <Placeholder />}
                     {pathwaySvg && !isLoading && (
-                        <div dangerouslySetInnerHTML={{ __html: pathwaySvg }} className="w-full h-full [&>svg]:w-full [&>svg]:h-full" />
+                        <div role="img" aria-label="Rendered pathway map with your data overlaid" dangerouslySetInnerHTML={{ __html: pathwaySvg }} className="w-full h-full [&>svg]:w-full [&>svg]:h-full" />
                     )}
                 </div>
             </div>

@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+title: "SBGN Pathway Visualizer"
+abstract: >-
+  A standalone, browser-based tool to overlay RNA-seq and other omics data onto
+  SBGN (Reactome) and KEGG (KGML) pathway maps. Rendering is deterministic and
+  requires no API key or AI service.
+type: software
+authors:
+  - family-names: Barker
+    given-names: Richard
+    # orcid: "https://orcid.org/0000-0000-0000-0000"  # add your ORCID
+license: MIT
+repository-code: "https://github.com/dr-richard-barker/SBGN-Pathway-viewer"
+url: "https://github.com/dr-richard-barker/SBGN-Pathway-viewer"
+keywords:
+  - SBGN
+  - KEGG
+  - Reactome
+  - pathway visualization
+  - RNA-seq
+  - transcriptomics
+  - systems biology
+  - FAIR
+version: "1.0.0"
+date-released: "2026-06-30"
+# After your first Zenodo release, paste the *concept* DOI here so every version
+# is citable, e.g.:
+# identifiers:
+#   - type: doi
+#     value: "10.5281/zenodo.XXXXXXX"
+#     description: "Concept DOI (all versions)"
+# doi: "10.5281/zenodo.XXXXXXX"

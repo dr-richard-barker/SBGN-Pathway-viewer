@@ -35,12 +35,12 @@ export const HelpModal: React.FC<HelpModalProps> = ({ isVisible, onClose }) => {
                 <h3 className="text-xl font-semibold text-cyan-500 mb-2">Step-by-Step Guide</h3>
                 <ol className="list-decimal list-inside space-y-2">
                     <li><strong>Upload Data:</strong> Click "Upload a file" to provide your gene and optional compound data. You can also load a sample dataset to get started quickly.</li>
-                    <li><strong>Select Pathway Source:</strong> Choose your desired pathway database (e.g., Reactome, KEGG, PANTHER) from the dropdown. You can also upload your own custom SBGN file for visualization.</li>
-                    <li><strong>Select Species & Pathway:</strong> Based on your database choice, select the relevant species and then the specific biological pathway. For supported databases (Reactome, KEGG), pathways containing genes from your data will be highlighted for easy identification.</li>
-                    <li><strong>Configure Data Type:</strong> Specify whether your data represents 'Normalized Counts' or 'Log2 Fold Change' to ensure correct color mapping on the pathway glyphs.</li>
-                    <li><strong>Customize Appearance:</strong> Adjust sliders and color pickers to fine-tune the visual style of your pathway map.</li>
-                    <li><strong>Generate:</strong> Click the "Generate Pathway Map" button and let the AI create your visualization.</li>
-                    <li><strong>Explore & Download:</strong> Pan, zoom, and hover over nodes to see details. Click "Download SVG" to save your work.</li>
+                    <li><strong>Select Pathway Source:</strong> Choose <strong>Reactome</strong> (real SBGN export) or <strong>KEGG</strong> (the pathway's KGML, rendered directly) and the app fetches the map for you, or choose <strong>Custom SBGN File</strong> to upload your own <code>.sbgn</code> map (exported from Newt, Reactome, VANTED, CySBGN, etc.).</li>
+                    <li><strong>Select Species & Pathway:</strong> For Reactome and KEGG, select the species and then the specific pathway. Pathways that contain genes from your uploaded data are grouped at the top of the list for easy identification.</li>
+                    <li><strong>Configure Data Type:</strong> Specify whether your data represents 'Normalized Counts' / 'Abundance' or 'Log2 Fold Change' to choose the correct color scale (sequential vs. divergent).</li>
+                    <li><strong>Customize Appearance:</strong> Adjust the font size, default glyph color, and arc styling to fine-tune the map.</li>
+                    <li><strong>Generate:</strong> Click <strong>Generate Pathway Map</strong>. The map is rendered deterministically in your browser from the SBGN/KGML geometry — no API key, no AI service. Your values are matched to node labels and colored by the legend's scale. Or click <strong>Try offline demo</strong> to render a bundled example with no network at all.</li>
+                    <li><strong>Explore & Download:</strong> Pan, zoom, and hover over colored nodes to see their data. Use the search box to highlight a node, and click "Download SVG" to save a publication-ready, fully vector map.</li>
                 </ol>
             </section>
             
