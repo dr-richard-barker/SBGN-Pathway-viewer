@@ -100,8 +100,10 @@ def main():
 
     # Table of contents
     toc = ["format: jb-book", "root: intro", "chapters:",
-           "  - file: methods", "  - file: results",
-           "  - file: studies/index"]
+           "  - file: methods", "  - file: results"]
+    if os.path.exists(os.path.join(BOOK, "manuscript", "manuscript.md")):
+        toc.append("  - file: manuscript/manuscript")
+    toc.append("  - file: studies/index")
     open(os.path.join(BOOK, "studies", "index.md"), "w", encoding="utf-8").write(
         "# Studies\n\n" + "\n".join(f"- [{acc}](./{acc}.md) — {studies.get(acc, {}).get('title', '')[:80]}"
                                     for acc in by_study) + "\n")

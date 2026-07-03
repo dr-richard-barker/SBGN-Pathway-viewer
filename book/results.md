@@ -1,6 +1,6 @@
 # Results
 
-Projection across **2 studies** and **14 pathways**.
+Projection across **14 studies** and **14 pathways**.
 
 ## Pathway activity heatmap
 
@@ -12,4 +12,16 @@ Projection across **2 studies** and **14 pathways**.
 | Study | Top pathway (most significant genes) | sig genes |
 | --- | --- | --- |
 | OSD-120 | Plant hormone signal transduction | 9 |
+| OSD-193 | Plant hormone signal transduction | 17 |
+| OSD-208 | Plant hormone signal transduction | 178 |
+| OSD-217 | Plant hormone signal transduction | 189 |
 | OSD-218 | Phenylpropanoid biosynthesis | 16 |
+| OSD-251 | Plant hormone signal transduction | 5 |
+| OSD-281 | Plant hormone signal transduction | 37 |
+| OSD-313 | Plant hormone signal transduction | 73 |
+| OSD-314 | Plant hormone signal transduction | 68 |
+| OSD-321 | Plant hormone signal transduction | 103 |
+| OSD-37 | Plant hormone signal transduction | 14 |
+| OSD-38 | Starch and sucrose metabolism | 28 |
+| OSD-406 | Plant hormone signal transduction | 13 |
+| OSD-437 | Plant hormone signal transduction | 84 |

@@ -30,8 +30,28 @@ ID_PREFERENCE = {"ath": ["TAIR", "ENTREZID", "ENSEMBL"]}
 DEFAULT_ID_ORDER = ["ENTREZID", "TAIR", "ENSEMBL", "SYMBOL"]
 
 
+def _sides(contrast):
+    """Split '(A & x & y)v(B & x & y)' into two factor-sets."""
+    m = re.match(r"\((.*)\)v\((.*)\)", contrast)
+    if not m:
+        return None, None
+    return ({t.strip() for t in m.group(1).split("&")},
+            {t.strip() for t in m.group(2).split("&")})
+
+
 def pick_primary_contrast(contrasts):
-    """A ground-control vs space-flight contrast if present, else the first."""
+    """Prefer a CLEAN flight contrast — two sides identical except one is Ground
+    Control and the other Space Flight — then any GC-vs-FLT, then the first."""
+    clean = []
+    for c in contrasts:
+        a, b = _sides(c)
+        if a is None:
+            continue
+        diff = a ^ b
+        if diff == {"Ground Control", "Space Flight"}:
+            clean.append(c)
+    if clean:
+        return clean[0]
     for c in contrasts:
         cl = c.lower()
         if "ground control" in cl and "space flight" in cl:
@@ -135,14 +155,25 @@ def main():
             summary.append((acc, f"error: {e}"))
             print(f"{acc}: ERROR {e}", file=sys.stderr)
 
-    # Write outputs.
-    if matrix_rows:
-        os.makedirs(os.path.dirname(MATRIX), exist_ok=True)
-        with open(MATRIX, "w", newline="", encoding="utf-8") as f:
-            w = csv.DictWriter(f, fieldnames=list(matrix_rows[0].keys()))
-            w.writeheader(); w.writerows(matrix_rows)
     manifest["datasets"] = sorted(by_file.values(), key=lambda d: d["osd"])
     json.dump(manifest, open(MANIFEST, "w", encoding="utf-8"), indent=2)
+
+    # Rebuild the FULL matrix from every curated slim file so batched runs are
+    # cumulative (cheap: slims persist, KGML is cached). This is the source of truth.
+    all_rows = []
+    for d in manifest["datasets"]:
+        slim_path = os.path.join(SLIM_DIR, d["file"])
+        if not os.path.exists(slim_path) or not d.get("keggOrg"):
+            continue
+        for st in project(slim_path, d["keggOrg"]):
+            all_rows.append({"accession": d["osd"], "organism": d.get("organism", ""),
+                             "contrast": d.get("contrast", ""), **st})
+    if all_rows:
+        os.makedirs(os.path.dirname(MATRIX), exist_ok=True)
+        with open(MATRIX, "w", newline="", encoding="utf-8") as f:
+            w = csv.DictWriter(f, fieldnames=list(all_rows[0].keys()))
+            w.writeheader(); w.writerows(all_rows)
+    matrix_rows = all_rows
 
     print("\n=== summary ===")
     for acc, msg in summary:

@@ -3,7 +3,20 @@ root: intro
 chapters:
   - file: methods
   - file: results
+  - file: manuscript/manuscript
   - file: studies/index
     sections:
       - file: studies/OSD-120
+      - file: studies/OSD-193
+      - file: studies/OSD-208
+      - file: studies/OSD-217
       - file: studies/OSD-218
+      - file: studies/OSD-251
+      - file: studies/OSD-281
+      - file: studies/OSD-313
+      - file: studies/OSD-314
+      - file: studies/OSD-321
+      - file: studies/OSD-37
+      - file: studies/OSD-38
+      - file: studies/OSD-406
+      - file: studies/OSD-437
