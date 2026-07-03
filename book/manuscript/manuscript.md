@@ -164,10 +164,25 @@ as the Virtual Root auxin-transport simulator.
 
 ## References
 
-*(To format per GSR style once confirmed.)*
+*(Numbered style; format per final GSR guidelines. Details verified where possible;
+those marked † should be confirmed against the primary source before submission.)*
 
-1. Ray S., *et al.* GeneLab / OSDR: NASA's Open Science Data Repository. *Nucleic Acids Res.*
-2. Kanehisa M., Goto S. KEGG: Kyoto Encyclopedia of Genes and Genomes. *Nucleic Acids Res.* 2000.
-3. Le Novère N., *et al.* The Systems Biology Graphical Notation. *Nat. Biotechnol.* 2009.
-4. Paul A.-L., Ferl R.J., *et al.* Spaceflight transcriptomes of *Arabidopsis* (CARA; OSD-120).
-5. Barker R., *et al.* Meta-analysis of the plant spaceflight response. *(add key refs.)*
+1. Berrios DC, Galazka J, Grigorev K, Gebre S, Costes SV. NASA GeneLab: interfaces for
+   the exploration of space omics data. *Nucleic Acids Res.* 2021;49(D1):D1515–D1522.
+2. Scott RT, Sanders LM, Antonsen EL, *et al.* Advancing the integration of biosciences
+   data sharing to further enable space exploration. *(NASA OSDR)*. †
+3. NASA Open Science Data Repository: open science for life in space.
+   *Nucleic Acids Res.* 2025;53(D1):D1697–D1710.
+4. Kanehisa M, Goto S. KEGG: Kyoto Encyclopedia of Genes and Genomes.
+   *Nucleic Acids Res.* 2000;28(1):27–30.
+5. Le Novère N, Hucka M, Mi H, *et al.* The Systems Biology Graphical Notation.
+   *Nat. Biotechnol.* 2009;27(8):735–741.
+6. Milacic M, *et al.* The Reactome Pathway Knowledgebase 2024. *Nucleic Acids Res.* 2024. †
+7. Naithani S, *et al.* Plant Reactome: a resource for comparative pathway analysis.
+   *Nucleic Acids Res.* †
+8. Paul A-L, Sng NJ, Zupanska AK, *et al.* Genetic dissection of the *Arabidopsis*
+   spaceflight transcriptome (CARA experiment; NASA OSD-120). †
+9. Vandenbrink JP, Kiss JZ. Space, the final frontier: A critical review of recent
+   experiments performed in microgravity. *Plant Sci.* 2016. †
+10. Barker R, *et al.* Meta-analysis / multi-study synthesis of the plant spaceflight
+    response. †
