@@ -32,6 +32,31 @@ async function loadBundledSpecies(file: string): Promise<Species[]> {
   return Array.isArray(data) ? data : [];
 }
 
+/**
+ * Map an organism name (e.g. from a Plant Reactome species) to its KEGG organism
+ * code (e.g. "Arabidopsis thaliana" → "ath"), so we can offer a "render in KEGG"
+ * shortcut for sources that can't be rendered directly. Returns null if none.
+ */
+let _keggSpeciesCache: Species[] | null = null;
+export async function keggOrgForOrganism(organismName: string): Promise<string | null> {
+  if (!_keggSpeciesCache) {
+    try { _keggSpeciesCache = await loadBundledSpecies('kegg'); }
+    catch { _keggSpeciesCache = []; }
+  }
+  const n = organismName.trim().toLowerCase();
+  if (!n) return null;
+  // KEGG display names carry the binomial first, e.g. "Arabidopsis thaliana (thale cress)".
+  const hit =
+    _keggSpeciesCache.find((k) => k.displayName.toLowerCase().startsWith(n)) ||
+    _keggSpeciesCache.find((k) => k.displayName.toLowerCase().includes(n)) ||
+    // fall back to matching just the genus + species (first two words)
+    (() => {
+      const binomial = n.split(/\s+/).slice(0, 2).join(' ');
+      return _keggSpeciesCache!.find((k) => k.displayName.toLowerCase().startsWith(binomial));
+    })();
+  return hit ? hit.id : null;
+}
+
 
 async function fetchReactomeSpecies(): Promise<Species[]> {
     try {

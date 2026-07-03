@@ -2,7 +2,7 @@
 import React, { useState, useCallback, useEffect, useMemo } from 'react';
 import { type VisualizationConfig, type DataType, type Species, type Pathway, type CompoundDataType, type PathwayDatabase, type KeggRenderMode } from '../types';
 import { UploadIcon } from './icons/UploadIcon';
-import { fetchSpecies, fetchPathways, mapGenesToPathways, mapGenesToPathwaysKegg } from '../services/pathwayService';
+import { fetchSpecies, fetchPathways, mapGenesToPathways, mapGenesToPathwaysKegg, keggOrgForOrganism } from '../services/pathwayService';
 import { parseGeneIds } from '../services/dataProcessor';
 import { SAMPLE_GENE_CSV, SAMPLE_COMPOUND_CSV } from '../services/sampleData';
 import { OsdrPanel, type OsdrImportPayload } from './OsdrPanel';
@@ -350,6 +350,34 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
                   </select>
                   {speciesError && <p className="mt-1 text-xs text-red-400">{speciesError}</p>}
                 </div>
+
+                {config.pathwayDatabase === 'Plant Reactome' && config.speciesId && (
+                  <div>
+                    <button
+                      type="button"
+                      onClick={async () => {
+                        const name = speciesList.find(s => s.id === config.speciesId)?.displayName || '';
+                        setSpeciesError(null);
+                        const org = await keggOrgForOrganism(name);
+                        if (org) {
+                          setSpeciesSearch('');
+                          setPathwaySearch('');
+                          setConfig(prev => ({ ...prev, pathwayDatabase: 'KEGG', speciesId: org, pathwayId: '' }));
+                        } else {
+                          setSpeciesError(`No matching KEGG organism found for "${name}".`);
+                        }
+                      }}
+                      className="w-full py-2 px-3 text-sm font-medium rounded-md bg-emerald-800/50 border border-emerald-700 text-emerald-100 hover:bg-emerald-700/60 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-emerald-500 transition-colors"
+                      title="Plant Reactome has no SBGN export, so it can't render here — switch to KEGG for the same organism, which renders with your data overlaid."
+                    >
+                      🧬 Render this organism in KEGG instead
+                    </button>
+                    <p className="mt-1 text-xs text-gray-500">
+                      Plant Reactome is for browsing; KEGG renders the same organism with your data.
+                    </p>
+                  </div>
+                )}
+
                 <div>
                     <label htmlFor="pathway-search" className="block text-sm font-medium text-gray-300">Pathway</label>
                     <input
