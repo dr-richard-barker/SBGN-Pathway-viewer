@@ -57,8 +57,10 @@ jobs:
       - name: Build Jupyter Book
         run: |
           python -m pip install --upgrade pip
-          pip install jupyter-book
+          # Pin to Jupyter Book v1 (Sphinx-based); v2 is a different MyST CLI.
+          pip install "jupyter-book>=1,<2"
           jupyter-book build book
+          test -f book/_build/html/index.html
 
       # 4) Assemble: app under /app, atlas under /book
       - name: Add app and atlas to site
