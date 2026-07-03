@@ -27,6 +27,8 @@ def md_table(headers, rows):
 def main():
     matrix = load_csv(os.path.join(DATA, "pathway_projection_matrix.csv"))
     studies = {s["accession"]: s for s in load_csv(os.path.join(DATA, "plant_rnaseq_studies.csv"))}
+    panels_index = json.load(open(os.path.join(DATA, "panels_index.json"), encoding="utf-8")) \
+        if os.path.exists(os.path.join(DATA, "panels_index.json")) else {}
     manifest = json.load(open(os.path.join(ROOT, "public", "osdr", "manifest.json"), encoding="utf-8")) \
         if os.path.exists(os.path.join(ROOT, "public", "osdr", "manifest.json")) else {"datasets": []}
     man_by_osd = {d["osd"]: d for d in manifest.get("datasets", [])}
@@ -60,29 +62,60 @@ def main():
             ),
             "",
         ]
+        # Static "panel figures" — data projected onto the KEGG map + significant-loci
+        # heatmap — for each significantly perturbed pathway (no interactive viewer needed).
+        panels = panels_index.get(acc, [])
+        if panels:
+            lines += [
+                "## Static pathway projections",
+                "",
+                "Each panel: the study's data projected onto the KEGG pathway (left; red = up, "
+                "blue = down) beside a heatmap of that pathway's significant loci (right, log2FC).",
+                "",
+            ]
+            for p in panels:
+                lines += [
+                    f"### {p['pid']} — {p['name']}  ·  {p['n_sig']} significant genes",
+                    "",
+                    f"![{acc} {p['name']}](../_static/panels/{p['png']})",
+                    "",
+                ]
         open(os.path.join(BOOK, "studies", f"{acc}.md"), "w", encoding="utf-8").write("\n".join(lines))
 
-    # Cross-study results page (+ optional heatmap)
-    pathways = list(dict.fromkeys((r["kegg_pathway"], r["pathway_name"]) for r in matrix))
+    # Cross-study results page (+ optional heatmap).
+    # Orientation: studies as ROWS (readable horizontal labels), pathways as COLUMNS
+    # (vertical 90° labels) — much easier to read than the previous layout. Pathways
+    # ordered by how many studies perturb them (most-conserved first).
+    order = sorted(
+        dict.fromkeys((r["kegg_pathway"], r["pathway_name"]) for r in matrix),
+        key=lambda p: -sum(1 for r in matrix if r["kegg_pathway"] == p[0] and int(r["n_sig"]) >= 3),
+    )
+    pathways = order
     heatmap_md = ""
     try:
         import matplotlib
         matplotlib.use("Agg")
         import matplotlib.pyplot as plt
-        accs = list(by_study.keys())
-        pmap = {p[0]: i for i, p in enumerate(pathways)}
-        grid = [[float("nan")] * len(accs) for _ in pathways]
-        for j, acc in enumerate(accs):
+        accs = sorted(by_study.keys())
+        pcol = {p[0]: j for j, p in enumerate(pathways)}
+        grid = [[float("nan")] * len(pathways) for _ in accs]        # rows=studies, cols=pathways
+        for i, acc in enumerate(accs):
             for r in by_study[acc]:
-                grid[pmap[r["kegg_pathway"]]][j] = float(r["mean_abs_log2fc"])
-        fig, ax = plt.subplots(figsize=(max(4, 1.2 * len(accs) + 3), 0.4 * len(pathways) + 2))
-        im = ax.imshow(grid, aspect="auto", cmap="viridis")
-        ax.set_xticks(range(len(accs))); ax.set_xticklabels(accs, rotation=45, ha="right", fontsize=8)
-        ax.set_yticks(range(len(pathways))); ax.set_yticklabels([p[1] for p in pathways], fontsize=8)
-        fig.colorbar(im, ax=ax, label="mean |log2FC|")
+                grid[i][pcol[r["kegg_pathway"]]] = float(r["mean_abs_log2fc"])
+        fig, ax = plt.subplots(figsize=(0.62 * len(pathways) + 3.5, 0.34 * len(accs) + 2.2))
+        im = ax.imshow(grid, aspect="auto", cmap="magma")
+        ax.set_xticks(range(len(pathways)))
+        ax.set_xticklabels([p[1] for p in pathways], rotation=90, fontsize=8)
+        ax.set_yticks(range(len(accs))); ax.set_yticklabels(accs, fontsize=8)
+        ax.set_xticks([x - 0.5 for x in range(1, len(pathways))], minor=True)
+        ax.set_yticks([y - 0.5 for y in range(1, len(accs))], minor=True)
+        ax.grid(which="minor", color="white", linewidth=0.5)
+        ax.tick_params(which="minor", length=0)
+        fig.colorbar(im, ax=ax, label="mean |log2FC|", fraction=0.025, pad=0.02)
+        ax.set_title("Pathway perturbation across OSDR plant spaceflight studies", fontsize=10)
         fig.tight_layout()
         os.makedirs(os.path.join(BOOK, "_static"), exist_ok=True)
-        fig.savefig(os.path.join(BOOK, "_static", "pathway_heatmap.png"), dpi=140)
+        fig.savefig(os.path.join(BOOK, "_static", "pathway_heatmap.png"), dpi=150, bbox_inches="tight")
         plt.close(fig)
         heatmap_md = "![Pathway × study heatmap](_static/pathway_heatmap.png)\n"
     except Exception as e:  # noqa

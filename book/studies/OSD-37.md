@@ -25,3 +25,31 @@
 | ath04712 | Circadian rhythm - plant | 43 | 43 | 100.0 | 0 | 2 | 2 | 0.321 |
 | ath00480 | Glutathione metabolism | 122 | 99 | 81.1 | 1 | 6 | 4 | 0.4 |
 | ath00360 | Phenylalanine metabolism | 91 | 31 | 34.1 | 0 | 1 | 0 | 0.238 |
+
+## Static pathway projections
+
+Each panel: the study's data projected onto the KEGG pathway (left; red = up, blue = down) beside a heatmap of that pathway's significant loci (right, log2FC).
+
+### ath04075 — Plant hormone signal transduction  ·  14 significant genes
+
+![OSD-37 Plant hormone signal transduction](../_static/panels/OSD-37_ath04075.png)
+
+### ath04626 — Plant-pathogen interaction  ·  11 significant genes
+
+![OSD-37 Plant-pathogen interaction](../_static/panels/OSD-37_ath04626.png)
+
+### ath00500 — Starch and sucrose metabolism  ·  9 significant genes
+
+![OSD-37 Starch and sucrose metabolism](../_static/panels/OSD-37_ath00500.png)
+
+### ath00940 — Phenylpropanoid biosynthesis  ·  8 significant genes
+
+![OSD-37 Phenylpropanoid biosynthesis](../_static/panels/OSD-37_ath00940.png)
+
+### ath00480 — Glutathione metabolism  ·  4 significant genes
+
+![OSD-37 Glutathione metabolism](../_static/panels/OSD-37_ath00480.png)
+
+### ath00592 — alpha-Linolenic acid (jasmonate) metabolism  ·  3 significant genes
+
+![OSD-37 alpha-Linolenic acid (jasmonate) metabolism](../_static/panels/OSD-37_ath00592.png)
