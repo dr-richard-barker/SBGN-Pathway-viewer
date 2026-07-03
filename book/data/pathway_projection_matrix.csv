@@ -139,6 +139,20 @@ OSD-321,Arabidopsis thaliana,(Ground Control & bzip28-2 bzip60-1)v(Space Flight 
 OSD-321,Arabidopsis thaliana,(Ground Control & bzip28-2 bzip60-1)v(Space Flight & bzip28-2 bzip60-1),ath04712,Circadian rhythm - plant,43,41,95.3,3,3,6,0.641
 OSD-321,Arabidopsis thaliana,(Ground Control & bzip28-2 bzip60-1)v(Space Flight & bzip28-2 bzip60-1),ath00480,Glutathione metabolism,122,99,81.1,13,6,18,0.763
 OSD-321,Arabidopsis thaliana,(Ground Control & bzip28-2 bzip60-1)v(Space Flight & bzip28-2 bzip60-1),ath00360,Phenylalanine metabolism,91,32,35.2,6,4,9,0.765
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00010,Glycolysis / Gluconeogenesis,161,116,72.0,8,6,0,0.503
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00195,Photosynthesis,85,45,52.9,26,0,0,1.011
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00196,Photosynthesis - antenna proteins,52,22,42.3,6,1,0,0.893
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00710,Carbon fixation (Calvin cycle),72,70,97.2,16,2,0,0.625
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00500,Starch and sucrose metabolism,237,156,65.8,16,14,1,0.57
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00940,Phenylpropanoid biosynthesis,144,119,82.6,12,5,0,0.611
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00941,Flavonoid biosynthesis,39,20,51.3,1,1,0,0.52
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00592,alpha-Linolenic acid (jasmonate) metabolism,48,41,85.4,3,5,0,0.608
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00908,Zeatin biosynthesis,35,27,77.1,3,5,0,0.705
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath04075,Plant hormone signal transduction,434,381,87.8,26,29,0,0.541
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath04626,Plant-pathogen interaction,258,193,74.8,6,6,1,0.423
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath04712,Circadian rhythm - plant,43,43,100.0,3,3,0,0.505
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00480,Glutathione metabolism,122,96,78.7,8,4,1,0.561
+OSD-346,Arabidopsis thaliana,(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2),ath00360,Phenylalanine metabolism,91,30,33.0,0,1,0,0.425
 OSD-37,Arabidopsis thaliana,(Ground Control & Col-0)v(Space Flight & Col-0),ath00010,Glycolysis / Gluconeogenesis,161,117,72.7,1,4,2,0.253
 OSD-37,Arabidopsis thaliana,(Ground Control & Col-0)v(Space Flight & Col-0),ath00195,Photosynthesis,85,46,54.1,0,1,0,0.228
 OSD-37,Arabidopsis thaliana,(Ground Control & Col-0)v(Space Flight & Col-0),ath00196,Photosynthesis - antenna proteins,52,21,40.4,0,0,0,0.217
@@ -181,6 +195,20 @@ OSD-406,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Virgin Galact
 OSD-406,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Virgin Galactic SpaceShipTwo)v(Col-0 & Wild Type & Suborbital Flight & Virgin Galactic SpaceShipTwo),ath04712,Circadian rhythm - plant,43,42,97.7,2,2,0,0.439
 OSD-406,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Virgin Galactic SpaceShipTwo)v(Col-0 & Wild Type & Suborbital Flight & Virgin Galactic SpaceShipTwo),ath00480,Glutathione metabolism,122,100,82.0,5,0,0,0.306
 OSD-406,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Virgin Galactic SpaceShipTwo)v(Col-0 & Wild Type & Suborbital Flight & Virgin Galactic SpaceShipTwo),ath00360,Phenylalanine metabolism,91,32,35.2,3,0,0,0.347
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00010,Glycolysis / Gluconeogenesis,161,113,70.2,0,1,0,0.15
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00195,Photosynthesis,85,45,52.9,0,1,1,0.114
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00196,Photosynthesis - antenna proteins,52,21,40.4,0,0,0,0.1
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00710,Carbon fixation (Calvin cycle),72,69,95.8,0,0,0,0.142
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00500,Starch and sucrose metabolism,237,154,65.0,1,5,1,0.246
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00940,Phenylpropanoid biosynthesis,144,117,81.2,2,15,5,0.509
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00941,Flavonoid biosynthesis,39,20,51.3,0,2,0,0.378
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00592,alpha-Linolenic acid (jasmonate) metabolism,48,43,89.6,0,0,0,0.146
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00908,Zeatin biosynthesis,35,27,77.1,1,2,0,0.347
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath04075,Plant hormone signal transduction,434,372,85.7,4,8,1,0.225
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath04626,Plant-pathogen interaction,258,189,73.3,4,4,1,0.227
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath04712,Circadian rhythm - plant,43,43,100.0,0,0,0,0.153
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00480,Glutathione metabolism,122,98,80.3,0,5,0,0.268
+OSD-427,Arabidopsis thaliana,(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf),ath00360,Phenylalanine metabolism,91,31,34.1,1,1,1,0.276
 OSD-437,Arabidopsis thaliana,(4 day & 1G by centrifugation & Space Flight)v(6 day & 1G on Earth & Ground Control),ath00010,Glycolysis / Gluconeogenesis,161,113,70.2,10,3,10,0.494
 OSD-437,Arabidopsis thaliana,(4 day & 1G by centrifugation & Space Flight)v(6 day & 1G on Earth & Ground Control),ath00195,Photosynthesis,85,45,52.9,9,1,10,0.661
 OSD-437,Arabidopsis thaliana,(4 day & 1G by centrifugation & Space Flight)v(6 day & 1G on Earth & Ground Control),ath00196,Photosynthesis - antenna proteins,52,22,42.3,2,0,2,0.736
@@ -237,6 +265,34 @@ OSD-502,Arabidopsis thaliana,(myb3r135 & Cobalt-60 gamma radiation)v(myb3r135 & 
 OSD-502,Arabidopsis thaliana,(myb3r135 & Cobalt-60 gamma radiation)v(myb3r135 & non-irradiated),ath04712,Circadian rhythm - plant,43,42,97.7,0,0,0,0.273
 OSD-502,Arabidopsis thaliana,(myb3r135 & Cobalt-60 gamma radiation)v(myb3r135 & non-irradiated),ath00480,Glutathione metabolism,122,93,76.2,11,4,9,0.568
 OSD-502,Arabidopsis thaliana,(myb3r135 & Cobalt-60 gamma radiation)v(myb3r135 & non-irradiated),ath00360,Phenylalanine metabolism,91,30,33.0,1,1,2,0.389
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00010,Glycolysis / Gluconeogenesis,161,114,70.8,2,7,6,0.445
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00195,Photosynthesis,85,45,52.9,0,2,1,0.409
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00196,Photosynthesis - antenna proteins,52,22,42.3,0,0,0,0.29
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00710,Carbon fixation (Calvin cycle),72,69,95.8,1,1,1,0.324
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00500,Starch and sucrose metabolism,237,155,65.4,13,14,15,0.609
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00940,Phenylpropanoid biosynthesis,144,117,81.2,11,20,19,0.757
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00941,Flavonoid biosynthesis,39,20,51.3,2,2,2,0.743
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00592,alpha-Linolenic acid (jasmonate) metabolism,48,43,89.6,4,3,3,0.641
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00908,Zeatin biosynthesis,35,28,80.0,4,3,0,0.669
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath04075,Plant hormone signal transduction,434,375,86.4,25,42,23,0.609
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath04626,Plant-pathogen interaction,258,192,74.4,17,21,23,0.679
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath04712,Circadian rhythm - plant,43,43,100.0,1,4,2,0.53
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00480,Glutathione metabolism,122,97,79.5,4,8,6,0.572
+OSD-508,Arabidopsis thaliana,(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute),ath00360,Phenylalanine metabolism,91,30,33.0,0,4,4,0.692
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00010,Glycolysis / Gluconeogenesis,161,114,70.8,2,1,1,0.312
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00195,Photosynthesis,85,45,52.9,0,2,1,0.485
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00196,Photosynthesis - antenna proteins,52,21,40.4,1,1,2,0.471
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00710,Carbon fixation (Calvin cycle),72,69,95.8,2,0,0,0.427
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00500,Starch and sucrose metabolism,237,153,64.6,16,4,8,0.52
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00940,Phenylpropanoid biosynthesis,144,116,80.6,13,6,6,0.623
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00941,Flavonoid biosynthesis,39,19,48.7,0,0,0,0.278
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00592,alpha-Linolenic acid (jasmonate) metabolism,48,43,89.6,2,3,3,0.448
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00908,Zeatin biosynthesis,35,28,80.0,4,5,1,0.768
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath04075,Plant hormone signal transduction,434,369,85.0,28,9,12,0.456
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath04626,Plant-pathogen interaction,258,191,74.0,26,7,18,0.649
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath04712,Circadian rhythm - plant,43,43,100.0,0,3,0,0.297
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00480,Glutathione metabolism,122,95,77.9,17,5,11,0.685
+OSD-510,Arabidopsis thaliana,(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type),ath00360,Phenylalanine metabolism,91,30,33.0,2,0,0,0.529
 OSD-518,Arabidopsis thaliana,(lazy1 mutant & 45 minutes after 90 degree gravistimulation)v(lazy1 mutant & not gravistimulated),ath00010,Glycolysis / Gluconeogenesis,161,115,71.4,3,2,2,0.356
 OSD-518,Arabidopsis thaliana,(lazy1 mutant & 45 minutes after 90 degree gravistimulation)v(lazy1 mutant & not gravistimulated),ath00195,Photosynthesis,85,45,52.9,1,0,0,0.328
 OSD-518,Arabidopsis thaliana,(lazy1 mutant & 45 minutes after 90 degree gravistimulation)v(lazy1 mutant & not gravistimulated),ath00196,Photosynthesis - antenna proteins,52,22,42.3,0,3,3,0.454
@@ -251,6 +307,34 @@ OSD-518,Arabidopsis thaliana,(lazy1 mutant & 45 minutes after 90 degree gravisti
 OSD-518,Arabidopsis thaliana,(lazy1 mutant & 45 minutes after 90 degree gravistimulation)v(lazy1 mutant & not gravistimulated),ath04712,Circadian rhythm - plant,43,42,97.7,1,4,4,0.459
 OSD-518,Arabidopsis thaliana,(lazy1 mutant & 45 minutes after 90 degree gravistimulation)v(lazy1 mutant & not gravistimulated),ath00480,Glutathione metabolism,122,87,71.3,13,2,7,0.625
 OSD-518,Arabidopsis thaliana,(lazy1 mutant & 45 minutes after 90 degree gravistimulation)v(lazy1 mutant & not gravistimulated),ath00360,Phenylalanine metabolism,91,26,28.6,1,2,1,0.379
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00010,Glycolysis / Gluconeogenesis,161,113,70.2,4,0,0,0.284
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00195,Photosynthesis,85,43,50.6,1,1,0,0.398
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00196,Photosynthesis - antenna proteins,52,18,34.6,0,2,0,0.52
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00710,Carbon fixation (Calvin cycle),72,66,91.7,3,0,0,0.298
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00500,Starch and sucrose metabolism,237,155,65.4,11,5,1,0.448
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00940,Phenylpropanoid biosynthesis,144,111,77.1,24,12,9,0.943
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00941,Flavonoid biosynthesis,39,18,46.2,6,0,5,0.693
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00592,alpha-Linolenic acid (jasmonate) metabolism,48,39,81.2,3,1,1,0.434
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00908,Zeatin biosynthesis,35,22,62.9,0,2,1,0.473
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath04075,Plant hormone signal transduction,434,343,79.0,19,9,6,0.39
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath04626,Plant-pathogen interaction,258,188,72.9,15,7,7,0.487
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath04712,Circadian rhythm - plant,43,41,95.3,1,2,1,0.372
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00480,Glutathione metabolism,122,96,78.7,4,4,3,0.408
+OSD-519,Arabidopsis thaliana,(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour),ath00360,Phenylalanine metabolism,91,31,34.1,2,1,1,0.464
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00010,Glycolysis / Gluconeogenesis,161,117,72.7,5,3,1,0.361
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00195,Photosynthesis,85,45,52.9,1,0,1,0.168
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00196,Photosynthesis - antenna proteins,52,21,40.4,0,0,0,0.159
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00710,Carbon fixation (Calvin cycle),72,70,97.2,0,2,0,0.228
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00500,Starch and sucrose metabolism,237,161,67.9,26,4,10,0.788
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00940,Phenylpropanoid biosynthesis,144,126,87.5,35,5,16,1.346
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00941,Flavonoid biosynthesis,39,22,56.4,4,1,2,0.884
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00592,alpha-Linolenic acid (jasmonate) metabolism,48,44,91.7,4,1,0,0.474
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00908,Zeatin biosynthesis,35,28,80.0,4,2,2,0.909
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath04075,Plant hormone signal transduction,434,389,89.6,32,24,8,0.559
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath04626,Plant-pathogen interaction,258,199,77.1,28,7,17,0.774
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath04712,Circadian rhythm - plant,43,42,97.7,2,0,2,0.381
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00480,Glutathione metabolism,122,101,82.8,17,3,9,0.797
+OSD-565,Arabidopsis thaliana,(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable),ath00360,Phenylalanine metabolism,91,32,35.2,4,1,4,1.055
 OSD-658,Arabidopsis thaliana,(mixed radiation & 40 centigray)v(mixed radiation & 80 centigray),ath00010,Glycolysis / Gluconeogenesis,161,115,71.4,2,0,0,0.135
 OSD-658,Arabidopsis thaliana,(mixed radiation & 40 centigray)v(mixed radiation & 80 centigray),ath00195,Photosynthesis,85,45,52.9,0,0,0,0.163
 OSD-658,Arabidopsis thaliana,(mixed radiation & 40 centigray)v(mixed radiation & 80 centigray),ath00196,Photosynthesis - antenna proteins,52,21,40.4,1,0,0,0.226
@@ -265,3 +349,31 @@ OSD-658,Arabidopsis thaliana,(mixed radiation & 40 centigray)v(mixed radiation &
 OSD-658,Arabidopsis thaliana,(mixed radiation & 40 centigray)v(mixed radiation & 80 centigray),ath04712,Circadian rhythm - plant,43,41,95.3,0,0,0,0.148
 OSD-658,Arabidopsis thaliana,(mixed radiation & 40 centigray)v(mixed radiation & 80 centigray),ath00480,Glutathione metabolism,122,96,78.7,4,3,0,0.258
 OSD-658,Arabidopsis thaliana,(mixed radiation & 40 centigray)v(mixed radiation & 80 centigray),ath00360,Phenylalanine metabolism,91,30,33.0,0,1,0,0.144
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00010,Glycolysis / Gluconeogenesis,161,115,71.4,7,12,12,0.714
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00195,Photosynthesis,85,44,51.8,1,26,25,1.507
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00196,Photosynthesis - antenna proteins,52,19,36.5,1,15,15,3.038
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00710,Carbon fixation (Calvin cycle),72,70,97.2,5,15,15,0.899
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00500,Starch and sucrose metabolism,237,152,64.1,23,11,11,0.902
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00940,Phenylpropanoid biosynthesis,144,115,79.9,43,6,10,1.544
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00941,Flavonoid biosynthesis,39,20,51.3,4,1,0,0.639
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00592,alpha-Linolenic acid (jasmonate) metabolism,48,43,89.6,5,7,6,1.048
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00908,Zeatin biosynthesis,35,28,80.0,7,2,2,1.373
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath04075,Plant hormone signal transduction,434,379,87.3,43,23,22,0.872
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath04626,Plant-pathogen interaction,258,187,72.5,26,8,8,0.914
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath04712,Circadian rhythm - plant,43,43,100.0,2,4,4,0.492
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00480,Glutathione metabolism,122,99,81.1,17,5,7,0.92
+OSD-678,Arabidopsis thaliana,(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment),ath00360,Phenylalanine metabolism,91,30,33.0,3,5,4,0.801
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00010,Glycolysis / Gluconeogenesis,161,115,71.4,5,4,5,0.415
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00195,Photosynthesis,85,45,52.9,0,0,0,0.303
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00196,Photosynthesis - antenna proteins,52,21,40.4,1,0,1,0.496
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00710,Carbon fixation (Calvin cycle),72,69,95.8,4,1,4,0.345
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00500,Starch and sucrose metabolism,237,157,66.2,8,25,23,0.697
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00940,Phenylpropanoid biosynthesis,144,108,75.0,7,22,12,0.8
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00941,Flavonoid biosynthesis,39,21,53.8,1,8,6,1.033
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00592,alpha-Linolenic acid (jasmonate) metabolism,48,45,93.8,4,2,4,0.641
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00908,Zeatin biosynthesis,35,29,82.9,7,3,7,0.75
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath04075,Plant hormone signal transduction,434,373,85.9,29,34,40,0.61
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath04626,Plant-pathogen interaction,258,189,73.3,27,11,29,0.639
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath04712,Circadian rhythm - plant,43,42,97.7,3,5,6,0.611
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00480,Glutathione metabolism,122,96,78.7,3,14,6,0.641
+OSD-782,Arabidopsis thaliana,(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour),ath00360,Phenylalanine metabolism,91,31,34.1,3,3,4,0.568

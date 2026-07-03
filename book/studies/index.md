@@ -10,12 +10,20 @@
 - [OSD-313](./OSD-313.md) — Dissecting transcriptional responses of nucleolin mutants to red light stimulati
 - [OSD-314](./OSD-314.md) — Adaptive response of Arabidopsis seedlings in microgravity and Mars reduced grav
 - [OSD-321](./OSD-321.md) — Relevance of Unfolded Protein Response to Spaceflight-Induced Transcriptional Re
+- [OSD-346](./OSD-346.md) — RNAseq analysis of the response of Arabidopsis thaliana phytochrome mutants (Phy
 - [OSD-37](./OSD-37.md) — Comparison of the spaceflight transcriptome of four commonly used Arabidopsis th
 - [OSD-38](./OSD-38.md) — Proteomics and Transcriptomics analysis of Arabidopsis Seedlings in Microgravity
 - [OSD-406](./OSD-406.md) — Transcriptomic responses of Arabidopsis thaliana lines WS and sku5 to the Blue O
+- [OSD-427](./OSD-427.md) — Characterizing Epigenetic Changes in Methylation Mutants (elp2-5 and met1-7) in 
 - [OSD-437](./OSD-437.md) — Transcriptional and Post transcriptional Regulation of Seedling Development in M
 - [OSD-476](./OSD-476.md) — Plants grown in Apollo lunar regolith present stress-associated transcriptomes t
 - [OSD-498](./OSD-498.md) — The SOG1 transcriptional activator and the MYB3R family of repressors control a 
 - [OSD-502](./OSD-502.md) — The SOG1 transcriptional activator and the MYB3R family of repressors control a 
+- [OSD-508](./OSD-508.md) — The SOG1 transcriptional activator and the MYB3R family of repressors control a 
+- [OSD-510](./OSD-510.md) — The SOG1 transcriptional activator and the MYB3R family of repressors control a 
 - [OSD-518](./OSD-518.md) — Opposing influences of TAC1 and LAZY1 on Lateral Shoot Orientation in Arabidopsi
+- [OSD-519](./OSD-519.md) — PUCHI represses early meristem formation in developing lateral roots of Arabidop
+- [OSD-565](./OSD-565.md) — Utilizing the KSC Fixation Tube to Conduct Human-Tended Plant Biology Experiment
 - [OSD-658](./OSD-658.md) — Simulated Galactic Cosmic Ray Exposure Activates Dose-Dependent DNA Repair Respo
+- [OSD-678](./OSD-678.md) — Light has a principal role in the Arabidopsis transcriptomic response to the spa
+- [OSD-782](./OSD-782.md) — Multi-omics profiling reveals ethylene signalling as a key pathway underlying bo

@@ -24,12 +24,12 @@ seldom reproducible end-to-end. We present an open, FAIR pipeline and interactiv
 tool that discover every plant RNA-seq study in OSDR, extract each study's
 differential expression for a primary spaceflight contrast, and project it onto
 KEGG pathway maps, yielding a cross-study, pathway-level atlas. Applied to a
-set of 19 *Arabidopsis thaliana* studies, the atlas reveals a conserved
+set of 27 *Arabidopsis thaliana* studies, the atlas reveals a conserved
 pathway response: **plant hormone signal transduction** is the most perturbed
-pathway in 14 of 19 studies and significantly perturbed in 18 of 19, accompanied
-by consistent changes in plant–pathogen interaction, starch/sucrose metabolism,
-phenylpropanoid biosynthesis, glutathione (oxidative-stress) metabolism and the
-plant circadian clock (each perturbed in 12–16 of 19 studies). All maps are
+pathway in 16 of 27 studies and significantly perturbed in 24 of 27, accompanied
+by consistent changes in plant–pathogen interaction, phenylpropanoid biosynthesis,
+starch/sucrose metabolism, glutathione (oxidative-stress) metabolism and the
+plant circadian clock (each perturbed in 14–22 of 27 studies). All maps are
 explorable in a standalone, no-install web application that colours any KEGG or
 SBGN pathway by a study's data. The pipeline, atlas, and viewer are released as a
 single reproducible, openly licensed repository.
@@ -96,41 +96,42 @@ is standard-library Python (plus Jupyter Book/Matplotlib for rendering).
 The pipeline discovered 35 plant RNA-seq studies in OSDR (predominantly
 *Arabidopsis thaliana*). Each processed study yields a slim differential-expression
 table (~20,000–28,000 genes) and a projection onto 14 curated pathways, assembled
-into a pathway × study matrix and an interactive book with one page per study. The
-analysis below covers the first 19 processed *Arabidopsis* studies; it regenerates
-automatically as the remaining studies are added.
+into a pathway × study matrix and an interactive book with one page per study. Of
+the 35 studies, 27 provide a GeneLab processed differential-expression table and are
+analysed here; the remainder lack one. The figures regenerate automatically as data
+are added.
 
 ### 3.2 A conserved, hormone-centred pathway response to spaceflight
-Across the 19-study *Arabidopsis* set, pathway perturbation was strikingly
+Across the 27-study *Arabidopsis* set, pathway perturbation was strikingly
 consistent (Table 1; Figure 1). **Plant hormone signal transduction** was the
-most-perturbed pathway in 14 of 19 studies and showed ≥ 3 significant genes in 18
-of 19 (84 % mean coverage). Consistently perturbed were **plant–pathogen
-interaction** (defence, 16/19), **starch and sucrose metabolism** (15/19),
-**phenylpropanoid biosynthesis** (cell-wall/secondary metabolism, 14/19),
-oxidative-stress-associated **glutathione metabolism** (13/19) and the **plant
-circadian clock** (12/19; 96 % coverage). Core **carbon metabolism** (glycolysis,
-Calvin-cycle carbon fixation) and **photosynthesis** were perturbed in 8–11 studies.
-This pattern recapitulates, at the pathway level and across independent experiments,
-the hormone-, cell-wall-, defence- and clock-centred responses previously reported
-for individual spaceflight studies.
+most-perturbed pathway in 16 of 27 studies and showed ≥ 3 significant genes in 24
+of 27 (84 % mean coverage). Consistently perturbed were **plant–pathogen
+interaction** (defence, 22/27), **phenylpropanoid biosynthesis**
+(cell-wall/secondary metabolism, 21/27), **starch and sucrose metabolism** (20/27),
+oxidative-stress-associated **glutathione metabolism** (19/27), **glycolysis**
+(14/27) and the **plant circadian clock** (14/27; 97 % coverage). Calvin-cycle
+carbon fixation and photosynthesis were perturbed in 9–11 studies. This pattern
+recapitulates, at the pathway level and across independent experiments, the
+hormone-, cell-wall-, defence- and clock-centred responses previously reported for
+individual spaceflight studies.
 
-**Table 1. Pathway perturbation across 19 *Arabidopsis* studies.**
+**Table 1. Pathway perturbation across 27 *Arabidopsis* studies.**
 
 | Pathway | Studies with ≥3 sig. genes | Studies where top | Mean sig. genes | Mean coverage % |
 | --- | ---: | ---: | ---: | ---: |
-| Plant hormone signal transduction | 18 | 14 | 46.6 | 83.8 |
-| Plant–pathogen interaction | 16 | 2 | 21.8 | 72.5 |
-| Starch and sucrose metabolism | 15 | 1 | 20.9 | 63.7 |
-| Phenylpropanoid biosynthesis | 14 | 1 | 21.3 | 77.2 |
-| Glutathione metabolism | 13 | 0 | 10.5 | 77.8 |
-| Circadian rhythm – plant | 12 | 0 | 5.2 | 96.4 |
-| Glycolysis / Gluconeogenesis | 11 | 1 | 9.5 | 70.2 |
-| Carbon fixation (Calvin cycle) | 9 | 0 | 7.1 | 94.8 |
-| α-Linolenic acid (jasmonate) metabolism | 9 | 0 | 5.3 | 85.2 |
-| Photosynthesis | 8 | 0 | 7.6 | 51.9 |
-| Zeatin biosynthesis | 8 | 0 | 3.4 | 72.0 |
+| Plant hormone signal transduction | 24 | 16 | 36.9 | 84.4 |
+| Plant–pathogen interaction | 22 | 4 | 19.2 | 72.9 |
+| Phenylpropanoid biosynthesis | 21 | 3 | 17.8 | 78.2 |
+| Starch and sucrose metabolism | 20 | 2 | 17.3 | 64.2 |
+| Glutathione metabolism | 19 | 0 | 9.0 | 78.4 |
+| Glycolysis / Gluconeogenesis | 14 | 1 | 7.6 | 70.5 |
+| Circadian rhythm – plant | 14 | 0 | 4.2 | 97.2 |
+| α-Linolenic acid (jasmonate) metabolism | 13 | 0 | 4.4 | 86.3 |
+| Carbon fixation (Calvin cycle) | 11 | 0 | 5.7 | 95.1 |
+| Photosynthesis | 9 | 1 | 6.4 | 52.0 |
+| Zeatin biosynthesis | 9 | 0 | 2.9 | 73.6 |
 
-*(Values regenerate as the remaining studies are added.)*
+*(Values regenerate as more studies are added.)*
 
 **Figure 1.** Pathway-activity heatmap (mean |log2FC|) across studies. See
 `book/results.html`.

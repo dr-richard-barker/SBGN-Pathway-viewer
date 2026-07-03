@@ -132,6 +132,19 @@
       "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-321"
     },
     {
+      "osd": "OSD-346",
+      "title": "RNAseq analysis of the response of Arabidopsis thaliana phytochrome mutants (PhyA, PhyB) to fractional gravity under blu",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 1)v(Phytochrome A mutant & Space Flight & 0.1G by centrifugation & Light Treatment 2)",
+      "file": "OSD-346_Phytochrome_A_mutant_Space_Flight_0_1G_by_centrifu.csv",
+      "genes": 25088,
+      "suggestedPathwayId": "ath00500",
+      "suggestedPathwayName": "Starch and sucrose metabolism",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-346"
+    },
+    {
       "osd": "OSD-37",
       "title": "Comparison of the spaceflight transcriptome of four commonly used Arabidopsis thaliana ecotypes",
       "organism": "Arabidopsis thaliana",
@@ -169,6 +182,19 @@
       "suggestedPathwayId": "ath04075",
       "suggestedPathwayName": "Plant hormone signal transduction",
       "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-406"
+    },
+    {
+      "osd": "OSD-427",
+      "title": "Characterizing Epigenetic Changes in Methylation Mutants (elp2-5 and met1-7) in Response to Spaceflight. [RNA-Seq]",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(elp2-5 & Ground control & leaf)v(elp2-5 & Space Flight & leaf)",
+      "file": "OSD-427_elp2_5_Ground_control_leaf_v_elp2_5_Space_Flight_l.csv",
+      "genes": 24863,
+      "suggestedPathwayId": "ath00940",
+      "suggestedPathwayName": "Phenylpropanoid biosynthesis",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-427"
     },
     {
       "osd": "OSD-437",
@@ -223,6 +249,32 @@
       "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-502"
     },
     {
+      "osd": "OSD-508",
+      "title": "The SOG1 transcriptional activator and the MYB3R family of repressors control a complex gene network in response to DNA ",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(sog1-1 & Cobalt-60 gamma radiation & 10 minute)v(sog1-1 & Cobalt-60 gamma radiation & 1440 minute)",
+      "file": "OSD-508_sog1_1_Cobalt_60_gamma_radiation_10_minute_v_sog1_.csv",
+      "genes": 25142,
+      "suggestedPathwayId": "ath04075",
+      "suggestedPathwayName": "Plant hormone signal transduction",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-508"
+    },
+    {
+      "osd": "OSD-510",
+      "title": "The SOG1 transcriptional activator and the MYB3R family of repressors control a complex gene network in response to DNA ",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(Cobalt-60 gamma radiation & 1440 minute & sog1-1)v(Cobalt-60 gamma radiation & 1440 minute & Wild Type)",
+      "file": "OSD-510_Cobalt_60_gamma_radiation_1440_minute_sog1_1_v_Cob.csv",
+      "genes": 25190,
+      "suggestedPathwayId": "ath04626",
+      "suggestedPathwayName": "Plant-pathogen interaction",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-510"
+    },
+    {
       "osd": "OSD-518",
       "title": "Opposing influences of TAC1 and LAZY1 on Lateral Shoot Orientation in Arabidopsis",
       "organism": "Arabidopsis thaliana",
@@ -236,6 +288,32 @@
       "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-518"
     },
     {
+      "osd": "OSD-519",
+      "title": "PUCHI represses early meristem formation in developing lateral roots of Arabidopsis thaliana",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 12 hour)v(puchi-1 mutant & Lateral root and surrounding tissues at the bend & vertical rotation & 18 hour)",
+      "file": "OSD-519_puchi_1_mutant_Lateral_root_and_surrounding_tissue.csv",
+      "genes": 24331,
+      "suggestedPathwayId": "ath00940",
+      "suggestedPathwayName": "Phenylpropanoid biosynthesis",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-519"
+    },
+    {
+      "osd": "OSD-565",
+      "title": "Utilizing the KSC Fixation Tube to Conduct Human-Tended Plant Biology Experiments on a Suborbital Spaceflight",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(Plant Leaves & Treatment 1 & Not Applicable)v(Plant Leaves & Treatment 2 & Not Applicable)",
+      "file": "OSD-565_Plant_Leaves_Treatment_1_Not_Applicable_v_Plant_Le.csv",
+      "genes": 25599,
+      "suggestedPathwayId": "ath04626",
+      "suggestedPathwayName": "Plant-pathogen interaction",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-565"
+    },
+    {
       "osd": "OSD-658",
       "title": "Simulated Galactic Cosmic Ray Exposure Activates Dose-Dependent DNA Repair Response and Downregulates Glucosinolate Path",
       "organism": "Arabidopsis thaliana",
@@ -247,6 +325,32 @@
       "suggestedPathwayId": "ath00010",
       "suggestedPathwayName": "Glycolysis / Gluconeogenesis",
       "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-658"
+    },
+    {
+      "osd": "OSD-678",
+      "title": "Light has a principal role in the Arabidopsis transcriptomic response to the spaceflight environment",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(Col-0 & Wild Type & Ground Control & Dark Treatment)v(Col-0 & Wild Type & Space Flight & Dark Treatment)",
+      "file": "OSD-678_Col_0_Wild_Type_Ground_Control_Dark_Treatment_v_Co.csv",
+      "genes": 24489,
+      "suggestedPathwayId": "ath00195",
+      "suggestedPathwayName": "Photosynthesis",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-678"
+    },
+    {
+      "osd": "OSD-782",
+      "title": "Multi-omics profiling reveals ethylene signalling as a key pathway underlying both genetic and epigenetic responses to l",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(cesium-137 gamma radiation & 10 centigray & 1 hour)v(cesium-137 gamma radiation & 10 centigray & 24 hour)",
+      "file": "OSD-782_cesium_137_gamma_radiation_10_centigray_1_hour_v_c.csv",
+      "genes": 23657,
+      "suggestedPathwayId": "ath04075",
+      "suggestedPathwayName": "Plant hormone signal transduction",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-782"
     }
   ]
 }
