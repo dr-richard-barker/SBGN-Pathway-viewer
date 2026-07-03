@@ -1,0 +1,18 @@
+{
+  "description": "Curated NASA OSDR (GeneLab) differential-expression slices ready to project onto pathway maps. Each entry is a small gene table (id, log2FoldChange, padj) extracted from an OSDR study's processed DE table for one contrast. Produced by tools/osdr_slim.py.",
+  "datasets": [
+    {
+      "osd": "OSD-120",
+      "title": "CARA — Arabidopsis root, spaceflight vs ground (Col-0, light)",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(Col-0 & Ground Control & Light Treatment)v(Col-0 & Space Flight & Light Treatment)",
+      "file": "OSD-120_Col0_GCvFLT_light.csv",
+      "genes": 24740,
+      "suggestedPathwayId": "ath00940",
+      "suggestedPathwayName": "Phenylpropanoid biosynthesis",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-120"
+    }
+  ]
+}

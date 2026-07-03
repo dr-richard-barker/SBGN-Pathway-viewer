@@ -5,6 +5,7 @@ import { UploadIcon } from './icons/UploadIcon';
 import { fetchSpecies, fetchPathways, mapGenesToPathways, mapGenesToPathwaysKegg } from '../services/pathwayService';
 import { parseGeneIds } from '../services/dataProcessor';
 import { SAMPLE_GENE_CSV, SAMPLE_COMPOUND_CSV } from '../services/sampleData';
+import { OsdrPanel, type OsdrImportPayload } from './OsdrPanel';
 
 interface SidebarProps {
   config: VisualizationConfig;
@@ -16,6 +17,7 @@ interface SidebarProps {
   onGenerate: () => void;
   onLoadDemo: () => void;
   onLoadArabidopsis: () => void;
+  onOsdrImport: (p: OsdrImportPayload) => void;
   isLoading: boolean;
   customSbgnFile: string | null;
   setCustomSbgnFile: (data: string | null) => void;
@@ -23,7 +25,7 @@ interface SidebarProps {
 
 const ALL_DATABASES: PathwayDatabase[] = ['Reactome', 'KEGG', 'MetaCyc', 'SMPDB', 'PANTHER', 'METACROP', 'Custom SBGN File'];
 
-export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, onLoadDemo, onLoadArabidopsis, isLoading, customSbgnFile, setCustomSbgnFile }) => {
+export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, onLoadDemo, onLoadArabidopsis, onOsdrImport, isLoading, customSbgnFile, setCustomSbgnFile }) => {
   const [geneFileName, setGeneFileName] = useState<string>('');
   const [compoundFileName, setCompoundFileName] = useState<string>('');
   const [customSbgnFileName, setCustomSbgnFileName] = useState<string>('');
@@ -257,6 +259,9 @@ export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, s
           </button>
         </div>
       </div>
+
+      {/* Or import from NASA OSDR */}
+      <OsdrPanel onImport={onOsdrImport} isBusy={isLoading} />
 
       {/* Step 3: Configure */}
       <div className="space-y-2">

@@ -7,6 +7,7 @@ import { generatePathwayMap } from './services/pathwayRenderer';
 import { SAMPLE_GENE_CSV, SAMPLE_COMPOUND_CSV, SAMPLE_ARABIDOPSIS_KEGG } from './services/sampleData';
 import { HelpModal } from './components/HelpModal';
 import { HelpIcon } from './components/icons/HelpIcon';
+import { type OsdrImportPayload } from './components/OsdrPanel';
 
 export type ParsedData = Map<string, Record<string, string>>;
 
@@ -126,6 +127,23 @@ const App: React.FC = () => {
     runGeneration({ geneOverride: csv, configOverride: cfg });
   }, [config, runGeneration]);
 
+  // Import a gene table from NASA OSDR (curated slim table or live API) and
+  // optionally auto-render onto the suggested KEGG pathway.
+  const handleOsdrImport = useCallback((p: OsdrImportPayload) => {
+    setGeneData(p.csv);
+    setCompoundData(null);
+    const cfg: VisualizationConfig = {
+      ...config,
+      dataType: 'deseq2',
+      ...(p.keggOrg ? { pathwayDatabase: 'KEGG' as const, speciesId: p.keggOrg } : {}),
+      ...(p.pathwayId ? { pathwayId: p.pathwayId } : {}),
+    };
+    setConfig(cfg);
+    if (p.autoRun && p.pathwayId && p.keggOrg) {
+      runGeneration({ geneOverride: p.csv, configOverride: cfg });
+    }
+  }, [config, runGeneration]);
+
   return (
     <div className="min-h-screen flex flex-col font-sans">
       <a
@@ -158,6 +176,7 @@ const App: React.FC = () => {
           onGenerate={handleGenerate}
           onLoadDemo={handleLoadDemo}
           onLoadArabidopsis={handleLoadArabidopsis}
+          onOsdrImport={handleOsdrImport}
           isLoading={isLoading}
           customSbgnFile={customSbgnFile}
           setCustomSbgnFile={setCustomSbgnFile}

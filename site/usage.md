@@ -36,6 +36,20 @@ permalink: /usage/
 
 So gene symbols, locus ids and Entrez ids all work for KEGG. Matching is case-insensitive.
 
+## Import from NASA OSDR
+
+The **Import from NASA OSDR** panel pulls differential-expression data straight from the
+[Open Science Data Repository](https://osdr.nasa.gov):
+
+- **Curated collection** — pick a ready-made, pre-sliced study (e.g. *OSD-120 CARA — Arabidopsis
+  spaceflight*) and it imports + projects onto the suggested KEGG pathway in one click.
+- **Live OSD accession** — type an accession (e.g. `OSD-120`), **Fetch**, choose a *contrast* and
+  gene-ID column, and **Import**. The app slims the DE table to your contrast in the browser.
+  Very large tables (e.g. OSD-120's 252 MB, 132 contrasts) are better added via the offline
+  pipeline (`tools/osdr_slim.py`) — they then appear in the curated collection.
+
+After importing, pick a KEGG pathway and **Generate** (curated entries auto-select one).
+
 ## Try it with Arabidopsis (KEGG)
 
 **Fastest:** click **🌱 Load Arabidopsis (KEGG) sample** in the app — it loads real
