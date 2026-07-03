@@ -3,7 +3,7 @@
   "datasets": [
     {
       "osd": "OSD-120",
-      "title": "CARA — Arabidopsis root, spaceflight vs ground (Col-0, light)",
+      "title": "CARA \u2014 Arabidopsis root, spaceflight vs ground (Col-0, light)",
       "organism": "Arabidopsis thaliana",
       "keggOrg": "ath",
       "geneIdType": "TAIR",
@@ -13,6 +13,19 @@
       "suggestedPathwayId": "ath00940",
       "suggestedPathwayName": "Phenylpropanoid biosynthesis",
       "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-120"
+    },
+    {
+      "osd": "OSD-218",
+      "title": "Plant development on ISS differs from the development on the ground and is influenced by the genetic background",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(Col-0 & 4 day & Ground Control)v(Col-0 & 4 day & Space Flight)",
+      "file": "OSD-218_Col_0_4_day_Ground_Control_v_Col_0_4_day_Space_Fli.csv",
+      "genes": 24953,
+      "suggestedPathwayId": "ath00940",
+      "suggestedPathwayName": "Phenylpropanoid biosynthesis",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-218"
     }
   ]
 }

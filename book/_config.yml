@@ -1,0 +1,24 @@
+# Jupyter Book configuration for the OSDR Plant Pathway Atlas.
+title: "OSDR Plant Pathway Atlas"
+author: "Richard Barker"
+logo: ""
+only_build_toc_files: true
+
+execute:
+  execute_notebooks: "off"   # pages are generated from precomputed pipeline outputs
+
+repository:
+  url: https://github.com/dr-richard-barker/SBGN-Pathway-viewer
+  path_to_book: book
+  branch: main
+
+html:
+  use_issues_button: true
+  use_repository_button: true
+  extra_footer: |
+    Data: NASA <a href="https://osdr.nasa.gov">OSDR / GeneLab</a>. Pathways: KEGG.
+    Interactive maps: the <a href="https://dr-richard-barker.github.io/SBGN-Pathway-viewer/app/">SBGN Pathway Visualizer</a>.
+
+sphinx:
+  config:
+    html_show_copyright: false

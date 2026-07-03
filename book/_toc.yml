@@ -1,0 +1,9 @@
+format: jb-book
+root: intro
+chapters:
+  - file: methods
+  - file: results
+  - file: studies/index
+    sections:
+      - file: studies/OSD-120
+      - file: studies/OSD-218
