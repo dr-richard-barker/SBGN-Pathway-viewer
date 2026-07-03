@@ -14,3 +14,8 @@
 - [OSD-38](./OSD-38.md) — Proteomics and Transcriptomics analysis of Arabidopsis Seedlings in Microgravity
 - [OSD-406](./OSD-406.md) — Transcriptomic responses of Arabidopsis thaliana lines WS and sku5 to the Blue O
 - [OSD-437](./OSD-437.md) — Transcriptional and Post transcriptional Regulation of Seedling Development in M
+- [OSD-476](./OSD-476.md) — Plants grown in Apollo lunar regolith present stress-associated transcriptomes t
+- [OSD-498](./OSD-498.md) — The SOG1 transcriptional activator and the MYB3R family of repressors control a 
+- [OSD-502](./OSD-502.md) — The SOG1 transcriptional activator and the MYB3R family of repressors control a 
+- [OSD-518](./OSD-518.md) — Opposing influences of TAC1 and LAZY1 on Lateral Shoot Orientation in Arabidopsi
+- [OSD-658](./OSD-658.md) — Simulated Galactic Cosmic Ray Exposure Activates Dose-Dependent DNA Repair Respo

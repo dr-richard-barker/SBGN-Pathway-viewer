@@ -182,6 +182,71 @@
       "suggestedPathwayId": "ath04075",
       "suggestedPathwayName": "Plant hormone signal transduction",
       "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-437"
+    },
+    {
+      "osd": "OSD-476",
+      "title": "Plants grown in Apollo lunar regolith present stress-associated transcriptomes that inform prospects for lunar explorati",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(Apollo 11 regolith)v(Apollo 12 regolith)",
+      "file": "OSD-476_Apollo_11_regolith_v_Apollo_12_regolith.csv",
+      "genes": 23562,
+      "suggestedPathwayId": "ath04626",
+      "suggestedPathwayName": "Plant-pathogen interaction",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-476"
+    },
+    {
+      "osd": "OSD-498",
+      "title": "The SOG1 transcriptional activator and the MYB3R family of repressors control a complex gene network in response to DNA ",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(10 minute & Cobalt-60 gamma radiation)v(10 minute & non-irradiated)",
+      "file": "OSD-498_10_minute_Cobalt_60_gamma_radiation_v_10_minute_no.csv",
+      "genes": 23441,
+      "suggestedPathwayId": "ath04626",
+      "suggestedPathwayName": "Plant-pathogen interaction",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-498"
+    },
+    {
+      "osd": "OSD-502",
+      "title": "The SOG1 transcriptional activator and the MYB3R family of repressors control a complex gene network in response to DNA ",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(myb3r135 & Cobalt-60 gamma radiation)v(myb3r135 & non-irradiated)",
+      "file": "OSD-502_myb3r135_Cobalt_60_gamma_radiation_v_myb3r135_non_.csv",
+      "genes": 22725,
+      "suggestedPathwayId": "ath04075",
+      "suggestedPathwayName": "Plant hormone signal transduction",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-502"
+    },
+    {
+      "osd": "OSD-518",
+      "title": "Opposing influences of TAC1 and LAZY1 on Lateral Shoot Orientation in Arabidopsis",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(lazy1 mutant & 45 minutes after 90 degree gravistimulation)v(lazy1 mutant & not gravistimulated)",
+      "file": "OSD-518_lazy1_mutant_45_minutes_after_90_degree_gravistimu.csv",
+      "genes": 25787,
+      "suggestedPathwayId": "ath04075",
+      "suggestedPathwayName": "Plant hormone signal transduction",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-518"
+    },
+    {
+      "osd": "OSD-658",
+      "title": "Simulated Galactic Cosmic Ray Exposure Activates Dose-Dependent DNA Repair Response and Downregulates Glucosinolate Path",
+      "organism": "Arabidopsis thaliana",
+      "keggOrg": "ath",
+      "geneIdType": "TAIR",
+      "contrast": "(mixed radiation & 40 centigray)v(mixed radiation & 80 centigray)",
+      "file": "OSD-658_mixed_radiation_40_centigray_v_mixed_radiation_80_.csv",
+      "genes": 22178,
+      "suggestedPathwayId": "ath00010",
+      "suggestedPathwayName": "Glycolysis / Gluconeogenesis",
+      "source": "https://osdr.nasa.gov/bio/repo/data/studies/OSD-658"
     }
   ]
 }

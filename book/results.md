@@ -1,6 +1,6 @@
 # Results
 
-Projection across **14 studies** and **14 pathways**.
+Projection across **19 studies** and **14 pathways**.
 
 ## Pathway activity heatmap
 
@@ -25,3 +25,8 @@ Projection across **14 studies** and **14 pathways**.
 | OSD-38 | Starch and sucrose metabolism | 28 |
 | OSD-406 | Plant hormone signal transduction | 13 |
 | OSD-437 | Plant hormone signal transduction | 84 |
+| OSD-476 | Plant-pathogen interaction | 5 |
+| OSD-498 | Plant-pathogen interaction | 9 |
+| OSD-502 | Plant hormone signal transduction | 15 |
+| OSD-518 | Plant hormone signal transduction | 25 |
+| OSD-658 | Glycolysis / Gluconeogenesis | 0 |
