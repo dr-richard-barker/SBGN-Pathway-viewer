@@ -23,7 +23,7 @@ interface SidebarProps {
   setCustomSbgnFile: (data: string | null) => void;
 }
 
-const ALL_DATABASES: PathwayDatabase[] = ['Reactome', 'KEGG', 'MetaCyc', 'SMPDB', 'PANTHER', 'METACROP', 'Custom SBGN File'];
+const ALL_DATABASES: PathwayDatabase[] = ['KEGG', 'Plant Reactome', 'Reactome', 'MetaCyc', 'METACROP', 'PANTHER', 'SMPDB', 'Custom SBGN File'];
 
 export const Sidebar: React.FC<SidebarProps> = ({ config, setConfig, geneData, setGeneData, compoundData, setCompoundData, onGenerate, onLoadDemo, onLoadArabidopsis, onOsdrImport, isLoading, customSbgnFile, setCustomSbgnFile }) => {
   const [geneFileName, setGeneFileName] = useState<string>('');

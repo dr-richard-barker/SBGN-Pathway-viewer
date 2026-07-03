@@ -83,6 +83,7 @@ export async function fetchKeggImage(pathwayId: string): Promise<KeggImage> {
 }
 
 const DBS_WITHOUT_SOURCE: Record<string, string> = {
+  'Plant Reactome': 'Plant Reactome (Gramene) does not expose an SBGN exporter, so its maps cannot be rendered here — browse its species/pathways for reference, and render the same organism via KEGG (e.g. ath, osa) or upload a custom SBGN file. Its curated pathways can also be exported to SBGN and loaded via "Custom SBGN File".',
   MetaCyc: 'MetaCyc/BioCyc does not provide a public SBGN-ML export. Upload an SBGN file via "Custom SBGN File".',
   SMPDB: 'SMPDB does not provide SBGN-ML. Upload an SBGN file via "Custom SBGN File".',
   PANTHER: 'PANTHER does not provide SBGN-ML. Upload an SBGN file via "Custom SBGN File".',

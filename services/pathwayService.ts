@@ -3,12 +3,34 @@ import { type Species, type Pathway, type PathwayDatabase } from '../types';
 import { corsFetch } from './proxy';
 
 const REACTOME_API_BASE = 'https://reactome.org/ContentService';
+const PLANT_REACTOME_API_BASE = 'https://plantreactome.gramene.org/ContentService';
 // KEGG, PANTHER, SMPDB and MetaCyc lack CORS headers, so corsFetch() routes them
 // through a chain of public CORS proxies (with direct-first fallback).
 const KEGG_API_BASE = 'https://rest.kegg.jp';
 const PANTHER_API_BASE = 'http://pantherdb.org/services/rest';
 const SMPDB_BASE_URL = 'https://smpdb.ca';
 const BIOCYC_API_BASE = 'https://websvc.biocyc.org';
+
+// App base path (Vite injects import.meta.env.BASE_URL, e.g. ".../app/").
+const BASE_URL: string = ((import.meta as any)?.env?.BASE_URL as string) || './';
+
+// Species lists are shipped as static bundles so the dropdown always populates,
+// even when a source's live API is blocked, down, or CORS-restricted.
+const SPECIES_BUNDLE: Partial<Record<PathwayDatabase, string>> = {
+  Reactome: 'reactome',
+  'Plant Reactome': 'plantreactome',
+  KEGG: 'kegg',
+  PANTHER: 'panther',
+  MetaCyc: 'metacyc',
+  SMPDB: 'smpdb',
+};
+
+async function loadBundledSpecies(file: string): Promise<Species[]> {
+  const res = await fetch(`${BASE_URL}data/species/${file}.json`);
+  if (!res.ok) throw new Error(`species bundle ${file} not found`);
+  const data = await res.json();
+  return Array.isArray(data) ? data : [];
+}
 
 
 async function fetchReactomeSpecies(): Promise<Species[]> {
@@ -139,25 +161,32 @@ async function fetchMetaCropSpecies(): Promise<Species[]> {
 }
 
 
+// Live fetchers, used only as a fallback if the static bundle is unavailable.
+const LIVE_SPECIES: Partial<Record<PathwayDatabase, () => Promise<Species[]>>> = {
+    Reactome: fetchReactomeSpecies,
+    KEGG: fetchKeggSpecies,
+    MetaCyc: fetchMetaCycSpecies,
+    SMPDB: fetchSmpdbSpecies,
+    PANTHER: fetchPantherSpecies,
+};
+
 export async function fetchSpecies(database: PathwayDatabase): Promise<Species[]> {
-    switch (database) {
-        case 'Reactome':
-            return fetchReactomeSpecies();
-        case 'KEGG':
-            return fetchKeggSpecies();
-        case 'MetaCyc':
-            return fetchMetaCycSpecies();
-        case 'SMPDB':
-            return fetchSmpdbSpecies();
-        case 'PANTHER':
-            return fetchPantherSpecies();
-        case 'METACROP':
-            return fetchMetaCropSpecies();
-        case 'Custom SBGN File':
-             return []; // No species to fetch for custom files
-        default:
-            return [];
+    if (database === 'Custom SBGN File') return [];
+    if (database === 'METACROP') return fetchMetaCropSpecies();
+
+    // Prefer the shipped bundle (instant, no network dependency).
+    const bundle = SPECIES_BUNDLE[database];
+    if (bundle) {
+        try {
+            const list = await loadBundledSpecies(bundle);
+            if (list.length) return list;
+        } catch (e) {
+            console.warn(`Species bundle for ${database} unavailable, trying live API.`, e);
+        }
     }
+    const live = LIVE_SPECIES[database];
+    if (live) return live();
+    return [];
 }
 
 
@@ -176,6 +205,41 @@ async function fetchReactomePathways(speciesId: string): Promise<Pathway[]> {
     } catch (error) {
         console.error("Reactome pathways fetch error:", error);
         throw new Error('Failed to fetch pathways from Reactome. Check network connection or API status.');
+    }
+}
+
+/**
+ * Plant Reactome (Gramene) exposes an events hierarchy per species (by taxId).
+ * We flatten it to a list of pathways for browsing. (Plant Reactome does not
+ * publish an SBGN exporter, so these are for reference/selection.)
+ */
+async function fetchPlantReactomePathways(taxId: string): Promise<Pathway[]> {
+    try {
+        const res = await fetch(`${PLANT_REACTOME_API_BASE}/data/eventsHierarchy/${taxId}`);
+        if (!res.ok) {
+            if (res.status === 404) return [];
+            throw new Error(`Plant Reactome returned status ${res.status}`);
+        }
+        const tree: any[] = await res.json();
+        const out: Pathway[] = [];
+        const seen = new Set<string>();
+        const walk = (nodes: any[]) => {
+            for (const n of nodes || []) {
+                const id = n.stId || n.stableIdentifier;
+                const rawName = n.name ?? n.displayName;
+                const name = Array.isArray(rawName) ? rawName[0] : rawName;
+                if (id && name && !seen.has(id)) {
+                    seen.add(id);
+                    out.push({ id, displayName: name });
+                }
+                if (Array.isArray(n.children)) walk(n.children);
+            }
+        };
+        walk(tree);
+        return out.sort((a, b) => a.displayName.localeCompare(b.displayName));
+    } catch (error) {
+        console.error("Plant Reactome pathways fetch error:", error);
+        throw new Error('Failed to fetch pathways from Plant Reactome. Check network connection or API status.');
     }
 }
 
@@ -306,6 +370,8 @@ export async function fetchPathways(database: PathwayDatabase, speciesId: string
     switch (database) {
         case 'Reactome':
             return fetchReactomePathways(speciesId);
+        case 'Plant Reactome':
+            return fetchPlantReactomePathways(speciesId);
         case 'KEGG':
             return fetchKeggPathways(speciesId);
         case 'SMPDB':
