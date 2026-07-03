@@ -8,6 +8,7 @@ description: >-
 
 <p>
   <a href="{{ '/app/' | relative_url }}" class="btn">🚀 Launch the app</a>
+  <a href="{{ '/book/' | relative_url }}" class="btn">🌍 OSDR Plant Pathway Atlas</a>
   <a href="{{ '/usage/' | relative_url }}" class="btn">📖 How to use</a>
   <a href="https://github.com/dr-richard-barker/SBGN-Pathway-viewer" class="btn">⭐ Source on GitHub</a>
 </p>

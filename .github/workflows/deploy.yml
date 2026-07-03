@@ -50,11 +50,22 @@ jobs:
           JEKYLL_GITHUB_TOKEN: ${{ github.token }}
         run: bundle exec jekyll build --destination "$GITHUB_WORKSPACE/_site"
 
-      # 3) Nest the app under /app within the published site
-      - name: Add app to site
+      # 3) Build the Jupyter Book atlas (from committed pages; no data downloads)
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build Jupyter Book
         run: |
-          mkdir -p _site/app
+          python -m pip install --upgrade pip
+          pip install jupyter-book
+          jupyter-book build book
+
+      # 4) Assemble: app under /app, atlas under /book
+      - name: Add app and atlas to site
+        run: |
+          mkdir -p _site/app _site/book
           cp -r dist/* _site/app/
+          cp -r book/_build/html/* _site/book/
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
