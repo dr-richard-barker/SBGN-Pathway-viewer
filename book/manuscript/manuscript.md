@@ -81,10 +81,14 @@ genes (|log2FC| > 1), the number of significant genes (|log2FC| > 1 and adjusted
 *p* < 0.05), and the mean absolute log2 fold-change. A curated pathway set targets
 processes repeatedly implicated in spaceflight plant biology (Section 3).
 
-**Interactive visualisation.** The companion web application renders SBGN-ML
-(Reactome) and KGML (KEGG) maps deterministically in the browser and colours nodes
-by an imported study's values; it requires no API key, login or server. Studies in
-the atlas are one click away from an interactive map.
+**Visualisation.** The companion web application renders SBGN-ML (Reactome) and
+KGML (KEGG) maps deterministically in the browser and colours nodes by an imported
+study's values; it requires no API key, login or server, and studies in the atlas
+are one click away. For offline reading, the atlas also ships a static *panel
+figure* for every significant study × pathway: a clean, ggpathway-style node-link
+diagram of the pathway (drawn from the KGML topology, nodes coloured by log2FC and
+significant genes labelled by symbol) beside a heatmap of that pathway's significant
+loci (red +ve / white 0 / blue −ve).
 
 **Availability and reproducibility.** The entire atlas regenerates with
 `osdr_discover.py → osdr_pipeline.py → build_book.py → jupyter-book build`. All code

@@ -4,29 +4,25 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-120_ath04075.png",
-   "n_sig": 9,
-   "n_mapped": 61
+   "n_sig": 9
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-120_ath04712.png",
-   "n_sig": 6,
-   "n_mapped": 32
+   "n_sig": 6
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-120_ath00500.png",
-   "n_sig": 3,
-   "n_mapped": 36
+   "n_sig": 3
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-120_ath00940.png",
-   "n_sig": 3,
-   "n_mapped": 50
+   "n_sig": 3
   }
  ],
  "OSD-193": [
@@ -34,50 +30,43 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-193_ath04075.png",
-   "n_sig": 17,
-   "n_mapped": 62
+   "n_sig": 17
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-193_ath00940.png",
-   "n_sig": 16,
-   "n_mapped": 50
+   "n_sig": 16
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-193_ath00500.png",
-   "n_sig": 6,
-   "n_mapped": 36
+   "n_sig": 6
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-193_ath00480.png",
-   "n_sig": 6,
-   "n_mapped": 24
+   "n_sig": 6
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-193_ath00010.png",
-   "n_sig": 5,
-   "n_mapped": 33
+   "n_sig": 5
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-193_ath04626.png",
-   "n_sig": 4,
-   "n_mapped": 42
+   "n_sig": 4
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-193_ath04712.png",
-   "n_sig": 3,
-   "n_mapped": 32
+   "n_sig": 3
   }
  ],
  "OSD-208": [
@@ -85,99 +74,85 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-208_ath04075.png",
-   "n_sig": 178,
-   "n_mapped": 63
+   "n_sig": 178
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-208_ath04626.png",
-   "n_sig": 99,
-   "n_mapped": 40
+   "n_sig": 99
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-208_ath00940.png",
-   "n_sig": 80,
-   "n_mapped": 50
+   "n_sig": 80
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-208_ath00500.png",
-   "n_sig": 72,
-   "n_mapped": 36
+   "n_sig": 72
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-208_ath00480.png",
-   "n_sig": 46,
-   "n_mapped": 24
+   "n_sig": 46
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-208_ath00010.png",
-   "n_sig": 43,
-   "n_mapped": 33
+   "n_sig": 43
   },
   {
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-208_ath00195.png",
-   "n_sig": 26,
-   "n_mapped": 29
+   "n_sig": 26
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-208_ath00592.png",
-   "n_sig": 25,
-   "n_mapped": 22
+   "n_sig": 25
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-208_ath00710.png",
-   "n_sig": 24,
-   "n_mapped": 30
+   "n_sig": 24
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-208_ath00360.png",
-   "n_sig": 16,
-   "n_mapped": 11
+   "n_sig": 16
   },
   {
    "pid": "ath00196",
    "name": "Photosynthesis - antenna proteins",
    "png": "OSD-208_ath00196.png",
-   "n_sig": 15,
-   "n_mapped": 12
+   "n_sig": 15
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-208_ath04712.png",
-   "n_sig": 11,
-   "n_mapped": 32
+   "n_sig": 11
   },
   {
    "pid": "ath00941",
    "name": "Flavonoid biosynthesis",
    "png": "OSD-208_ath00941.png",
-   "n_sig": 10,
-   "n_mapped": 34
+   "n_sig": 10
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-208_ath00908.png",
-   "n_sig": 10,
-   "n_mapped": 10
+   "n_sig": 10
   }
  ],
  "OSD-217": [
@@ -185,99 +160,85 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-217_ath04075.png",
-   "n_sig": 189,
-   "n_mapped": 63
+   "n_sig": 189
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-217_ath00500.png",
-   "n_sig": 101,
-   "n_mapped": 36
+   "n_sig": 101
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-217_ath04626.png",
-   "n_sig": 92,
-   "n_mapped": 43
+   "n_sig": 92
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-217_ath00940.png",
-   "n_sig": 87,
-   "n_mapped": 53
+   "n_sig": 87
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-217_ath00010.png",
-   "n_sig": 54,
-   "n_mapped": 33
+   "n_sig": 54
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-217_ath00480.png",
-   "n_sig": 51,
-   "n_mapped": 24
+   "n_sig": 51
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-217_ath00710.png",
-   "n_sig": 44,
-   "n_mapped": 30
+   "n_sig": 44
   },
   {
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-217_ath00195.png",
-   "n_sig": 42,
-   "n_mapped": 29
+   "n_sig": 42
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-217_ath00592.png",
-   "n_sig": 28,
-   "n_mapped": 23
+   "n_sig": 28
   },
   {
    "pid": "ath00196",
    "name": "Photosynthesis - antenna proteins",
    "png": "OSD-217_ath00196.png",
-   "n_sig": 21,
-   "n_mapped": 12
+   "n_sig": 21
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-217_ath00908.png",
-   "n_sig": 19,
-   "n_mapped": 10
+   "n_sig": 19
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-217_ath04712.png",
-   "n_sig": 17,
-   "n_mapped": 34
+   "n_sig": 17
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-217_ath00360.png",
-   "n_sig": 16,
-   "n_mapped": 11
+   "n_sig": 16
   },
   {
    "pid": "ath00941",
    "name": "Flavonoid biosynthesis",
    "png": "OSD-217_ath00941.png",
-   "n_sig": 15,
-   "n_mapped": 49
+   "n_sig": 15
   }
  ],
  "OSD-218": [
@@ -285,50 +246,43 @@
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-218_ath00940.png",
-   "n_sig": 16,
-   "n_mapped": 51
+   "n_sig": 16
   },
   {
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-218_ath04075.png",
-   "n_sig": 16,
-   "n_mapped": 63
+   "n_sig": 16
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-218_ath00480.png",
-   "n_sig": 8,
-   "n_mapped": 25
+   "n_sig": 8
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-218_ath00010.png",
-   "n_sig": 5,
-   "n_mapped": 33
+   "n_sig": 5
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-218_ath00500.png",
-   "n_sig": 5,
-   "n_mapped": 36
+   "n_sig": 5
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-218_ath04626.png",
-   "n_sig": 4,
-   "n_mapped": 40
+   "n_sig": 4
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-218_ath04712.png",
-   "n_sig": 3,
-   "n_mapped": 32
+   "n_sig": 3
   }
  ],
  "OSD-251": [
@@ -336,22 +290,19 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-251_ath04075.png",
-   "n_sig": 5,
-   "n_mapped": 62
+   "n_sig": 5
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-251_ath00710.png",
-   "n_sig": 4,
-   "n_mapped": 30
+   "n_sig": 4
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-251_ath04626.png",
-   "n_sig": 3,
-   "n_mapped": 41
+   "n_sig": 3
   }
  ],
  "OSD-281": [
@@ -359,99 +310,85 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-281_ath04075.png",
-   "n_sig": 37,
-   "n_mapped": 63
+   "n_sig": 37
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-281_ath00940.png",
-   "n_sig": 23,
-   "n_mapped": 53
+   "n_sig": 23
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-281_ath00500.png",
-   "n_sig": 18,
-   "n_mapped": 36
+   "n_sig": 18
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-281_ath04626.png",
-   "n_sig": 18,
-   "n_mapped": 43
+   "n_sig": 18
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-281_ath00480.png",
-   "n_sig": 11,
-   "n_mapped": 25
+   "n_sig": 11
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-281_ath04712.png",
-   "n_sig": 10,
-   "n_mapped": 32
+   "n_sig": 10
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-281_ath00010.png",
-   "n_sig": 9,
-   "n_mapped": 33
+   "n_sig": 9
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-281_ath00710.png",
-   "n_sig": 7,
-   "n_mapped": 30
+   "n_sig": 7
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-281_ath00908.png",
-   "n_sig": 5,
-   "n_mapped": 10
+   "n_sig": 5
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-281_ath00360.png",
-   "n_sig": 5,
-   "n_mapped": 11
+   "n_sig": 5
   },
   {
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-281_ath00195.png",
-   "n_sig": 4,
-   "n_mapped": 29
+   "n_sig": 4
   },
   {
    "pid": "ath00196",
    "name": "Photosynthesis - antenna proteins",
    "png": "OSD-281_ath00196.png",
-   "n_sig": 3,
-   "n_mapped": 12
+   "n_sig": 3
   },
   {
    "pid": "ath00941",
    "name": "Flavonoid biosynthesis",
    "png": "OSD-281_ath00941.png",
-   "n_sig": 3,
-   "n_mapped": 44
+   "n_sig": 3
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-281_ath00592.png",
-   "n_sig": 3,
-   "n_mapped": 21
+   "n_sig": 3
   }
  ],
  "OSD-313": [
@@ -459,99 +396,85 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-313_ath04075.png",
-   "n_sig": 73,
-   "n_mapped": 63
+   "n_sig": 73
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-313_ath00940.png",
-   "n_sig": 45,
-   "n_mapped": 50
+   "n_sig": 45
   },
   {
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-313_ath00195.png",
-   "n_sig": 32,
-   "n_mapped": 29
+   "n_sig": 32
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-313_ath00500.png",
-   "n_sig": 23,
-   "n_mapped": 36
+   "n_sig": 23
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-313_ath04626.png",
-   "n_sig": 23,
-   "n_mapped": 43
+   "n_sig": 23
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-313_ath00710.png",
-   "n_sig": 18,
-   "n_mapped": 30
+   "n_sig": 18
   },
   {
    "pid": "ath00196",
    "name": "Photosynthesis - antenna proteins",
    "png": "OSD-313_ath00196.png",
-   "n_sig": 17,
-   "n_mapped": 12
+   "n_sig": 17
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-313_ath00010.png",
-   "n_sig": 14,
-   "n_mapped": 33
+   "n_sig": 14
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-313_ath00480.png",
-   "n_sig": 14,
-   "n_mapped": 25
+   "n_sig": 14
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-313_ath04712.png",
-   "n_sig": 12,
-   "n_mapped": 34
+   "n_sig": 12
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-313_ath00592.png",
-   "n_sig": 10,
-   "n_mapped": 22
+   "n_sig": 10
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-313_ath00360.png",
-   "n_sig": 9,
-   "n_mapped": 11
+   "n_sig": 9
   },
   {
    "pid": "ath00941",
    "name": "Flavonoid biosynthesis",
    "png": "OSD-313_ath00941.png",
-   "n_sig": 8,
-   "n_mapped": 46
+   "n_sig": 8
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-313_ath00908.png",
-   "n_sig": 5,
-   "n_mapped": 10
+   "n_sig": 5
   }
  ],
  "OSD-314": [
@@ -559,71 +482,61 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-314_ath04075.png",
-   "n_sig": 68,
-   "n_mapped": 63
+   "n_sig": 68
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-314_ath04626.png",
-   "n_sig": 30,
-   "n_mapped": 43
+   "n_sig": 30
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-314_ath00500.png",
-   "n_sig": 24,
-   "n_mapped": 36
+   "n_sig": 24
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-314_ath00940.png",
-   "n_sig": 21,
-   "n_mapped": 50
+   "n_sig": 21
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-314_ath04712.png",
-   "n_sig": 10,
-   "n_mapped": 34
+   "n_sig": 10
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-314_ath00710.png",
-   "n_sig": 9,
-   "n_mapped": 30
+   "n_sig": 9
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-314_ath00908.png",
-   "n_sig": 8,
-   "n_mapped": 10
+   "n_sig": 8
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-314_ath00480.png",
-   "n_sig": 8,
-   "n_mapped": 25
+   "n_sig": 8
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-314_ath00010.png",
-   "n_sig": 7,
-   "n_mapped": 33
+   "n_sig": 7
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-314_ath00592.png",
-   "n_sig": 5,
-   "n_mapped": 22
+   "n_sig": 5
   }
  ],
  "OSD-321": [
@@ -631,99 +544,85 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-321_ath04075.png",
-   "n_sig": 103,
-   "n_mapped": 63
+   "n_sig": 103
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-321_ath00500.png",
-   "n_sig": 55,
-   "n_mapped": 36
+   "n_sig": 55
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-321_ath04626.png",
-   "n_sig": 37,
-   "n_mapped": 43
+   "n_sig": 37
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-321_ath00940.png",
-   "n_sig": 34,
-   "n_mapped": 50
+   "n_sig": 34
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-321_ath00480.png",
-   "n_sig": 18,
-   "n_mapped": 25
+   "n_sig": 18
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-321_ath00010.png",
-   "n_sig": 17,
-   "n_mapped": 33
+   "n_sig": 17
   },
   {
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-321_ath00195.png",
-   "n_sig": 16,
-   "n_mapped": 29
+   "n_sig": 16
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-321_ath00710.png",
-   "n_sig": 14,
-   "n_mapped": 30
+   "n_sig": 14
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-321_ath00360.png",
-   "n_sig": 9,
-   "n_mapped": 11
+   "n_sig": 9
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-321_ath00592.png",
-   "n_sig": 8,
-   "n_mapped": 22
+   "n_sig": 8
   },
   {
    "pid": "ath00196",
    "name": "Photosynthesis - antenna proteins",
    "png": "OSD-321_ath00196.png",
-   "n_sig": 7,
-   "n_mapped": 12
+   "n_sig": 7
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-321_ath00908.png",
-   "n_sig": 6,
-   "n_mapped": 10
+   "n_sig": 6
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-321_ath04712.png",
-   "n_sig": 6,
-   "n_mapped": 33
+   "n_sig": 6
   },
   {
    "pid": "ath00941",
    "name": "Flavonoid biosynthesis",
    "png": "OSD-321_ath00941.png",
-   "n_sig": 4,
-   "n_mapped": 37
+   "n_sig": 4
   }
  ],
  "OSD-37": [
@@ -731,43 +630,37 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-37_ath04075.png",
-   "n_sig": 14,
-   "n_mapped": 63
+   "n_sig": 14
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-37_ath04626.png",
-   "n_sig": 11,
-   "n_mapped": 43
+   "n_sig": 11
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-37_ath00500.png",
-   "n_sig": 9,
-   "n_mapped": 36
+   "n_sig": 9
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-37_ath00940.png",
-   "n_sig": 8,
-   "n_mapped": 52
+   "n_sig": 8
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-37_ath00480.png",
-   "n_sig": 4,
-   "n_mapped": 25
+   "n_sig": 4
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-37_ath00592.png",
-   "n_sig": 3,
-   "n_mapped": 22
+   "n_sig": 3
   }
  ],
  "OSD-38": [
@@ -775,71 +668,61 @@
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-38_ath00500.png",
-   "n_sig": 28,
-   "n_mapped": 36
+   "n_sig": 28
   },
   {
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-38_ath04075.png",
-   "n_sig": 28,
-   "n_mapped": 63
+   "n_sig": 28
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-38_ath00940.png",
-   "n_sig": 22,
-   "n_mapped": 51
+   "n_sig": 22
   },
   {
    "pid": "ath00941",
    "name": "Flavonoid biosynthesis",
    "png": "OSD-38_ath00941.png",
-   "n_sig": 9,
-   "n_mapped": 46
+   "n_sig": 9
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-38_ath04626.png",
-   "n_sig": 9,
-   "n_mapped": 42
+   "n_sig": 9
   },
   {
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-38_ath00195.png",
-   "n_sig": 6,
-   "n_mapped": 29
+   "n_sig": 6
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-38_ath04712.png",
-   "n_sig": 6,
-   "n_mapped": 34
+   "n_sig": 6
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-38_ath00010.png",
-   "n_sig": 4,
-   "n_mapped": 33
+   "n_sig": 4
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-38_ath00908.png",
-   "n_sig": 4,
-   "n_mapped": 10
+   "n_sig": 4
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-38_ath00480.png",
-   "n_sig": 4,
-   "n_mapped": 25
+   "n_sig": 4
   }
  ],
  "OSD-406": [
@@ -847,22 +730,19 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-406_ath04075.png",
-   "n_sig": 13,
-   "n_mapped": 63
+   "n_sig": 13
   },
   {
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-406_ath00195.png",
-   "n_sig": 3,
-   "n_mapped": 29
+   "n_sig": 3
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-406_ath00710.png",
-   "n_sig": 3,
-   "n_mapped": 30
+   "n_sig": 3
   }
  ],
  "OSD-427": [
@@ -870,8 +750,7 @@
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-427_ath00940.png",
-   "n_sig": 5,
-   "n_mapped": 49
+   "n_sig": 5
   }
  ],
  "OSD-437": [
@@ -879,85 +758,73 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-437_ath04075.png",
-   "n_sig": 84,
-   "n_mapped": 63
+   "n_sig": 84
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-437_ath04626.png",
-   "n_sig": 41,
-   "n_mapped": 42
+   "n_sig": 41
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-437_ath00500.png",
-   "n_sig": 27,
-   "n_mapped": 36
+   "n_sig": 27
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-437_ath00940.png",
-   "n_sig": 24,
-   "n_mapped": 52
+   "n_sig": 24
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-437_ath00010.png",
-   "n_sig": 10,
-   "n_mapped": 33
+   "n_sig": 10
   },
   {
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-437_ath00195.png",
-   "n_sig": 10,
-   "n_mapped": 29
+   "n_sig": 10
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-437_ath00592.png",
-   "n_sig": 10,
-   "n_mapped": 23
+   "n_sig": 10
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-437_ath00480.png",
-   "n_sig": 10,
-   "n_mapped": 25
+   "n_sig": 10
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-437_ath04712.png",
-   "n_sig": 8,
-   "n_mapped": 33
+   "n_sig": 8
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-437_ath00908.png",
-   "n_sig": 6,
-   "n_mapped": 10
+   "n_sig": 6
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-437_ath00360.png",
-   "n_sig": 5,
-   "n_mapped": 11
+   "n_sig": 5
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-437_ath00710.png",
-   "n_sig": 4,
-   "n_mapped": 30
+   "n_sig": 4
   }
  ],
  "OSD-476": [
@@ -965,22 +832,19 @@
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-476_ath04626.png",
-   "n_sig": 5,
-   "n_mapped": 42
+   "n_sig": 5
   },
   {
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-476_ath04075.png",
-   "n_sig": 4,
-   "n_mapped": 63
+   "n_sig": 4
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-476_ath00500.png",
-   "n_sig": 3,
-   "n_mapped": 36
+   "n_sig": 3
   }
  ],
  "OSD-498": [
@@ -988,15 +852,13 @@
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-498_ath04626.png",
-   "n_sig": 9,
-   "n_mapped": 43
+   "n_sig": 9
   },
   {
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-498_ath04075.png",
-   "n_sig": 7,
-   "n_mapped": 63
+   "n_sig": 7
   }
  ],
  "OSD-502": [
@@ -1004,43 +866,37 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-502_ath04075.png",
-   "n_sig": 15,
-   "n_mapped": 63
+   "n_sig": 15
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-502_ath00940.png",
-   "n_sig": 13,
-   "n_mapped": 51
+   "n_sig": 13
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-502_ath04626.png",
-   "n_sig": 13,
-   "n_mapped": 43
+   "n_sig": 13
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-502_ath00500.png",
-   "n_sig": 9,
-   "n_mapped": 36
+   "n_sig": 9
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-502_ath00480.png",
-   "n_sig": 9,
-   "n_mapped": 24
+   "n_sig": 9
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-502_ath00010.png",
-   "n_sig": 3,
-   "n_mapped": 33
+   "n_sig": 3
   }
  ],
  "OSD-508": [
@@ -1048,57 +904,49 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-508_ath04075.png",
-   "n_sig": 23,
-   "n_mapped": 63
+   "n_sig": 23
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-508_ath04626.png",
-   "n_sig": 23,
-   "n_mapped": 43
+   "n_sig": 23
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-508_ath00940.png",
-   "n_sig": 19,
-   "n_mapped": 51
+   "n_sig": 19
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-508_ath00500.png",
-   "n_sig": 15,
-   "n_mapped": 36
+   "n_sig": 15
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-508_ath00010.png",
-   "n_sig": 6,
-   "n_mapped": 33
+   "n_sig": 6
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-508_ath00480.png",
-   "n_sig": 6,
-   "n_mapped": 25
+   "n_sig": 6
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-508_ath00360.png",
-   "n_sig": 4,
-   "n_mapped": 11
+   "n_sig": 4
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-508_ath00592.png",
-   "n_sig": 3,
-   "n_mapped": 22
+   "n_sig": 3
   }
  ],
  "OSD-510": [
@@ -1106,43 +954,37 @@
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-510_ath04626.png",
-   "n_sig": 18,
-   "n_mapped": 43
+   "n_sig": 18
   },
   {
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-510_ath04075.png",
-   "n_sig": 12,
-   "n_mapped": 63
+   "n_sig": 12
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-510_ath00480.png",
-   "n_sig": 11,
-   "n_mapped": 25
+   "n_sig": 11
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-510_ath00500.png",
-   "n_sig": 8,
-   "n_mapped": 36
+   "n_sig": 8
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-510_ath00940.png",
-   "n_sig": 6,
-   "n_mapped": 51
+   "n_sig": 6
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-510_ath00592.png",
-   "n_sig": 3,
-   "n_mapped": 22
+   "n_sig": 3
   }
  ],
  "OSD-518": [
@@ -1150,57 +992,49 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-518_ath04075.png",
-   "n_sig": 25,
-   "n_mapped": 62
+   "n_sig": 25
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-518_ath04626.png",
-   "n_sig": 14,
-   "n_mapped": 40
+   "n_sig": 14
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-518_ath00500.png",
-   "n_sig": 12,
-   "n_mapped": 36
+   "n_sig": 12
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-518_ath00940.png",
-   "n_sig": 9,
-   "n_mapped": 53
+   "n_sig": 9
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-518_ath00480.png",
-   "n_sig": 7,
-   "n_mapped": 24
+   "n_sig": 7
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-518_ath04712.png",
-   "n_sig": 4,
-   "n_mapped": 34
+   "n_sig": 4
   },
   {
    "pid": "ath00196",
    "name": "Photosynthesis - antenna proteins",
    "png": "OSD-518_ath00196.png",
-   "n_sig": 3,
-   "n_mapped": 12
+   "n_sig": 3
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-518_ath00592.png",
-   "n_sig": 3,
-   "n_mapped": 21
+   "n_sig": 3
   }
  ],
  "OSD-519": [
@@ -1208,36 +1042,31 @@
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-519_ath00940.png",
-   "n_sig": 9,
-   "n_mapped": 49
+   "n_sig": 9
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-519_ath04626.png",
-   "n_sig": 7,
-   "n_mapped": 43
+   "n_sig": 7
   },
   {
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-519_ath04075.png",
-   "n_sig": 6,
-   "n_mapped": 63
+   "n_sig": 6
   },
   {
    "pid": "ath00941",
    "name": "Flavonoid biosynthesis",
    "png": "OSD-519_ath00941.png",
-   "n_sig": 5,
-   "n_mapped": 34
+   "n_sig": 5
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-519_ath00480.png",
-   "n_sig": 3,
-   "n_mapped": 24
+   "n_sig": 3
   }
  ],
  "OSD-565": [
@@ -1245,43 +1074,37 @@
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-565_ath04626.png",
-   "n_sig": 17,
-   "n_mapped": 43
+   "n_sig": 17
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-565_ath00940.png",
-   "n_sig": 16,
-   "n_mapped": 51
+   "n_sig": 16
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-565_ath00500.png",
-   "n_sig": 10,
-   "n_mapped": 36
+   "n_sig": 10
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-565_ath00480.png",
-   "n_sig": 9,
-   "n_mapped": 25
+   "n_sig": 9
   },
   {
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-565_ath04075.png",
-   "n_sig": 8,
-   "n_mapped": 63
+   "n_sig": 8
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-565_ath00360.png",
-   "n_sig": 4,
-   "n_mapped": 11
+   "n_sig": 4
   }
  ],
  "OSD-678": [
@@ -1289,85 +1112,73 @@
    "pid": "ath00195",
    "name": "Photosynthesis",
    "png": "OSD-678_ath00195.png",
-   "n_sig": 25,
-   "n_mapped": 29
+   "n_sig": 25
   },
   {
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-678_ath04075.png",
-   "n_sig": 22,
-   "n_mapped": 63
+   "n_sig": 22
   },
   {
    "pid": "ath00196",
    "name": "Photosynthesis - antenna proteins",
    "png": "OSD-678_ath00196.png",
-   "n_sig": 15,
-   "n_mapped": 11
+   "n_sig": 15
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-678_ath00710.png",
-   "n_sig": 15,
-   "n_mapped": 30
+   "n_sig": 15
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-678_ath00010.png",
-   "n_sig": 12,
-   "n_mapped": 33
+   "n_sig": 12
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-678_ath00500.png",
-   "n_sig": 11,
-   "n_mapped": 36
+   "n_sig": 11
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-678_ath00940.png",
-   "n_sig": 10,
-   "n_mapped": 51
+   "n_sig": 10
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-678_ath04626.png",
-   "n_sig": 8,
-   "n_mapped": 43
+   "n_sig": 8
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-678_ath00480.png",
-   "n_sig": 7,
-   "n_mapped": 24
+   "n_sig": 7
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-678_ath00592.png",
-   "n_sig": 6,
-   "n_mapped": 23
+   "n_sig": 6
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-678_ath04712.png",
-   "n_sig": 4,
-   "n_mapped": 34
+   "n_sig": 4
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-678_ath00360.png",
-   "n_sig": 4,
-   "n_mapped": 11
+   "n_sig": 4
   }
  ],
  "OSD-782": [
@@ -1375,85 +1186,73 @@
    "pid": "ath04075",
    "name": "Plant hormone signal transduction",
    "png": "OSD-782_ath04075.png",
-   "n_sig": 40,
-   "n_mapped": 63
+   "n_sig": 40
   },
   {
    "pid": "ath04626",
    "name": "Plant-pathogen interaction",
    "png": "OSD-782_ath04626.png",
-   "n_sig": 29,
-   "n_mapped": 43
+   "n_sig": 29
   },
   {
    "pid": "ath00500",
    "name": "Starch and sucrose metabolism",
    "png": "OSD-782_ath00500.png",
-   "n_sig": 23,
-   "n_mapped": 36
+   "n_sig": 23
   },
   {
    "pid": "ath00940",
    "name": "Phenylpropanoid biosynthesis",
    "png": "OSD-782_ath00940.png",
-   "n_sig": 12,
-   "n_mapped": 52
+   "n_sig": 12
   },
   {
    "pid": "ath00908",
    "name": "Zeatin biosynthesis",
    "png": "OSD-782_ath00908.png",
-   "n_sig": 7,
-   "n_mapped": 10
+   "n_sig": 7
   },
   {
    "pid": "ath00941",
    "name": "Flavonoid biosynthesis",
    "png": "OSD-782_ath00941.png",
-   "n_sig": 6,
-   "n_mapped": 46
+   "n_sig": 6
   },
   {
    "pid": "ath04712",
    "name": "Circadian rhythm - plant",
    "png": "OSD-782_ath04712.png",
-   "n_sig": 6,
-   "n_mapped": 34
+   "n_sig": 6
   },
   {
    "pid": "ath00480",
    "name": "Glutathione metabolism",
    "png": "OSD-782_ath00480.png",
-   "n_sig": 6,
-   "n_mapped": 24
+   "n_sig": 6
   },
   {
    "pid": "ath00010",
    "name": "Glycolysis / Gluconeogenesis",
    "png": "OSD-782_ath00010.png",
-   "n_sig": 5,
-   "n_mapped": 33
+   "n_sig": 5
   },
   {
    "pid": "ath00710",
    "name": "Carbon fixation (Calvin cycle)",
    "png": "OSD-782_ath00710.png",
-   "n_sig": 4,
-   "n_mapped": 30
+   "n_sig": 4
   },
   {
    "pid": "ath00592",
    "name": "alpha-Linolenic acid (jasmonate) metabolism",
    "png": "OSD-782_ath00592.png",
-   "n_sig": 4,
-   "n_mapped": 23
+   "n_sig": 4
   },
   {
    "pid": "ath00360",
    "name": "Phenylalanine metabolism",
    "png": "OSD-782_ath00360.png",
-   "n_sig": 4,
-   "n_mapped": 11
+   "n_sig": 4
   }
  ]
 }
