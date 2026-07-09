@@ -38,3 +38,23 @@ Projection across **27 studies** and **14 pathways**.
 | OSD-658 | Glycolysis / Gluconeogenesis | 0 |
 | OSD-678 | Photosynthesis | 25 |
 | OSD-782 | Plant hormone signal transduction | 40 |
+
+## Cellular-site responsiveness
+
+For each subcellular compartment, the fraction of that compartment's expressed genes that are significantly differentially expressed (|log2FC| > 1, adj. *p* < 0.05), averaged across studies. Enrichment is relative to each study's genome-wide rate. Compartments (UniProt) for ~12,500 Arabidopsis genes.
+
+![Cellular-site responsiveness heatmap](_static/compartment_responsiveness.png)
+
+| Compartment | Mean % genes DE | Enrichment vs genome |
+| --- | --- | --- |
+| Cell wall / apoplast | 14.8 | ×2.06 |
+| Plasma membrane | 10.9 | ×1.35 |
+| Membrane | 10.1 | ×1.28 |
+| Chloroplast | 8.2 | ×0.84 |
+| Vacuole | 7.6 | ×0.94 |
+| Nucleus | 7.4 | ×0.89 |
+| Cytoplasm | 6.9 | ×0.81 |
+| Peroxisome | 6.3 | ×0.90 |
+| Endoplasmic reticulum | 6.1 | ×0.68 |
+| Golgi | 5.5 | ×0.63 |
+| Mitochondrion | 4.5 | ×0.45 |

@@ -13,8 +13,8 @@ DATA = os.path.join(BOOK, "data")
 APP = "https://dr-richard-barker.github.io/SBGN-Pathway-viewer/app/"
 
 
-def load_csv(path):
-    return list(csv.DictReader(open(path, encoding="utf-8"))) if os.path.exists(path) else []
+def load_csv(path, delim=","):
+    return list(csv.DictReader(open(path, encoding="utf-8"), delimiter=delim)) if os.path.exists(path) else []
 
 
 def md_table(headers, rows):
@@ -129,6 +129,22 @@ def main():
                     [[acc, max(rows, key=lambda r: int(r["n_sig"]))["pathway_name"],
                       max(int(r["n_sig"]) for r in rows)] for acc, rows in by_study.items()]),
            ""]
+
+    # Cellular-site responsiveness (from tools/compartment_summary.py)
+    csum = os.path.join(DATA, "compartment_summary.tsv")
+    if os.path.exists(csum):
+        rows_c = load_csv(csum, delim="\t")
+        res += [
+            "## Cellular-site responsiveness", "",
+            "For each subcellular compartment, the fraction of that compartment's expressed "
+            "genes that are significantly differentially expressed (|log2FC| > 1, adj. *p* < 0.05), "
+            "averaged across studies. Enrichment is relative to each study's genome-wide rate. "
+            "Compartments (UniProt) for ~12,500 Arabidopsis genes.", "",
+            "![Cellular-site responsiveness heatmap](_static/compartment_responsiveness.png)", "",
+            md_table(["Compartment", "Mean % genes DE", "Enrichment vs genome"],
+                     [[r["compartment"], r["mean_pct_DE"], f"×{r['mean_enrichment']}"] for r in rows_c]),
+            "",
+        ]
     open(os.path.join(BOOK, "results.md"), "w", encoding="utf-8").write("\n".join(res))
 
     # Table of contents

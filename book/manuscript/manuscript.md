@@ -145,6 +145,23 @@ individual spaceflight studies.
 **Figure 1.** Pathway-activity heatmap (mean |log2FC|) across studies. See
 `book/results.html`.
 
+### 3.3 The cell surface is the most spaceflight-responsive compartment
+Assigning every expressed gene to a subcellular compartment (UniProt; ~12,500
+annotated *Arabidopsis* genes) and asking, per study, what fraction of each
+compartment's genes are significantly differentially expressed reveals a clear
+gradient (Figure 2). The **cell wall / apoplast** is the most responsive compartment
+(mean 14.8 % of its genes DE; 2.1× enriched over each study's genome-wide rate),
+followed by the **plasma membrane** (10.9 %; 1.4×) and other **membranes** (10.1 %;
+1.3×). Conversely, **mitochondrial** genes are the least responsive (4.5 %; 0.45×),
+with the endomembrane system (ER, Golgi) and nucleus near or below the genome
+average. The concentration of the response at the **cell surface** is consistent with
+the pathway-level enrichment of phenylpropanoid/cell-wall and defence processes, and
+suggests that spaceflight acts most strongly on the wall–membrane interface while
+core organellar (mitochondrial) function is comparatively buffered.
+
+**Figure 2.** Cellular-site responsiveness: % of each compartment's genes
+significantly DE, per study. See `book/results.html`.
+
 ## 4. Discussion
 
 Projecting many OSDR studies onto shared pathway maps converts heterogeneous gene
