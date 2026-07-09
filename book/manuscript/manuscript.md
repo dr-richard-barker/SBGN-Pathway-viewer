@@ -85,10 +85,12 @@ processes repeatedly implicated in spaceflight plant biology (Section 3).
 KGML (KEGG) maps deterministically in the browser and colours nodes by an imported
 study's values; it requires no API key, login or server, and studies in the atlas
 are one click away. For offline reading, the atlas also ships a static *panel
-figure* for every significant study × pathway: a clean, ggpathway-style node-link
-diagram of the pathway (drawn from the KGML topology, nodes coloured by log2FC and
-significant genes labelled by symbol) beside a heatmap of that pathway's significant
-loci (red +ve / white 0 / blue −ve).
+figure* for every significant study × pathway, rendered with **ggkegg** (grammar of
+graphics for KEGG): the pathway is drawn with enzyme/gene nodes coloured by log2FC
+and labelled by symbol, metabolite and cofactor **compound nodes labelled by name**,
+and reaction/relation edges, beside a heatmap of the pathway's significant loci
+(red +ve / white 0 / blue −ve). (KEGG pathways do not encode subcellular
+compartments; compartmentalised views would require an SBGN source such as Reactome.)
 
 **Availability and reproducibility.** The entire atlas regenerates with
 `osdr_discover.py → osdr_pipeline.py → build_book.py → jupyter-book build`. All code
