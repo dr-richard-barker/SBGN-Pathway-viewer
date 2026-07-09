@@ -24,7 +24,7 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import FancyBboxPatch, Circle
+from matplotlib.patches import FancyBboxPatch, Circle, Rectangle
 from matplotlib.colors import TwoSlopeNorm
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -88,13 +88,18 @@ def load_slim(path):
     return data
 
 
-def draw_graph(ax, entries, edges, data, norm):
-    """Clean node-link pathway diagram coloured by log2FC."""
+def draw_graph(ax, entries, edges, data, norm, sig_labels, region=None, label_size=5.5):
+    """Clean node-link pathway diagram coloured by log2FC.
+    sig_labels = [(x, y, text)] for significant genes (always labelled).
+    region = (x0, x1, y0, y1) zooms to that window so labels become legible."""
     xs = [e["x"] for e in entries.values()]
     ys = [e["y"] for e in entries.values()]
     minx, maxx, miny, maxy = min(xs), max(xs), min(ys), max(ys)
-    ax.set_xlim(minx - 40, maxx + 40)
-    ax.set_ylim(maxy + 30, miny - 30)   # invert y (KGML y grows downward)
+    if region:
+        x0, x1, y0, y1 = region
+        ax.set_xlim(x0, x1); ax.set_ylim(y1, y0)   # inverted y
+    else:
+        ax.set_xlim(minx - 40, maxx + 40); ax.set_ylim(maxy + 30, miny - 30)
     ax.set_aspect("equal"); ax.axis("off")
 
     # edges first (light grey)
@@ -102,13 +107,10 @@ def draw_graph(ax, entries, edges, data, norm):
         ea, eb = entries[a], entries[b]
         ax.plot([ea["x"], eb["x"]], [ea["y"], eb["y"]], color="#c8ccd2", lw=0.6, zorder=1)
 
-    labels = []
+    # nodes: genes (coloured), compounds (dots), pathway-map links (faint)
     for e in entries.values():
         t = e["type"]
-        val = None
-        for l in e["loci"]:
-            if l in data:
-                val = data[l][0]; break
+        val = next((data[l][0] for l in e["loci"] if l in data), None)
         if t == "compound":
             ax.add_patch(Circle((e["x"], e["y"]), 4, facecolor="#eef0f2",
                                  edgecolor="#94a3b8", lw=0.4, zorder=2))
@@ -124,15 +126,14 @@ def draw_graph(ax, entries, edges, data, norm):
         ax.add_patch(FancyBboxPatch((e["x"] - e["w"] / 2, e["y"] - e["h"] / 2), e["w"], e["h"],
                      boxstyle="round,pad=1,rounding_size=3", facecolor=fc,
                      edgecolor="#334155", lw=0.5, zorder=3))
-        # label significant genes with the symbol
-        if val is not None and abs(val) > LFC_CUT:
-            lfc, padj = next((data[l] for l in e["loci"] if l in data), (val, float("nan")))
-            if padj == padj and padj < PADJ_CUT and e["symbol"]:
-                labels.append((e["x"], e["y"], e["symbol"]))
-    for x, y, s in labels:
-        ax.annotate(s, (x, y), fontsize=5.5, ha="center", va="center", zorder=4,
+    # significant genes: red ring + label (symbol, else locus) so they are always
+    # findable even on a dense map.
+    for x, y, s in sig_labels:
+        ax.add_patch(Circle((x, y), 13, fill=False, edgecolor="#e11d48", lw=0.9, zorder=3.6))
+    for x, y, s in sig_labels:
+        ax.annotate(s, (x, y - 12), fontsize=label_size, ha="center", va="bottom", zorder=4,
                     color="#0f172a",
-                    bbox=dict(boxstyle="round,pad=0.1", fc="white", ec="none", alpha=0.7))
+                    bbox=dict(boxstyle="round,pad=0.1", fc="white", ec="#e2e8f0", lw=0.3, alpha=0.9))
 
 
 def build(only=None):
@@ -181,13 +182,58 @@ def build(only=None):
             items = sorted(sorted(heat.items(), key=lambda kv: -abs(kv[1]))[:MAX_HEAT_LOCI], key=lambda kv: kv[1])
         nrow = max(1, len(items))
 
-        fig_h = max(3.6, min(0.25 * nrow + 1.6, 9))
-        fig = plt.figure(figsize=(10.2, fig_h))
-        gs = fig.add_gridspec(1, 2, width_ratios=[7.4, 2.8], wspace=0.06)
-        axg = fig.add_subplot(gs[0, 0]); axh = fig.add_subplot(gs[0, 1])
+        # Significant-gene coordinates + whether to add a zoom sub-panel: only for
+        # BUSY pathways whose significant genes sit in a sub-region (else the full
+        # graph is already legible or the zoom would just repeat it).
+        sig_labels = []
+        for e in entries.values():
+            if e["type"] not in ("gene", "ortholog"):
+                continue
+            hits = [(l, data[l][0]) for l in e["loci"]
+                    if l in data and abs(data[l][0]) > LFC_CUT and data[l][1] == data[l][1] and data[l][1] < PADJ_CUT]
+            if hits:
+                locus = max(hits, key=lambda kv: abs(kv[1]))[0]   # strongest sig locus in this node
+                sig_labels.append((e["x"], e["y"], loc2sym.get(locus, locus)))
+        # one label per unique gene (the same locus can appear in several KEGG nodes)
+        _seen, _dedup = set(), []
+        for x, y, lab in sig_labels:
+            if lab not in _seen:
+                _seen.add(lab); _dedup.append((x, y, lab))
+        sig_labels = _dedup
+        sig_pts = [(x, y) for x, y, _ in sig_labels]
+        n_gene = sum(1 for e in entries.values() if e["type"] in ("gene", "ortholog"))
+        allx = [e["x"] for e in entries.values()]; ally = [e["y"] for e in entries.values()]
+        full_area = max(1, (max(allx) - min(allx)) * (max(ally) - min(ally)))
+        region = None
+        if n_gene >= 55 and len(sig_pts) >= 2:
+            sx = [p[0] for p in sig_pts]; sy = [p[1] for p in sig_pts]
+            pad = 55
+            x0, x1, y0, y1 = min(sx) - pad, max(sx) + pad, min(sy) - pad, max(sy) + pad
+            # enforce a minimum window and skip if the region ~ the whole map
+            if (x1 - x0) * (y1 - y0) < 0.55 * full_area:
+                cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+                half_w, half_h = max((x1 - x0) / 2, 90), max((y1 - y0) / 2, 70)
+                region = (cx - half_w, cx + half_w, cy - half_h, cy + half_h)
 
-        draw_graph(axg, entries, edges, data, norm)
+        fig_h = max(3.6, min(0.25 * nrow + 1.6, 9))
+        if region:
+            fig = plt.figure(figsize=(12.6, fig_h))
+            gs = fig.add_gridspec(1, 3, width_ratios=[6.2, 3.6, 2.6], wspace=0.05)
+            axg = fig.add_subplot(gs[0, 0]); axz = fig.add_subplot(gs[0, 1]); axh = fig.add_subplot(gs[0, 2])
+        else:
+            fig = plt.figure(figsize=(10.2, fig_h))
+            gs = fig.add_gridspec(1, 2, width_ratios=[7.4, 2.8], wspace=0.06)
+            axg = fig.add_subplot(gs[0, 0]); axz = None; axh = fig.add_subplot(gs[0, 1])
+
+        # Full map always marks significant genes (ring + label). When they cluster,
+        # a zoom sub-panel adds legibility.
+        draw_graph(axg, entries, edges, data, norm, sig_labels, label_size=5.0)
         axg.set_title(f"{acc} · {name}", fontsize=10)
+        if region:
+            axg.add_patch(Rectangle((region[0], region[2]), region[1] - region[0], region[3] - region[2],
+                                    fill=False, edgecolor="#e11d48", lw=1.0, ls="--", zorder=5))
+            draw_graph(axz, entries, edges, data, norm, sig_labels, region=region, label_size=8)
+            axz.set_title("significant-gene region", fontsize=9)
 
         if items:
             col = np.array([[v] for _, v in items])
