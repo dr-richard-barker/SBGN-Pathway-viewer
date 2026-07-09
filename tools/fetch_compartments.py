@@ -2,10 +2,10 @@
 """Fetch UniProt subcellular locations for the atlas's significant Arabidopsis loci
 and bucket them into top-level cellular compartments. Writes
 book/data/gene_compartments.tsv (locus, compartment, raw)."""
-import csv, os, re, time, urllib.parse, urllib.request
+import csv, os, re, sys, time, urllib.parse, urllib.request
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-LOCI = os.path.join(ROOT, "book", "data", "_sigloci.txt")
+LOCI = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "book", "data", "_sigloci.txt")
 OUT = os.path.join(ROOT, "book", "data", "gene_compartments.tsv")
 
 BUCKETS = [

@@ -74,21 +74,30 @@ for (i in seq_len(nrow(sig_rows))) {
   is_gene <- nd$type %in% c("gene", "ortholog"); is_cpd <- nd$type == "compound"
   gsym <- vapply(seq_len(nrow(nd)), function(k) {
     ids <- member[[k]]; s <- trimws(gsub("...", "", nd$graphics_name[k], fixed = TRUE)); s }, character(1))
+  # cellular compartment per node = first member locus with a known compartment
+  node_comp <- vapply(member, function(ids) {
+    cs <- unname(comp_of[ids]); cs <- cs[!is.na(cs) & cs != "Other / unknown"]
+    if (length(cs)) cs[1] else "Other / unknown" }, character(1))
   g <- g |> activate(nodes) |>
     mutate(value = val, is_gene = is_gene, is_cpd = is_cpd,
+           ncomp = factor(ifelse(is_gene, node_comp, NA), levels = names(COMP_PAL)),
            glab = ifelse(is_gene & !is.na(value) & abs(value) > LFC, gsym, NA),
            clab = ifelse(is_cpd, short(name), NA))
   mx <- max(abs(val), na.rm = TRUE); if (!is.finite(mx)) mx <- 1
 
+  # Gene boxes: FILL = log2FC, OUTLINE = cellular compartment (dual encoding).
   pmap <- ggraph(g, layout = "manual", x = x, y = y) +
     geom_edge_link(color = "grey82", width = 0.22) +
     geom_node_rect(aes(filter = is_cpd), fill = "grey96", color = "grey60", linewidth = 0.15) +
-    geom_node_rect(aes(filter = is_gene, fill = value), color = "grey30", linewidth = 0.2) +
+    geom_node_rect(aes(filter = is_gene, fill = value, color = ncomp), linewidth = 0.5) +
     geom_node_point(aes(filter = is_cpd), shape = 21, fill = "grey96", color = "grey55", size = 1.2) +
     geom_node_text(aes(filter = is_cpd, label = clab), size = 1.15, color = "grey45", nudge_y = -8) +
     geom_node_text(aes(filter = is_gene & !is.na(glab), label = glab), size = 1.7, color = "grey10") +
     scale_fill_gradient2(low = LOW, mid = "white", high = HIGH, midpoint = 0,
                          limits = c(-mx, mx), na.value = "grey90", name = "log2FC") +
+    scale_color_manual(values = COMP_PAL, drop = FALSE, na.value = "grey70",
+                       name = "Cellular site\n(UniProt)") +
+    guides(color = guide_legend(override.aes = list(fill = "white"))) +
     theme_void() + coord_fixed() + ggtitle(paste0(acc, " · ", nm))
 
   # heatmap of significant loci in this pathway
@@ -108,7 +117,7 @@ for (i in seq_len(nrow(sig_rows))) {
 
     # cellular-site strip (compartment colours + legend)
     pcomp <- ggplot(hd, aes(1, y, fill = comp)) + geom_tile(color = "white", linewidth = 0.2) +
-      scale_fill_manual(values = COMP_PAL, drop = FALSE, name = "Cellular site\n(UniProt)") +
+      scale_fill_manual(values = COMP_PAL, drop = FALSE, guide = "none") +
       scale_y_continuous(expand = c(0, 0)) + scale_x_continuous(expand = c(0, 0)) +
       labs(title = "site") + theme_minimal(base_size = 6) +
       theme(axis.title = element_blank(), axis.text = element_blank(),
