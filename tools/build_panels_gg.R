@@ -24,6 +24,16 @@ only <- if (length(args) >= 1) strsplit(args[1], ",")[[1]] else NULL
 matrix <- read.csv("book/data/pathway_projection_matrix.csv", check.names = FALSE)
 sf <- read.csv("book/data/study_files.csv"); files <- setNames(sf$file, sf$osd)
 
+# Cellular site (UniProt subcellular location) per locus + a fixed palette so the
+# colours mean the same thing across every panel.
+cmp <- tryCatch(read.delim("book/data/gene_compartments.tsv"), error = function(e) NULL)
+comp_of <- if (!is.null(cmp)) setNames(cmp$compartment, toupper(cmp$locus)) else character(0)
+COMP_PAL <- c(
+  "Nucleus" = "#6a3d9a", "Chloroplast" = "#33a02c", "Mitochondrion" = "#e31a1c",
+  "Endoplasmic reticulum" = "#ff7f00", "Golgi" = "#b15928", "Plasma membrane" = "#1f78b4",
+  "Vacuole" = "#a6cee3", "Peroxisome" = "#fb9a99", "Cell wall / apoplast" = "#b2df8a",
+  "Cytoplasm" = "#fdbf6f", "Membrane" = "#cab2d6", "Other / unknown" = "#dddddd")
+
 # compound id -> short name
 cn <- read.delim("book/data/kegg_compound_names.tsv", header = FALSE, quote = "")
 cname <- setNames(sub(";.*", "", cn$V2), sub("^cpd:", "", cn$V1))
@@ -89,20 +99,36 @@ for (i in seq_len(nrow(sig_rows))) {
   sig <- sig[order(lfc[sig])]
   if (length(sig)) {
     labs <- vapply(sig, function(l) { s <- loc2sym[[l]]; if (is.null(s)) l else s }, character(1))
-    hd <- data.frame(y = seq_along(sig), lab = labs, v = lfc[sig])
+    comp <- unname(comp_of[sig]); comp[is.na(comp)] <- "Other / unknown"
+    comp <- factor(comp, levels = names(COMP_PAL))
+    hd <- data.frame(y = seq_along(sig), lab = labs, v = lfc[sig], comp = comp)
     hmx <- max(abs(hd$v)); if (!is.finite(hmx) || hmx == 0) hmx <- 1
+    nsig_total <- length(path_loci[!is.na(lfc[path_loci]) & abs(lfc[path_loci]) > LFC &
+      !is.na(padj[path_loci]) & padj[path_loci] < PADJ])
+
+    # cellular-site strip (compartment colours + legend)
+    pcomp <- ggplot(hd, aes(1, y, fill = comp)) + geom_tile(color = "white", linewidth = 0.2) +
+      scale_fill_manual(values = COMP_PAL, drop = FALSE, name = "Cellular site\n(UniProt)") +
+      scale_y_continuous(expand = c(0, 0)) + scale_x_continuous(expand = c(0, 0)) +
+      labs(title = "site") + theme_minimal(base_size = 6) +
+      theme(axis.title = element_blank(), axis.text = element_blank(),
+            panel.grid = element_blank(), plot.title = element_text(size = 6),
+            legend.key.size = unit(7, "pt"), legend.text = element_text(size = 5.5),
+            legend.title = element_text(size = 6))
+    # log2FC strip (+ gene labels on the right)
     pheat <- ggplot(hd, aes(1, y, fill = v)) + geom_tile(color = "white", linewidth = 0.2) +
       scale_fill_gradient2(low = LOW, mid = "white", high = HIGH, midpoint = 0,
                            limits = c(-hmx, hmx), guide = "none") +
       scale_y_continuous(breaks = hd$y, labels = hd$lab, position = "right", expand = c(0, 0)) +
       scale_x_continuous(expand = c(0, 0)) +
-      labs(title = paste0("sig loci (n=", length(path_loci[!is.na(lfc[path_loci]) &
-        abs(lfc[path_loci]) > LFC & !is.na(padj[path_loci]) & padj[path_loci] < PADJ]), ")")) +
+      labs(title = paste0("sig loci (n=", nsig_total, ")")) +
       theme_minimal(base_size = 6) +
       theme(axis.title = element_blank(), axis.text.x = element_blank(),
             panel.grid = element_blank(), axis.text.y = element_text(size = 5),
-            plot.title = element_text(size = 7))
-    fig <- pmap + pheat + plot_layout(widths = c(4.3, 1))
+            plot.title = element_text(size = 7),
+            legend.key.size = unit(7, "pt"), legend.text = element_text(size = 5.5),
+            legend.title = element_text(size = 6))
+    fig <- pmap + pcomp + pheat + plot_layout(widths = c(4.3, 0.35, 1))
   } else fig <- pmap
 
   h <- max(4, min(0.14 * length(sig) + 4, 9))

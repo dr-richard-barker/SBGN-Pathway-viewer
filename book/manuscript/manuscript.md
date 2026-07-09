@@ -89,8 +89,11 @@ figure* for every significant study × pathway, rendered with **ggkegg** (gramma
 graphics for KEGG): the pathway is drawn with enzyme/gene nodes coloured by log2FC
 and labelled by symbol, metabolite and cofactor **compound nodes labelled by name**,
 and reaction/relation edges, beside a heatmap of the pathway's significant loci
-(red +ve / white 0 / blue −ve). (KEGG pathways do not encode subcellular
-compartments; compartmentalised views would require an SBGN source such as Reactome.)
+(red +ve / white 0 / blue −ve). Because KEGG does not encode subcellular location,
+each significant gene is additionally tagged with its **cellular compartment**
+(a colour strip) from UniProt subcellular-location records for *Arabidopsis*
+(74 % of significant loci annotated). Reactome, which does carry compartments, does
+not curate *Arabidopsis* and so could not be used for these data.
 
 **Availability and reproducibility.** The entire atlas regenerates with
 `osdr_discover.py → osdr_pipeline.py → build_book.py → jupyter-book build`. All code
