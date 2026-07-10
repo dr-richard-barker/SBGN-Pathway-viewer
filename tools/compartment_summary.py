@@ -13,7 +13,7 @@ BOOK = os.path.join(ROOT, "book")
 SLIM = os.path.join(ROOT, "public", "osdr")
 LFC, PADJ = 1.0, 0.05
 ORDER = ["Nucleus", "Cytoplasm", "Chloroplast", "Mitochondrion", "Endoplasmic reticulum",
-         "Golgi", "Plasma membrane", "Vacuole", "Peroxisome", "Cell wall / apoplast", "Membrane"]
+         "Golgi", "Plasma membrane", "Vacuole", "Peroxisome", "Cell wall / apoplast", "Membrane (unspecified)"]
 
 
 def main():

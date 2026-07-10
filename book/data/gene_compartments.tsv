@@ -20,7 +20,7 @@ AT1G03600	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT1G03970	Nucleus	Nucleus
 AT1G04100	Nucleus	Nucleus
 AT1G04180	Other / unknown	
-AT1G04220	Membrane	Membrane
+AT1G04220	Membrane (unspecified)	Membrane
 AT1G04240	Nucleus	Nucleus
 AT1G04250	Nucleus	Nucleus
 AT1G04310	Endoplasmic reticulum	Endoplasmic reticulum membrane
@@ -50,7 +50,7 @@ AT1G07890	Cytoplasm	Cytoplasm
 AT1G08320	Nucleus	Nucleus
 AT1G08380	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT1G08980	Cytoplasm	Cytoplasm
-AT1G09090	Membrane	Membrane
+AT1G09090	Membrane (unspecified)	Membrane
 AT1G09400	Other / unknown	
 AT1G09420	Chloroplast	Plastid, chloroplast stroma
 AT1G09530	Nucleus	Nucleus
@@ -91,7 +91,7 @@ AT1G17000	Other / unknown
 AT1G17170	Cytoplasm	Cytoplasm, cytosol
 AT1G17180	Cytoplasm	Cytoplasm, cytosol
 AT1G17190	Cytoplasm	Cytoplasm, cytosol
-AT1G17260	Membrane	Membrane
+AT1G17260	Membrane (unspecified)	Membrane
 AT1G17290	Mitochondrion	Mitochondrion
 AT1G17380	Nucleus	Nucleus
 AT1G17420	Chloroplast	Plastid, chloroplast
@@ -99,14 +99,14 @@ AT1G17550	Other / unknown
 AT1G18020	Other / unknown	
 AT1G18210	Other / unknown	
 AT1G18530	Other / unknown	
-AT1G18890	Membrane	Membrane
+AT1G18890	Membrane (unspecified)	Membrane
 AT1G19050	Nucleus	Nucleus
 AT1G19150	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT1G19180	Nucleus	Nucleus
 AT1G19220	Nucleus	Nucleus
-AT1G19230	Membrane	Membrane
+AT1G19230	Membrane (unspecified)	Membrane
 AT1G19350	Nucleus	Nucleus
-AT1G19440	Membrane	Membrane
+AT1G19440	Membrane (unspecified)	Membrane
 AT1G19550	Other / unknown	
 AT1G19570	Mitochondrion	Mitochondrion
 AT1G19640	Cytoplasm	Cytoplasm
@@ -149,10 +149,10 @@ AT1G24110	Cell wall / apoplast	Secreted
 AT1G24180	Mitochondrion	Mitochondrion matrix
 AT1G24280	Chloroplast	Plastid, chloroplast stroma
 AT1G24620	Other / unknown	
-AT1G24650	Membrane	Membrane
+AT1G24650	Membrane (unspecified)	Membrane
 AT1G24735	Other / unknown	
 AT1G25410	Chloroplast	Plastid, chloroplast
-AT1G25450	Membrane	Membrane
+AT1G25450	Membrane (unspecified)	Membrane
 AT1G26560	Other / unknown	
 AT1G27130	Cytoplasm	Cytoplasm, cytosol
 AT1G27140	Cytoplasm	Cytoplasm, cytosol
@@ -221,7 +221,7 @@ AT1G48910	Other / unknown
 AT1G48930	Cell wall / apoplast	Secreted
 AT1G49190	Nucleus	Nucleus
 AT1G49570	Cell wall / apoplast	Secreted
-AT1G49580	Membrane	Membrane
+AT1G49580	Membrane (unspecified)	Membrane
 AT1G49720	Nucleus	Nucleus
 AT1G49860	Cytoplasm	Cytoplasm, cytosol
 AT1G50060	Other / unknown	
@@ -266,8 +266,8 @@ AT1G61520	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT1G61720	Other / unknown	
 AT1G61810	Other / unknown	
 AT1G61820	Other / unknown	
-AT1G61950	Membrane	Membrane
-AT1G62660	Membrane	Membrane
+AT1G61950	Membrane (unspecified)	Membrane
+AT1G62660	Membrane (unspecified)	Membrane
 AT1G62800	Cytoplasm	Cytoplasm
 AT1G62810	Cell wall / apoplast	Secreted, extracellular space, apoplast
 AT1G62820	Other / unknown	
@@ -283,7 +283,7 @@ AT1G64390	Cell wall / apoplast	Secreted
 AT1G64710	Cytoplasm	Cytoplasm
 AT1G65060	Other / unknown	
 AT1G65480	Cytoplasm	Cytoplasm
-AT1G65610	Membrane	Membrane
+AT1G65610	Membrane (unspecified)	Membrane
 AT1G65820	Mitochondrion	Mitochondrion outer membrane
 AT1G65930	Cytoplasm	Cytoplasm, cytosol
 AT1G66150	Plasma membrane	Cell membrane
@@ -297,7 +297,7 @@ AT1G66400	Other / unknown
 AT1G66410	Other / unknown	
 AT1G66430	Chloroplast	Plastid, chloroplast
 AT1G67090	Chloroplast	Plastid, chloroplast membrane
-AT1G67110	Membrane	Membrane
+AT1G67110	Membrane (unspecified)	Membrane
 AT1G67560	Chloroplast	Plastid, chloroplast
 AT1G67710	Nucleus	Nucleus
 AT1G67740	Chloroplast	Plastid, chloroplast thylakoid membrane
@@ -323,7 +323,7 @@ AT1G70700	Nucleus	Nucleus
 AT1G70710	Cell wall / apoplast	Secreted
 AT1G70730	Cytoplasm	Cytoplasm
 AT1G71100	Cytoplasm	Cytoplasm
-AT1G71160	Membrane	Membrane
+AT1G71160	Membrane (unspecified)	Membrane
 AT1G71380	Cell wall / apoplast	Secreted, cell wall
 AT1G71920	Chloroplast	Plastid, chloroplast
 AT1G72000	Other / unknown	
@@ -338,10 +338,10 @@ AT1G73630	Other / unknown
 AT1G73680	Other / unknown	
 AT1G73730	Nucleus	Nucleus
 AT1G74030	Chloroplast	Plastid, chloroplast
-AT1G74540	Membrane	Membrane
-AT1G74550	Membrane	Membrane
+AT1G74540	Membrane (unspecified)	Membrane
+AT1G74550	Membrane (unspecified)	Membrane
 AT1G74590	Cytoplasm	Cytoplasm, cytosol
-AT1G74740	Membrane	Membrane
+AT1G74740	Membrane (unspecified)	Membrane
 AT1G74890	Nucleus	Nucleus
 AT1G74950	Nucleus	Nucleus
 AT1G75080	Nucleus	Nucleus
@@ -350,7 +350,7 @@ AT1G75450	Cell wall / apoplast	Secreted, extracellular space
 AT1G75580	Plasma membrane	Cell membrane
 AT1G75590	Other / unknown	
 AT1G75940	Endoplasmic reticulum	Endoplasmic reticulum lumen
-AT1G76040	Membrane	Membrane
+AT1G76040	Membrane (unspecified)	Membrane
 AT1G76100	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT1G76130	Cytoplasm	Cytoplasm, cytosol
 AT1G76190	Other / unknown	
@@ -385,7 +385,7 @@ AT1G79750	Chloroplast	Plastid, chloroplast
 AT1G80100	Cytoplasm	Cytoplasm, cytosol
 AT1G80390	Nucleus	Nucleus
 AT1G80460	Cytoplasm	Cytoplasm, cytosol
-AT1G80660	Membrane	Membrane
+AT1G80660	Membrane (unspecified)	Membrane
 AT1G80820	Other / unknown	
 AT2G01140	Chloroplast	Plastid, chloroplast, plastoglobule
 AT2G01200	Nucleus	Nucleus
@@ -393,7 +393,7 @@ AT2G01290	Cytoplasm	Cytoplasm
 AT2G01570	Nucleus	Nucleus
 AT2G01630	Plasma membrane	Cell membrane
 AT2G01760	Nucleus	Nucleus
-AT2G01820	Membrane	Membrane
+AT2G01820	Membrane (unspecified)	Membrane
 AT2G01830	Endoplasmic reticulum	Endoplasmic reticulum membrane
 AT2G02220	Plasma membrane	Cell membrane
 AT2G02930	Cytoplasm	Cytoplasm, cytosol
@@ -403,7 +403,7 @@ AT2G05070	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT2G05100	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT2G06050	Peroxisome	Peroxisome
 AT2G06925	Cell wall / apoplast	Secreted
-AT2G07560	Membrane	Membrane
+AT2G07560	Membrane (unspecified)	Membrane
 AT2G07707	Mitochondrion	Mitochondrion membrane
 AT2G13560	Mitochondrion	Mitochondrion
 AT2G13790	Plasma membrane	Cell membrane
@@ -426,7 +426,7 @@ AT2G18790	Cytoplasm	Cytoplasm
 AT2G18960	Plasma membrane	Cell membrane
 AT2G18980	Cell wall / apoplast	Secreted
 AT2G19070	Other / unknown	
-AT2G19190	Membrane	Membrane
+AT2G19190	Membrane (unspecified)	Membrane
 AT2G19500	Endoplasmic reticulum	Endoplasmic reticulum
 AT2G19860	Mitochondrion	Mitochondrion outer membrane
 AT2G19900	Cytoplasm	Cytoplasm
@@ -461,7 +461,7 @@ AT2G23980	Plasma membrane	Cell membrane
 AT2G24200	Cytoplasm	Cytoplasm
 AT2G24270	Cytoplasm	Cytoplasm
 AT2G24400	Other / unknown	
-AT2G24520	Membrane	Membrane
+AT2G24520	Membrane (unspecified)	Membrane
 AT2G24610	Plasma membrane	Cell membrane
 AT2G24800	Cell wall / apoplast	Secreted
 AT2G24850	Other / unknown	
@@ -472,7 +472,7 @@ AT2G25630	Other / unknown
 AT2G25930	Nucleus	Nucleus
 AT2G26040	Cytoplasm	Cytoplasm
 AT2G26250	Endoplasmic reticulum	Endoplasmic reticulum membrane
-AT2G26640	Membrane	Membrane
+AT2G26640	Membrane (unspecified)	Membrane
 AT2G27030	Other / unknown	
 AT2G27050	Nucleus	Nucleus
 AT2G27070	Nucleus	Nucleus
@@ -494,7 +494,7 @@ AT2G29480	Cytoplasm	Cytoplasm, cytosol
 AT2G29490	Cytoplasm	Cytoplasm, cytosol
 AT2G29560	Cytoplasm	Cytoplasm
 AT2G30250	Nucleus	Nucleus
-AT2G30490	Membrane	Membrane
+AT2G30490	Membrane (unspecified)	Membrane
 AT2G30570	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT2G30730	Cytoplasm	Cytoplasm, cytosol
 AT2G30740	Plasma membrane	Cell membrane
@@ -504,7 +504,7 @@ AT2G30870	Cytoplasm	Cytoplasm, cytosol
 AT2G30970	Mitochondrion	Mitochondrion matrix
 AT2G30980	Other / unknown	
 AT2G31390	Other / unknown	
-AT2G31500	Membrane	Membrane
+AT2G31500	Membrane (unspecified)	Membrane
 AT2G31570	Cytoplasm	Cytoplasm, cytosol
 AT2G32290	Cytoplasm	Cytoplasm
 AT2G32860	Other / unknown	
@@ -522,7 +522,7 @@ AT2G34930	Plasma membrane	Cell membrane
 AT2G35380	Cell wall / apoplast	Secreted
 AT2G35690	Peroxisome	Peroxisome
 AT2G35840	Other / unknown	
-AT2G35890	Membrane	Membrane
+AT2G35890	Membrane (unspecified)	Membrane
 AT2G36180	Other / unknown	
 AT2G36190	Cell wall / apoplast	Secreted, extracellular space, apoplast
 AT2G36210	Other / unknown	
@@ -535,7 +535,7 @@ AT2G36750	Other / unknown
 AT2G36760	Other / unknown	
 AT2G36770	Other / unknown	
 AT2G36780	Other / unknown	
-AT2G36800	Membrane	Membrane
+AT2G36800	Membrane (unspecified)	Membrane
 AT2G37030	Other / unknown	
 AT2G37040	Cytoplasm	Cytoplasm
 AT2G37130	Cell wall / apoplast	Secreted
@@ -545,7 +545,7 @@ AT2G38310	Cytoplasm	Cytoplasm
 AT2G38380	Cell wall / apoplast	Secreted
 AT2G38390	Cell wall / apoplast	Secreted
 AT2G38470	Nucleus	Nucleus
-AT2G38910	Membrane	Membrane
+AT2G38910	Membrane (unspecified)	Membrane
 AT2G39040	Cell wall / apoplast	Secreted
 AT2G39420	Other / unknown	
 AT2G39930	Chloroplast	Plastid, chloroplast
@@ -554,19 +554,19 @@ AT2G40100	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT2G40330	Cytoplasm	Cytoplasm
 AT2G40670	Nucleus	Nucleus
 AT2G40840	Cytoplasm	Cytoplasm, cytosol
-AT2G40890	Membrane	Membrane
+AT2G40890	Membrane (unspecified)	Membrane
 AT2G40940	Endoplasmic reticulum	Endoplasmic reticulum membrane
 AT2G41070	Nucleus	Nucleus
 AT2G41090	Other / unknown	
 AT2G41100	Other / unknown	
 AT2G41110	Cytoplasm	Cytoplasm, cytoskeleton
-AT2G41140	Membrane	Membrane
+AT2G41140	Membrane (unspecified)	Membrane
 AT2G41310	Nucleus	Nucleus
 AT2G41370	Cytoplasm	Cytoplasm
 AT2G41410	Other / unknown	
 AT2G41480	Cell wall / apoplast	Secreted
 AT2G41510	Vacuole	Vacuole
-AT2G41860	Membrane	Membrane
+AT2G41860	Membrane (unspecified)	Membrane
 AT2G42490	Peroxisome	Peroxisome
 AT2G42600	Cytoplasm	Cytoplasm
 AT2G43010	Nucleus	Nucleus
@@ -598,7 +598,7 @@ AT2G46450	Plasma membrane	Cell membrane
 AT2G46530	Nucleus	Nucleus
 AT2G46690	Nucleus	Nucleus
 AT2G46700	Cytoplasm	Cytoplasm
-AT2G46720	Membrane	Membrane
+AT2G46720	Membrane (unspecified)	Membrane
 AT2G46790	Nucleus	Nucleus
 AT2G46830	Nucleus	Nucleus
 AT2G46970	Nucleus	Nucleus
@@ -621,7 +621,7 @@ AT3G02380	Nucleus	Nucleus
 AT3G03000	Vacuole	Vacuole
 AT3G03190	Cytoplasm	Cytoplasm, cytosol
 AT3G03250	Cytoplasm	Cytoplasm
-AT3G03310	Membrane	Microsome membrane
+AT3G03310	Membrane (unspecified)	Microsome membrane
 AT3G03400	Other / unknown	
 AT3G03410	Other / unknown	
 AT3G03430	Other / unknown	
@@ -643,7 +643,7 @@ AT3G05820	Chloroplast	Plastid, chloroplast
 AT3G06500	Mitochondrion	Mitochondrion
 AT3G06690	Other / unknown	
 AT3G06860	Peroxisome	Glyoxysome
-AT3G07040	Membrane	Endomembrane system
+AT3G07040	Membrane (unspecified)	Endomembrane system
 AT3G07490	Other / unknown	
 AT3G07770	Mitochondrion	Mitochondrion
 AT3G08590	Cytoplasm	Cytoplasm
@@ -653,7 +653,7 @@ AT3G09270	Cytoplasm	Cytoplasm, cytosol
 AT3G09640	Cytoplasm	Cytoplasm
 AT3G09870	Other / unknown	
 AT3G10190	Other / unknown	
-AT3G10280	Membrane	Membrane
+AT3G10280	Membrane (unspecified)	Membrane
 AT3G10300	Other / unknown	
 AT3G10340	Cytoplasm	Cytoplasm
 AT3G10660	Endoplasmic reticulum	Endoplasmic reticulum membrane
@@ -688,7 +688,7 @@ AT3G17860	Nucleus	Nucleus
 AT3G17940	Other / unknown	
 AT3G18070	Other / unknown	
 AT3G18080	Cell wall / apoplast	Secreted
-AT3G19100	Membrane	Membrane
+AT3G19100	Membrane (unspecified)	Membrane
 AT3G19160	Chloroplast	Plastid, chloroplast
 AT3G19290	Nucleus	Nucleus
 AT3G19450	Other / unknown	
@@ -714,12 +714,12 @@ AT3G23150	Endoplasmic reticulum	Endoplasmic reticulum membrane
 AT3G23240	Nucleus	Nucleus
 AT3G23580	Cytoplasm	Cytoplasm
 AT3G23630	Mitochondrion	Mitochondrion
-AT3G23750	Membrane	Membrane
+AT3G23750	Membrane (unspecified)	Membrane
 AT3G23920	Chloroplast	Plastid, chloroplast
 AT3G24110	Other / unknown	
 AT3G24170	Cytoplasm	Cytoplasm
 AT3G24503	Cytoplasm	Cytoplasm, cytosol
-AT3G25070	Membrane	Endomembrane system
+AT3G25070	Membrane (unspecified)	Endomembrane system
 AT3G25600	Other / unknown	
 AT3G25760	Chloroplast	Plastid, chloroplast
 AT3G25770	Chloroplast	Plastid, chloroplast
@@ -737,7 +737,7 @@ AT3G28910	Nucleus	Nucleus
 AT3G29320	Chloroplast	Plastid, chloroplast stroma
 AT3G29350	Cytoplasm	Cytoplasm, cytosol
 AT3G32980	Cell wall / apoplast	Secreted
-AT3G42640	Membrane	Membrane
+AT3G42640	Membrane (unspecified)	Membrane
 AT3G43120	Other / unknown	
 AT3G43190	Other / unknown	
 AT3G43440	Nucleus	Nucleus
@@ -769,7 +769,7 @@ AT3G48100	Nucleus	Nucleus
 AT3G49110	Cell wall / apoplast	Secreted
 AT3G49120	Cell wall / apoplast	Secreted
 AT3G49160	Chloroplast	Plastid, chloroplast stroma
-AT3G49370	Membrane	Membrane
+AT3G49370	Membrane (unspecified)	Membrane
 AT3G49780	Cell wall / apoplast	Secreted
 AT3G49960	Cell wall / apoplast	Secreted
 AT3G50000	Nucleus	Nucleus
@@ -777,7 +777,7 @@ AT3G50070	Other / unknown
 AT3G50360	Other / unknown	
 AT3G50500	Other / unknown	
 AT3G50520	Other / unknown	
-AT3G50530	Membrane	Membrane
+AT3G50530	Membrane (unspecified)	Membrane
 AT3G50740	Nucleus	Nucleus
 AT3G50750	Other / unknown	
 AT3G50770	Other / unknown	
@@ -788,7 +788,7 @@ AT3G51240	Other / unknown
 AT3G51840	Peroxisome	Glyoxysome
 AT3G51850	Plasma membrane	Cell membrane
 AT3G51920	Other / unknown	
-AT3G52160	Membrane	Membrane
+AT3G52160	Membrane (unspecified)	Membrane
 AT3G52200	Mitochondrion	Mitochondrion matrix
 AT3G52340	Other / unknown	
 AT3G52600	Cell wall / apoplast	Secreted, extracellular space, apoplast
@@ -812,7 +812,7 @@ AT3G55650	Cytoplasm	Cytoplasm
 AT3G55800	Chloroplast	Plastid, chloroplast
 AT3G55810	Cytoplasm	Cytoplasm
 AT3G56380	Nucleus	Nucleus
-AT3G56760	Membrane	Membrane
+AT3G56760	Membrane (unspecified)	Membrane
 AT3G56800	Other / unknown	
 AT3G56850	Nucleus	Nucleus
 AT3G57040	Nucleus	Nucleus
@@ -828,7 +828,7 @@ AT3G60120	Other / unknown
 AT3G60130	Other / unknown	
 AT3G60140	Other / unknown	
 AT3G60250	Cytoplasm	Cytoplasm, cytosol
-AT3G60330	Membrane	Membrane
+AT3G60330	Membrane (unspecified)	Membrane
 AT3G60690	Other / unknown	
 AT3G60750	Chloroplast	Plastid, chloroplast stroma
 AT3G61470	Chloroplast	Plastid, chloroplast thylakoid membrane
@@ -871,11 +871,11 @@ AT4G03400	Other / unknown
 AT4G04040	Cytoplasm	Cytoplasm
 AT4G04402	Cytoplasm	Cytoplasm, cytosol
 AT4G04640	Chloroplast	Plastid, chloroplast thylakoid membrane
-AT4G04695	Membrane	Membrane
-AT4G04700	Membrane	Membrane
-AT4G04710	Membrane	Membrane
+AT4G04695	Membrane (unspecified)	Membrane
+AT4G04700	Membrane (unspecified)	Membrane
+AT4G04710	Membrane (unspecified)	Membrane
 AT4G04720	Plasma membrane	Cell membrane
-AT4G04740	Membrane	Membrane
+AT4G04740	Membrane (unspecified)	Membrane
 AT4G05160	Peroxisome	Peroxisome
 AT4G05180	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT4G05390	Chloroplast	Plastid, chloroplast
@@ -894,12 +894,12 @@ AT4G10260	Other / unknown
 AT4G10340	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT4G11050	Cell wall / apoplast	Secreted
 AT4G11110	Nucleus	Nucleus
-AT4G11230	Membrane	Membrane
+AT4G11230	Membrane (unspecified)	Membrane
 AT4G11260	Cytoplasm	Cytoplasm
 AT4G11290	Cell wall / apoplast	Secreted
 AT4G11330	Other / unknown	
 AT4G11600	Mitochondrion	Mitochondrion
-AT4G11730	Membrane	Membrane
+AT4G11730	Membrane (unspecified)	Membrane
 AT4G11980	Chloroplast	Plastid, chloroplast
 AT4G12290	Cell wall / apoplast	Secreted, extracellular space, apoplast
 AT4G12410	Other / unknown	
@@ -943,7 +943,7 @@ AT4G20370	Cytoplasm	Cytoplasm
 AT4G20780	Other / unknown	
 AT4G21280	Chloroplast	Plastid, chloroplast thylakoid membrane
 AT4G21760	Other / unknown	
-AT4G21940	Membrane	Membrane
+AT4G21940	Membrane (unspecified)	Membrane
 AT4G21960	Cell wall / apoplast	Secreted
 AT4G22100	Other / unknown	
 AT4G22110	Cytoplasm	Cytoplasm
@@ -964,9 +964,9 @@ AT4G24210	Nucleus	Nucleus
 AT4G24260	Plasma membrane	Cell membrane
 AT4G24620	Chloroplast	Plastid, chloroplast stroma
 AT4G24650	Cytoplasm	Cytoplasm
-AT4G24670	Membrane	Membrane
+AT4G24670	Membrane (unspecified)	Membrane
 AT4G25000	Cell wall / apoplast	Secreted, extracellular space, apoplast
-AT4G25090	Membrane	Membrane
+AT4G25090	Membrane (unspecified)	Membrane
 AT4G25900	Other / unknown	
 AT4G25980	Cell wall / apoplast	Secreted
 AT4G26010	Cell wall / apoplast	Secreted
@@ -1015,7 +1015,7 @@ AT4G31760	Cell wall / apoplast	Secreted
 AT4G31870	Chloroplast	Plastid, chloroplast
 AT4G31920	Nucleus	Nucleus
 AT4G31990	Chloroplast	Plastid, chloroplast
-AT4G32260	Membrane	Membrane
+AT4G32260	Membrane (unspecified)	Membrane
 AT4G32280	Nucleus	Nucleus
 AT4G32320	Other / unknown	
 AT4G32540	Other / unknown	
@@ -1033,9 +1033,9 @@ AT4G34050	Other / unknown
 AT4G34160	Other / unknown	
 AT4G34230	Other / unknown	
 AT4G34240	Chloroplast	Plastid, chloroplast
-AT4G34250	Membrane	Membrane
-AT4G34510	Membrane	Membrane
-AT4G34520	Membrane	Microsome membrane
+AT4G34250	Membrane (unspecified)	Membrane
+AT4G34510	Membrane (unspecified)	Membrane
+AT4G34520	Membrane (unspecified)	Microsome membrane
 AT4G34750	Other / unknown	
 AT4G34760	Plasma membrane	Cell membrane
 AT4G34770	Other / unknown	
@@ -1047,12 +1047,12 @@ AT4G34860	Other / unknown
 AT4G34880	Other / unknown	
 AT4G35000	Peroxisome	Peroxisome membrane
 AT4G35230	Plasma membrane	Cell membrane
-AT4G35310	Membrane	Membrane
+AT4G35310	Membrane (unspecified)	Membrane
 AT4G35900	Nucleus	Nucleus
 AT4G35970	Peroxisome	Peroxisome membrane
-AT4G36070	Membrane	Membrane
+AT4G36070	Membrane (unspecified)	Membrane
 AT4G36110	Plasma membrane	Cell membrane
-AT4G36220	Membrane	Membrane
+AT4G36220	Membrane (unspecified)	Membrane
 AT4G36250	Other / unknown	
 AT4G36430	Cell wall / apoplast	Secreted
 AT4G36780	Other / unknown	
@@ -1062,7 +1062,7 @@ AT4G37390	Other / unknown
 AT4G37520	Cell wall / apoplast	Secreted
 AT4G37530	Cell wall / apoplast	Secreted
 AT4G37720	Cell wall / apoplast	Secreted
-AT4G37840	Membrane	Membrane
+AT4G37840	Membrane (unspecified)	Membrane
 AT4G37870	Cytoplasm	Cytoplasm
 AT4G37970	Other / unknown	
 AT4G37980	Other / unknown	
@@ -1099,8 +1099,8 @@ AT5G03730	Other / unknown
 AT5G04040	Other / unknown	Lipid droplet
 AT5G04170	Other / unknown	
 AT5G04230	Cytoplasm	Cytoplasm
-AT5G04330	Membrane	Membrane
-AT5G04530	Membrane	Membrane
+AT5G04330	Membrane (unspecified)	Membrane
+AT5G04530	Membrane (unspecified)	Membrane
 AT5G04870	Peroxisome	Peroxisome membrane
 AT5G04885	Other / unknown	
 AT5G05270	Other / unknown	
@@ -1114,7 +1114,7 @@ AT5G06839	Nucleus	Nucleus
 AT5G06950	Nucleus	Nucleus
 AT5G06960	Nucleus	Nucleus
 AT5G07210	Nucleus	Nucleus
-AT5G07390	Membrane	Membrane
+AT5G07390	Membrane (unspecified)	Membrane
 AT5G07990	Endoplasmic reticulum	Endoplasmic reticulum membrane
 AT5G08330	Nucleus	Nucleus
 AT5G08570	Cytoplasm	Cytoplasm
@@ -1135,7 +1135,7 @@ AT5G11520	Chloroplast	Plastid, chloroplast
 AT5G11670	Cytoplasm	Cytoplasm
 AT5G11720	Cell wall / apoplast	Secreted
 AT5G11920	Cell wall / apoplast	Secreted, extracellular space, apoplast
-AT5G12180	Membrane	Membrane
+AT5G12180	Membrane (unspecified)	Membrane
 AT5G12480	Plasma membrane	Cell membrane
 AT5G13110	Chloroplast	Plastid, chloroplast stroma
 AT5G13160	Plasma membrane	Cell membrane
@@ -1174,7 +1174,7 @@ AT5G18060	Plasma membrane	Cell membrane
 AT5G18080	Plasma membrane	Cell membrane
 AT5G19040	Chloroplast	Plastid, chloroplast
 AT5G19220	Chloroplast	Plastid, chloroplast
-AT5G19360	Membrane	Membrane
+AT5G19360	Membrane (unspecified)	Membrane
 AT5G19440	Other / unknown	
 AT5G19450	Plasma membrane	Cell membrane
 AT5G19550	Cytoplasm	Cytoplasm
@@ -1231,7 +1231,7 @@ AT5G38120	Peroxisome	Peroxisome
 AT5G38410	Chloroplast	Plastid, chloroplast
 AT5G38420	Chloroplast	Plastid, chloroplast
 AT5G38430	Chloroplast	Plastid, chloroplast
-AT5G38450	Membrane	Membrane
+AT5G38450	Membrane (unspecified)	Membrane
 AT5G39340	Cytoplasm	Cytoplasm, cytosol
 AT5G39580	Cell wall / apoplast	Secreted
 AT5G40150	Cell wall / apoplast	Secreted
@@ -1253,7 +1253,7 @@ AT5G42800	Other / unknown
 AT5G42910	Nucleus	Nucleus
 AT5G43330	Cytoplasm	Cytoplasm
 AT5G43700	Nucleus	Nucleus
-AT5G43760	Membrane	Membrane
+AT5G43760	Membrane (unspecified)	Membrane
 AT5G43890	Other / unknown	
 AT5G43935	Other / unknown	
 AT5G43940	Cytoplasm	Cytoplasm
@@ -1263,7 +1263,7 @@ AT5G44520	Chloroplast	Plastid, chloroplast
 AT5G44640	Other / unknown	
 AT5G45040	Chloroplast	Plastid, chloroplast thylakoid lumen
 AT5G45110	Nucleus	Nucleus
-AT5G45250	Membrane	Endomembrane system
+AT5G45250	Membrane (unspecified)	Endomembrane system
 AT5G45260	Other / unknown	
 AT5G45300	Cytoplasm	Cytoplasm
 AT5G45860	Cytoplasm	Cytoplasm
@@ -1275,18 +1275,18 @@ AT5G47000	Cell wall / apoplast	Secreted
 AT5G47080	Cytoplasm	Cytoplasm, cytosol
 AT5G47220	Nucleus	Nucleus
 AT5G47810	Cytoplasm	Cytoplasm
-AT5G47910	Membrane	Membrane
+AT5G47910	Membrane (unspecified)	Membrane
 AT5G48300	Chloroplast	Plastid, chloroplast
 AT5G48880	Peroxisome	Peroxisome
 AT5G48930	Other / unknown	
-AT5G49070	Membrane	Membrane
+AT5G49070	Membrane (unspecified)	Membrane
 AT5G49190	Cytoplasm	Cytoplasm
 AT5G49240	Nucleus	Nucleus
 AT5G49480	Cytoplasm	Cytoplasm, cytosol
 AT5G49720	Plasma membrane	Cell membrane
 AT5G50760	Other / unknown	
 AT5G50850	Mitochondrion	Mitochondrion matrix
-AT5G51060	Membrane	Membrane
+AT5G51060	Membrane (unspecified)	Membrane
 AT5G51460	Other / unknown	
 AT5G51470	Other / unknown	
 AT5G51700	Other / unknown	
@@ -1342,7 +1342,7 @@ AT5G61580	Chloroplast	Plastid, chloroplast
 AT5G62000	Nucleus	Nucleus
 AT5G62430	Nucleus	Nucleus
 AT5G62480	Cytoplasm	Cytoplasm, cytosol
-AT5G62670	Membrane	Membrane
+AT5G62670	Membrane (unspecified)	Membrane
 AT5G62920	Nucleus	Nucleus
 AT5G63380	Peroxisome	Peroxisome
 AT5G63580	Other / unknown	

@@ -49,7 +49,7 @@ For each subcellular compartment, the fraction of that compartment's expressed g
 | --- | --- | --- |
 | Cell wall / apoplast | 14.8 | ×2.06 |
 | Plasma membrane | 10.9 | ×1.35 |
-| Membrane | 10.1 | ×1.28 |
+| Membrane (unspecified) | 10.1 | ×1.28 |
 | Chloroplast | 8.2 | ×0.84 |
 | Vacuole | 7.6 | ×0.94 |
 | Nucleus | 7.4 | ×0.89 |
@@ -58,3 +58,23 @@ For each subcellular compartment, the fraction of that compartment's expressed g
 | Endoplasmic reticulum | 6.1 | ×0.68 |
 | Golgi | 5.5 | ×0.63 |
 | Mitochondrion | 4.5 | ×0.45 |
+
+*Compartments are from UniProt. Organelle membranes (chloroplast, mitochondrion, ER, Golgi, vacuole/tonoplast) are counted **with their organelle**; **Plasma membrane** is UniProt "Cell membrane"; **Membrane (unspecified)** is membrane-annotated proteins with no organelle specified.*
+
+## Subcellular localisation of pathway changes
+
+Where do the significant genes of each pathway act? These holistic views aggregate significant-gene events across all studies.
+
+### Pathway → compartment (Sankey)
+
+![Sankey: pathway to compartment](_static/sankey_pathway_compartment.png)
+
+[Open the interactive Sankey](_static/sankey_pathway_compartment.html)
+
+### Pathway ↔ compartment network
+
+![Pathway–compartment network](_static/pathway_compartment_network.png)
+
+### Knowledge graph (graph database)
+
+The full Gene–Pathway–Compartment–Study graph is exported for graph databases: `graph_db/spaceflight_atlas.graphml` (Cytoscape/Gephi/yEd) and `graph_db/{nodes,edges}.csv` + `import.cypher` (Neo4j).

@@ -1,10 +1,12 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
-title: "SBGN Pathway Visualizer"
+title: "SBGN Pathway Visualizer & the OSDR Plant Spaceflight Pathway Atlas"
 abstract: >-
   A standalone, browser-based tool to overlay RNA-seq and other omics data onto
-  SBGN (Reactome) and KEGG (KGML) pathway maps. Rendering is deterministic and
-  requires no API key or AI service.
+  SBGN (Reactome) and KEGG (KGML) pathway maps (no API key, no AI service), plus a
+  reproducible atlas that projects 27 Arabidopsis spaceflight RNA-seq studies onto
+  KEGG pathways, annotates genes with UniProt subcellular compartments, and exports
+  a Gene-Pathway-Compartment-Study knowledge graph.
 type: software
 authors:
   - family-names: Barker
@@ -20,10 +22,15 @@ keywords:
   - pathway visualization
   - RNA-seq
   - transcriptomics
+  - spaceflight
+  - Arabidopsis thaliana
+  - NASA OSDR
+  - subcellular localisation
+  - knowledge graph
   - systems biology
   - FAIR
-version: "1.0.0"
-date-released: "2026-06-30"
+version: "1.1.0"
+date-released: "2026-07-09"
 # After your first Zenodo release, paste the *concept* DOI here so every version
 # is citable, e.g.:
 # identifiers:

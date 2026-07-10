@@ -1,25 +1,24 @@
 {
-  "title": "SBGN Pathway Visualizer",
-  "description": "A standalone, browser-based tool to overlay RNA-seq and other omics data onto SBGN (Reactome) and KEGG (KGML) pathway maps. Rendering is deterministic and requires no API key or AI service. KEGG supports both a vector (KGML) view and a pathview-style overlay on KEGG's official pathway image. Exports publication-ready SVG.",
+  "title": "SBGN Pathway Visualizer & the OSDR Plant Spaceflight Pathway Atlas",
+  "description": "<p>A standalone, browser-based tool to overlay RNA-seq and other omics data onto SBGN (Reactome) and KEGG (KGML) pathway maps &mdash; deterministic rendering, no API key or AI service. Includes an import path for NASA OSDR/GeneLab differential-expression data.</p><p>Bundled with it is the <strong>OSDR Plant Spaceflight Pathway Atlas</strong>: a reproducible pipeline and Jupyter Book that projects 27 <em>Arabidopsis thaliana</em> spaceflight RNA-seq studies onto KEGG pathways, annotates every gene with its UniProt subcellular compartment, and reports the conserved, hormone- and cell-wall-centred pathway response and the cell-surface concentration of the response. Ships static ggkegg panel figures, cross-study heatmaps, a pathway&rarr;compartment Sankey, and a Gene&ndash;Pathway&ndash;Compartment&ndash;Study knowledge graph (GraphML + Neo4j).</p>",
   "upload_type": "software",
   "access_right": "open",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "creators": [
     {
       "name": "Barker, Richard"
     }
   ],
   "keywords": [
-    "SBGN",
-    "KEGG",
-    "Reactome",
-    "KGML",
-    "pathway visualization",
-    "RNA-seq",
-    "transcriptomics",
-    "systems biology",
-    "FAIR",
-    "bioinformatics"
+    "SBGN", "KEGG", "KGML", "Reactome", "pathway visualization",
+    "RNA-seq", "transcriptomics", "spaceflight", "microgravity",
+    "Arabidopsis thaliana", "NASA OSDR", "GeneLab", "subcellular localisation",
+    "knowledge graph", "systems biology", "FAIR", "bioinformatics"
+  ],
+  "related_identifiers": [
+    { "relation": "isDerivedFrom", "identifier": "https://osdr.nasa.gov", "resource_type": "dataset" },
+    { "relation": "references", "identifier": "https://www.kegg.jp", "resource_type": "other" },
+    { "relation": "references", "identifier": "https://www.uniprot.org", "resource_type": "dataset" }
   ]
 }

@@ -32,7 +32,7 @@ COMP_PAL <- c(
   "Nucleus" = "#6a3d9a", "Chloroplast" = "#33a02c", "Mitochondrion" = "#e31a1c",
   "Endoplasmic reticulum" = "#ff7f00", "Golgi" = "#b15928", "Plasma membrane" = "#1f78b4",
   "Vacuole" = "#a6cee3", "Peroxisome" = "#fb9a99", "Cell wall / apoplast" = "#b2df8a",
-  "Cytoplasm" = "#fdbf6f", "Membrane" = "#cab2d6", "Other / unknown" = "#dddddd")
+  "Cytoplasm" = "#fdbf6f", "Membrane (unspecified)" = "#cab2d6", "Other / unknown" = "#dddddd")
 
 # compound id -> short name
 cn <- read.delim("book/data/kegg_compound_names.tsv", header = FALSE, quote = "")

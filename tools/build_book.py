@@ -145,6 +145,28 @@ def main():
                      [[r["compartment"], r["mean_pct_DE"], f"×{r['mean_enrichment']}"] for r in rows_c]),
             "",
         ]
+        note = ("*Compartments are from UniProt. Organelle membranes (chloroplast, mitochondrion, "
+                "ER, Golgi, vacuole/tonoplast) are counted **with their organelle**; "
+                "**Plasma membrane** is UniProt \"Cell membrane\"; **Membrane (unspecified)** is "
+                "membrane-annotated proteins with no organelle specified.*")
+        res += [note, ""]
+
+    # Holistic subcellular view: Sankey + network + graph database
+    if os.path.exists(os.path.join(BOOK, "_static", "sankey_pathway_compartment.png")):
+        res += [
+            "## Subcellular localisation of pathway changes", "",
+            "Where do the significant genes of each pathway act? These holistic views aggregate "
+            "significant-gene events across all studies.", "",
+            "### Pathway → compartment (Sankey)", "",
+            "![Sankey: pathway to compartment](_static/sankey_pathway_compartment.png)", "",
+            "[Open the interactive Sankey](_static/sankey_pathway_compartment.html)", "",
+            "### Pathway ↔ compartment network", "",
+            "![Pathway–compartment network](_static/pathway_compartment_network.png)", "",
+            "### Knowledge graph (graph database)", "",
+            "The full Gene–Pathway–Compartment–Study graph is exported for graph databases: "
+            "`graph_db/spaceflight_atlas.graphml` (Cytoscape/Gephi/yEd) and "
+            "`graph_db/{nodes,edges}.csv` + `import.cypher` (Neo4j).", "",
+        ]
     open(os.path.join(BOOK, "results.md"), "w", encoding="utf-8").write("\n".join(res))
 
     # Table of contents

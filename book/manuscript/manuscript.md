@@ -93,7 +93,15 @@ and reaction/relation edges, beside a heatmap of the pathway's significant loci
 each significant gene is additionally tagged with its **cellular compartment**
 (a colour strip) from UniProt subcellular-location records for *Arabidopsis*
 (74 % of significant loci annotated). Reactome, which does carry compartments, does
-not curate *Arabidopsis* and so could not be used for these data.
+not curate *Arabidopsis* and so could not be used for these data. Each protein's
+first-listed location is mapped to a top-level compartment; **organelle membranes**
+(chloroplast/thylakoid, mitochondrial, ER, Golgi and vacuolar/tonoplast) are counted
+**with their organelle**, "**Plasma membrane**" denotes UniProt "Cell membrane", and
+"**Membrane (unspecified)**" collects membrane-annotated proteins without an organelle
+qualifier. The holistic subcellular distribution of pathway responses is summarised
+as a pathway→compartment Sankey and a pathway–compartment network (Figure 3), and the
+whole Gene–Pathway–Compartment–Study atlas is exported as a graph database (GraphML +
+Neo4j) for network queries.
 
 **Availability and reproducibility.** The entire atlas regenerates with
 `osdr_discover.py → osdr_pipeline.py → build_book.py → jupyter-book build`. All code
